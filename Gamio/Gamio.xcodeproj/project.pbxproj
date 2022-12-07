@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20815D1A2940F81900833195 /* GameDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D192940F81900833195 /* GameDBClient.swift */; };
+		20815D1E2940F87E00833195 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D1D2940F87E00833195 /* GameModel.swift */; };
+		20815D202940F91F00833195 /* GetPopularGamesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D1F2940F91F00833195 /* GetPopularGamesResponseModel.swift */; };
+		20815D232940FBED00833195 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D222940FBED00833195 /* GameListViewModel.swift */; };
 		20A70FAF2940BE320074868E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FAE2940BE320074868E /* AppDelegate.swift */; };
 		20A70FB12940BE320074868E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB02940BE320074868E /* SceneDelegate.swift */; };
-		20A70FB32940BE320074868E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB22940BE320074868E /* ViewController.swift */; };
+		20A70FB32940BE320074868E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB22940BE320074868E /* GameViewController.swift */; };
 		20A70FB62940BE320074868E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A70FB42940BE320074868E /* Main.storyboard */; };
 		20A70FB92940BE320074868E /* Gamio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB72940BE320074868E /* Gamio.xcdatamodeld */; };
 		20A70FBB2940BE340074868E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20A70FBA2940BE340074868E /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 		20A70FC92940BE340074868E /* GamioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FC82940BE340074868E /* GamioTests.swift */; };
 		20A70FD32940BE350074868E /* GamioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FD22940BE350074868E /* GamioUITests.swift */; };
 		20A70FD52940BE350074868E /* GamioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FD42940BE350074868E /* GamioUITestsLaunchTests.swift */; };
+		20A70FF42940D5110074868E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FF32940D5110074868E /* Constants.swift */; };
+		3856B7B1A02DB36DE13FF375 /* Pods_Gamio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85AF0D4BB7F5880413114FD /* Pods_Gamio.framework */; };
+		528995532E9CF5CE433A8C53 /* Pods_GamioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2987338C61A79D727A276DA /* Pods_GamioTests.framework */; };
+		65E505F49F515EAB8DBED545 /* Pods_Gamio_GamioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934BE289214BA21BB1B88549 /* Pods_Gamio_GamioUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20815D192940F81900833195 /* GameDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDBClient.swift; sourceTree = "<group>"; };
+		20815D1D2940F87E00833195 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		20815D1F2940F91F00833195 /* GetPopularGamesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopularGamesResponseModel.swift; sourceTree = "<group>"; };
+		20815D222940FBED00833195 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		20A70FAB2940BE320074868E /* Gamio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gamio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A70FAE2940BE320074868E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20A70FB02940BE320074868E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		20A70FB22940BE320074868E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		20A70FB22940BE320074868E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		20A70FB52940BE320074868E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20A70FB82940BE320074868E /* Gamio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gamio.xcdatamodel; sourceTree = "<group>"; };
 		20A70FBA2940BE340074868E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +63,16 @@
 		20A70FCE2940BE350074868E /* GamioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A70FD22940BE350074868E /* GamioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamioUITests.swift; sourceTree = "<group>"; };
 		20A70FD42940BE350074868E /* GamioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		20A70FF32940D5110074868E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2C3B495D93FF03DB10CD319C /* Pods-Gamio-GamioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gamio-GamioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gamio-GamioUITests/Pods-Gamio-GamioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		366597F454816950AA164A2D /* Pods-Gamio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gamio.release.xcconfig"; path = "Target Support Files/Pods-Gamio/Pods-Gamio.release.xcconfig"; sourceTree = "<group>"; };
+		558DEB7879D6F27FAD2F05D1 /* Pods-GamioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamioTests.release.xcconfig"; path = "Target Support Files/Pods-GamioTests/Pods-GamioTests.release.xcconfig"; sourceTree = "<group>"; };
+		5B21A5F46A0C6BF3378BAD8D /* Pods-Gamio-GamioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gamio-GamioUITests.release.xcconfig"; path = "Target Support Files/Pods-Gamio-GamioUITests/Pods-Gamio-GamioUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6CEC74B8A13CA1CD6EB21992 /* Pods-GamioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamioTests.debug.xcconfig"; path = "Target Support Files/Pods-GamioTests/Pods-GamioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		934BE289214BA21BB1B88549 /* Pods_Gamio_GamioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gamio_GamioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85AF0D4BB7F5880413114FD /* Pods_Gamio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gamio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A18B65951568428B1E3F43 /* Pods-Gamio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gamio.debug.xcconfig"; path = "Target Support Files/Pods-Gamio/Pods-Gamio.debug.xcconfig"; sourceTree = "<group>"; };
+		D2987338C61A79D727A276DA /* Pods_GamioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GamioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3856B7B1A02DB36DE13FF375 /* Pods_Gamio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528995532E9CF5CE433A8C53 /* Pods_GamioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +96,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E505F49F515EAB8DBED545 /* Pods_Gamio_GamioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20815D1B2940F86E00833195 /* GameModel */ = {
+			isa = PBXGroup;
+			children = (
+				20815D1D2940F87E00833195 /* GameModel.swift */,
+				20815D1F2940F91F00833195 /* GetPopularGamesResponseModel.swift */,
+			);
+			path = GameModel;
+			sourceTree = "<group>";
+		};
+		20815D212940FBE000833195 /* GameListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20815D222940FBED00833195 /* GameListViewModel.swift */,
+			);
+			path = GameListViewModel;
+			sourceTree = "<group>";
+		};
 		20A70FA22940BE320074868E = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +127,8 @@
 				20A70FC72940BE340074868E /* GamioTests */,
 				20A70FD12940BE350074868E /* GamioUITests */,
 				20A70FAC2940BE320074868E /* Products */,
+				DFAF2BFC54F4960B9C2C342D /* Pods */,
+				F8838CF3E084B4FF0EA7CFE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,12 +145,9 @@
 		20A70FAD2940BE320074868E /* Gamio */ = {
 			isa = PBXGroup;
 			children = (
-				20A70FAE2940BE320074868E /* AppDelegate.swift */,
-				20A70FB02940BE320074868E /* SceneDelegate.swift */,
-				20A70FB22940BE320074868E /* ViewController.swift */,
-				20A70FB42940BE320074868E /* Main.storyboard */,
-				20A70FBA2940BE340074868E /* Assets.xcassets */,
-				20A70FBC2940BE340074868E /* LaunchScreen.storyboard */,
+				20A70FE32940C3F10074868E /* Modules */,
+				20A70FE22940C3CA0074868E /* Core */,
+				20A70FE12940BF460074868E /* App */,
 				20A70FBF2940BE340074868E /* Info.plist */,
 				20A70FB72940BE320074868E /* Gamio.xcdatamodeld */,
 			);
@@ -130,6 +171,76 @@
 			path = GamioUITests;
 			sourceTree = "<group>";
 		};
+		20A70FE12940BF460074868E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				20A70FAE2940BE320074868E /* AppDelegate.swift */,
+				20A70FB02940BE320074868E /* SceneDelegate.swift */,
+				20A70FB42940BE320074868E /* Main.storyboard */,
+				20A70FBA2940BE340074868E /* Assets.xcassets */,
+				20A70FBC2940BE340074868E /* LaunchScreen.storyboard */,
+				20A70FF32940D5110074868E /* Constants.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		20A70FE22940C3CA0074868E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				20815D192940F81900833195 /* GameDBClient.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		20A70FE32940C3F10074868E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				20A70FE42940C4070074868E /* GameList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		20A70FE42940C4070074868E /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				20815D212940FBE000833195 /* GameListViewModel */,
+				20815D1B2940F86E00833195 /* GameModel */,
+				20A70FE82940C43F0074868E /* Controller */,
+			);
+			path = GameList;
+			sourceTree = "<group>";
+		};
+		20A70FE82940C43F0074868E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				20A70FB22940BE320074868E /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DFAF2BFC54F4960B9C2C342D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8A18B65951568428B1E3F43 /* Pods-Gamio.debug.xcconfig */,
+				366597F454816950AA164A2D /* Pods-Gamio.release.xcconfig */,
+				2C3B495D93FF03DB10CD319C /* Pods-Gamio-GamioUITests.debug.xcconfig */,
+				5B21A5F46A0C6BF3378BAD8D /* Pods-Gamio-GamioUITests.release.xcconfig */,
+				6CEC74B8A13CA1CD6EB21992 /* Pods-GamioTests.debug.xcconfig */,
+				558DEB7879D6F27FAD2F05D1 /* Pods-GamioTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F8838CF3E084B4FF0EA7CFE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A85AF0D4BB7F5880413114FD /* Pods_Gamio.framework */,
+				934BE289214BA21BB1B88549 /* Pods_Gamio_GamioUITests.framework */,
+				D2987338C61A79D727A276DA /* Pods_GamioTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20A70FD82940BE350074868E /* Build configuration list for PBXNativeTarget "Gamio" */;
 			buildPhases = (
+				D48CEC6F64D854FB8634D2AC /* [CP] Check Pods Manifest.lock */,
 				20A70FA72940BE320074868E /* Sources */,
 				20A70FA82940BE320074868E /* Frameworks */,
 				20A70FA92940BE320074868E /* Resources */,
+				0F08C399129538887D238D49 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +267,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20A70FDB2940BE350074868E /* Build configuration list for PBXNativeTarget "GamioTests" */;
 			buildPhases = (
+				0AD55944CBD09A435B8CDF43 /* [CP] Check Pods Manifest.lock */,
 				20A70FC02940BE340074868E /* Sources */,
 				20A70FC12940BE340074868E /* Frameworks */,
 				20A70FC22940BE340074868E /* Resources */,
@@ -172,9 +286,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20A70FDE2940BE350074868E /* Build configuration list for PBXNativeTarget "GamioUITests" */;
 			buildPhases = (
+				71F2F3DDFA6025C2856479D1 /* [CP] Check Pods Manifest.lock */,
 				20A70FCA2940BE350074868E /* Sources */,
 				20A70FCB2940BE350074868E /* Frameworks */,
 				20A70FCC2940BE350074868E /* Resources */,
+				38B41EF1529575805D56E187 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,15 +372,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AD55944CBD09A435B8CDF43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GamioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F08C399129538887D238D49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gamio/Pods-Gamio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gamio/Pods-Gamio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gamio/Pods-Gamio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38B41EF1529575805D56E187 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gamio-GamioUITests/Pods-Gamio-GamioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gamio-GamioUITests/Pods-Gamio-GamioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gamio-GamioUITests/Pods-Gamio-GamioUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71F2F3DDFA6025C2856479D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gamio-GamioUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D48CEC6F64D854FB8634D2AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gamio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20A70FA72940BE320074868E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A70FB32940BE320074868E /* ViewController.swift in Sources */,
+				20A70FB32940BE320074868E /* GameViewController.swift in Sources */,
+				20815D202940F91F00833195 /* GetPopularGamesResponseModel.swift in Sources */,
 				20A70FAF2940BE320074868E /* AppDelegate.swift in Sources */,
 				20A70FB12940BE320074868E /* SceneDelegate.swift in Sources */,
 				20A70FB92940BE320074868E /* Gamio.xcdatamodeld in Sources */,
+				20815D232940FBED00833195 /* GameListViewModel.swift in Sources */,
+				20815D1A2940F81900833195 /* GameDBClient.swift in Sources */,
+				20815D1E2940F87E00833195 /* GameModel.swift in Sources */,
+				20A70FF42940D5110074868E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +660,7 @@
 		};
 		20A70FD92940BE350074868E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A18B65951568428B1E3F43 /* Pods-Gamio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,6 +689,7 @@
 		};
 		20A70FDA2940BE350074868E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 366597F454816950AA164A2D /* Pods-Gamio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +718,7 @@
 		};
 		20A70FDC2940BE350074868E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CEC74B8A13CA1CD6EB21992 /* Pods-GamioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +739,7 @@
 		};
 		20A70FDD2940BE350074868E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 558DEB7879D6F27FAD2F05D1 /* Pods-GamioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -532,6 +760,7 @@
 		};
 		20A70FDF2940BE350074868E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C3B495D93FF03DB10CD319C /* Pods-Gamio-GamioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,6 +779,7 @@
 		};
 		20A70FE02940BE350074868E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B21A5F46A0C6BF3378BAD8D /* Pods-Gamio-GamioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
