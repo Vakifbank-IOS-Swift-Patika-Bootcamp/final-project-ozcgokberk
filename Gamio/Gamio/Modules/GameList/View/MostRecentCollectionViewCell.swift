@@ -1,0 +1,35 @@
+//
+//  MostRecentCollectionViewCell.swift
+//  Gamio
+//
+//  Created by Gokberk Ozcan on 8.12.2022.
+//
+
+import UIKit
+import AlamofireImage
+
+final class MostRecentCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var gameNameLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+
+    func configureCell(model: GameListModel) {
+        gameNameLabel.text = model.name
+        guard let url = URL(string:  model.img) else { return }
+        gameImage.af.setImage(withURL: url)
+        gameImage.contentMode = .scaleAspectFill
+    }
+    
+    func setCell() {
+        layer.cornerRadius = 10
+    }
+    
+    override func prepareForReuse() {
+        gameImage.image = nil
+    }
+}

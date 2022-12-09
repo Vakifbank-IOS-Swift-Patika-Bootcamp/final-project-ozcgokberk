@@ -6,6 +6,6 @@
 //
 
 import Foundation
-struct GetPopularGamesResponseModel: Decodable {
-    let results: [GameModel]
+struct GetGamesListResponseModel: Decodable {
+    let results: [GameListModel]
 }
