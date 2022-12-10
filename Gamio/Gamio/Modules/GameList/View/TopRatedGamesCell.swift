@@ -28,7 +28,6 @@ class TopRatedGamesCell: UITableViewCell {
         gameRatePoint.text = "\(model.rating) / 5"
         gameRateCount.text = "Rating Count: \(model.ratingCount)"
         gameReleasedDate.text = Constants.formatDate(from: model.released)
-        
     }
     
     

@@ -10,6 +10,9 @@ import AlamofireImage
 
 final class MostRecentCollectionViewCell: UICollectionViewCell {
 
+    class var defaultHeight: CGFloat { return 180 }
+    class var defaultWidth: CGFloat { return 380 }
+    
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameNameLabel: UILabel!
     

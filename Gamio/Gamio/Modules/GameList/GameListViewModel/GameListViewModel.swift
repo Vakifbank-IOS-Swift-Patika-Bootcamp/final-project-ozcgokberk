@@ -9,26 +9,35 @@ import Foundation
 protocol GameListViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGames()
-    func getGameCount() -> Int
+    func getLatestGames()
     func getGame(at index: Int) -> GameListModel?
     func getGameById(at index: Int) -> Int?
 }
 
 protocol GameListViewModelDelegate: AnyObject {
     func gamesLoaded(gamesArray: [GameListModel]?)
+    func latesGamesLoaded(latestGames: [GameListModel]?)
 }
 
 final class GameListViewModel: GameListViewModelProtocol {
     
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListModel]?
-    private var topRatedGames: [GameListModel]?
+    private var latestGames: [GameListModel]?
     
     func fetchGames() {
         MovieDBClient.getGames { [weak self] games, error in
             guard let self = self else { return }
             self.games = games
             self.delegate?.gamesLoaded(gamesArray: games)
+        }
+    }
+    
+    func getLatestGames() {
+        MovieDBClient.getLatestGames { [weak self] latestGames, error in
+            guard let self = self else { return }
+            self.latestGames = latestGames
+            self.delegate?.latesGamesLoaded(latestGames: latestGames)
         }
     }
         
