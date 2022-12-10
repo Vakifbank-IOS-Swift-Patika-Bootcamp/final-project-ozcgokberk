@@ -15,7 +15,7 @@ protocol GameListViewModelProtocol {
 }
 
 protocol GameListViewModelDelegate: AnyObject {
-    func gamesLoaded()
+    func gamesLoaded(gamesArray: [GameListModel]?)
 }
 
 final class GameListViewModel: GameListViewModelProtocol {
@@ -28,7 +28,7 @@ final class GameListViewModel: GameListViewModelProtocol {
         MovieDBClient.getGames { [weak self] games, error in
             guard let self = self else { return }
             self.games = games
-            self.delegate?.gamesLoaded()
+            self.delegate?.gamesLoaded(gamesArray: games)
         }
     }
         

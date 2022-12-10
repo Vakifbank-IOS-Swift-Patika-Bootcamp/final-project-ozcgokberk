@@ -8,12 +8,13 @@
 import Foundation
 import AlamofireImage
 struct GameListModel: Codable {
+    
     let id: Int
     let slug: String
     let name: String
     let released : String
     let img: String
-//    let rating: Int
+    let rating: Double
     let ratingCount: Int
     let playTime: Int
     
@@ -23,7 +24,7 @@ struct GameListModel: Codable {
         case name
         case released
         case img = "background_image"
-//        case rating = "rating"
+        case rating = "rating"
         case ratingCount = "ratings_count"
         case playTime = "playtime"
     }
