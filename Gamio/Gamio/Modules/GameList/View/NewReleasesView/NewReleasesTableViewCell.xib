@@ -18,8 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3WN-uU-Umw">
-                        <rect key="frame" x="0.0" y="34" width="397" height="138"/>
+                        <rect key="frame" x="0.0" y="37" width="397" height="135"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="135" id="MUd-eV-NwC"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cFm-13-Pf5">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,21 +30,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's New ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npg-Tr-HMb">
-                        <rect key="frame" x="5" y="5" width="387" height="24"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8X6-0g-4oS">
+                        <rect key="frame" x="10" y="0.0" width="387" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's New ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npg-Tr-HMb">
+                                <rect key="frame" x="0.0" y="0.0" width="133" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE1-tM-pZd">
+                                <rect key="frame" x="148" y="0.0" width="239" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="3WN-uU-Umw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BbF-0T-dvw"/>
-                    <constraint firstItem="npg-Tr-HMb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="GvA-AB-oPf"/>
-                    <constraint firstItem="npg-Tr-HMb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ab9-Tu-Wvs"/>
+                    <constraint firstAttribute="trailing" secondItem="8X6-0g-4oS" secondAttribute="trailing" id="Xga-5Z-lp4"/>
+                    <constraint firstItem="8X6-0g-4oS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZOn-BB-ghT"/>
                     <constraint firstAttribute="bottom" secondItem="3WN-uU-Umw" secondAttribute="bottom" id="esZ-vT-cFW"/>
-                    <constraint firstAttribute="trailing" secondItem="npg-Tr-HMb" secondAttribute="trailing" constant="5" id="f8L-p9-kZ9"/>
-                    <constraint firstItem="3WN-uU-Umw" firstAttribute="top" secondItem="npg-Tr-HMb" secondAttribute="bottom" constant="5" id="kEH-0f-gxD"/>
+                    <constraint firstItem="8X6-0g-4oS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sf3-hJ-8Da"/>
                     <constraint firstAttribute="trailing" secondItem="3WN-uU-Umw" secondAttribute="trailing" id="tU0-Bf-CG3"/>
+                    <constraint firstItem="3WN-uU-Umw" firstAttribute="top" secondItem="8X6-0g-4oS" secondAttribute="bottom" constant="2" id="xwg-qf-zfw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

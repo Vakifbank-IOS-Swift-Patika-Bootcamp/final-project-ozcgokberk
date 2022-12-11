@@ -20,12 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="333" height="161"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG9-2d-DZ3">
-                        <rect key="frame" x="20" y="120" width="200" height="21"/>
+                        <rect key="frame" x="20" y="118.33333333333333" width="200" height="22.666666666666671"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="UrW-Y9-xKX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

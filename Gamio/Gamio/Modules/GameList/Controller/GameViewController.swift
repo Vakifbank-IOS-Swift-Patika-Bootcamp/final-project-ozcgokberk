@@ -104,11 +104,12 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-                if sortedByReleased.count > 0 {
-                    return 3
-                } else {
-                    return 0
-                }
+        if sortedByReleased.count > 0, allGames.count > 0 {
+            return 1
+        } else {
+            return 0
+        }
+//        return sortedByReleased.count > 0 ? 1 : 0,
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
