@@ -177,6 +177,10 @@ extension GameViewController: GamesTableViewCellDelegate {
 }
 extension GameViewController: TopRatedGamesTableViewCellDelegate {
     func testTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel) {
-        print(game)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
+            guideVC.gameId = game.id
+            navigationController?.pushViewController(guideVC, animated: true)
+        }
     }
 }

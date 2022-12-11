@@ -3,6 +3,36 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in GameListViewModel.fetchGames():GameListViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TopRatedGamesCell.configureCell(model:):TopRatedGamesCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Constants.formatDate(from: model.released)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.gamesLoaded(gamesArray:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "allGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in closure #1 in static MovieDBClient.handleResponse&lt;&#x3c4;_0_0&gt;(urlString:responseType:completion:):GameDBClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.pickerView(_:didSelectRow:inComponent:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gamesArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in GameListViewModel.fetchMostRatedGames():GameListViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,18 +44,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in GameDetailViewModel.fetchGameDetail(id:):GameDetailViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static MovieDBClient.getGameDetail(gameId:completion:):GameDBClient.swift">
+      </ContextState>
+      <ContextState
          contextName = "GameViewController.numberOfSections(in:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "HomeSectionType.allCases.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.pickerView(_:didSelectRow:inComponent:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "gamesArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -49,13 +77,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in GameListViewModel.fetchGames():GameListViewModel.swift">
-      </ContextState>
-      <ContextState
-         contextName = "TopRatedGamesCell.configureCell(model:):TopRatedGamesCell.swift">
+         contextName = "GameViewController.collectionView(_:cellForItemAt:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "Constants.formatDate(from: model.released)">
+               value = "sortedByReleased">
+            </PersistentString>
+            <PersistentString
+               value = "gamesArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.tableView(_:cellForRowAt:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mostRecentGames">
+            </PersistentString>
+            <PersistentString
+               value = "cell.mostRecentGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameDetailViewModel.getReleasedDate():GameDetailViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game?.released">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -64,36 +111,6 @@
          <PersistentStrings>
             <PersistentString
                value = "viewModel.getMostRatedCount()&#10;">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.tableView(_:cellForRowAt:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.mostRecentGames">
-            </PersistentString>
-            <PersistentString
-               value = "mostRecentGames">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.gamesLoaded(gamesArray:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "allGames">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.collectionView(_:cellForItemAt:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sortedByReleased">
-            </PersistentString>
-            <PersistentString
-               value = "gamesArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

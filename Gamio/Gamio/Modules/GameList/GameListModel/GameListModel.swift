@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AlamofireImage
 struct GameListModel: Codable {
     
     let id: Int
