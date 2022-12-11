@@ -10,43 +10,29 @@ import UIKit
 class GameViewController: UIViewController {
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     
-    @IBOutlet weak var mostRecentGamesCollectionView: UICollectionView!
     @IBOutlet weak var topRatedGamesTableView: UITableView!
     lazy var picker = UIPickerView()
     lazy var toolBar = UIToolbar()
     lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
-    private var gamesArray: [GameListModel] = []
+    
+    private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
-    var selectedTextfieldIndex : Int?
+    
     @IBOutlet weak var sortButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGames()
         viewModel.getLatestGames()
-//        setUpCollectionView()
         setupTopRatedTableView()
+    }
         
-    }
-    
-    
-    private func setUpCollectionView() {
-        let nibCell = UINib(nibName: "MostRecentCollectionViewCell", bundle: nil)
-//        mostRecentGamesCollectionView.register(nibCell, forCellWithReuseIdentifier: "MostRecentCollectionViewCell")
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 360 , height: 180)
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 0.0
-        mostRecentGamesCollectionView.collectionViewLayout = flowLayout
-        mostRecentGamesCollectionView.layer.cornerRadius = 10
-    }
-    
     private func setupTopRatedTableView() {
         topRatedGamesTableView.dataSource = self
         topRatedGamesTableView.delegate = self
-//        topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesCell", bundle: nil), forCellReuseIdentifier: "TopRatedCell")
         topRatedGamesTableView.register(UINib(nibName: "NewReleasesTableViewCell", bundle: nil), forCellReuseIdentifier: "NewReleasesTableViewCell")
+        topRatedGamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesTableViewCell")
     }
     
     
@@ -79,7 +65,6 @@ class GameViewController: UIViewController {
         picker.removeFromSuperview()
         topRatedGamesTableView.reloadData()
     }
-    
 }
 extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -97,13 +82,13 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch sortOptions[row].rawValue {
         case 0:
-            gamesArray.sort() { $0.name > $1.name }
+            allGames.sort() { $0.name > $1.name }
         case 1:
-            gamesArray.sort() { $0.ratingCount > $1.ratingCount }
+            allGames.sort() { $0.ratingCount > $1.ratingCount }
         case 2:
-            gamesArray.sort() { $0.released > $1.released }
+            allGames.sort() { $0.released > $1.released }
         case 3:
-            gamesArray.sort() { $0.playTime > $1.playTime }
+            allGames.sort() { $0.playTime > $1.playTime }
         default:
             break
         }
@@ -112,64 +97,68 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return HomeSectionType.allCases.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if sortedByReleased.count > 0 {
-            return 1
-        } else {
-            return 0
+        
+                if sortedByReleased.count > 0 {
+                    return 3
+                } else {
+                    return 0
+                }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch HomeSectionType.init(rawValue: indexPath.section) {
+        case .newGames:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NewReleasesTableViewCell", for: indexPath) as! NewReleasesTableViewCell
+            cell.mostRecentGames = sortedByReleased
+            cell.delegate = self
+            return cell
+            
+        case .allGames:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GamesTableViewCell", for: indexPath) as! GamesTableViewCell
+            cell.allGames = allGames
+            cell.delegate = self
+            return cell
+            
+        default: return UITableViewCell()
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewReleasesTableViewCell", for: indexPath) as! NewReleasesTableViewCell
-        cell.mostRecentGames = sortedByReleased
-        cell.delegate = self
-        
-        return cell
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedCell", for: indexPath) as! TopRatedGamesCell
-//            let model = gamesArray[indexPath.row]
-//            cell.configureCell(model: model)
-//            return cell
-        
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return NewReleasesTableViewCell.defaultHeight
+        //        return NewReleasesTableViewCell.defaultHeight
+        switch HomeSectionType.init(rawValue: indexPath.section) {
+        case .newGames: return NewReleasesTableViewCell.defaultHeight
+        case .allGames: return GamesTableViewCell.defaultHeight
+        default: return 0
+        }
     }
-    
 }
-//extension GameViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//        return sortedByReleased.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostRecentCollectionViewCell", for: indexPath) as! MostRecentCollectionViewCell
-//        let model = sortedByReleased[indexPath.row]
-//        cell.configureCell(model: model)
-//        return cell
-//    }
-//}
+
 extension GameViewController: GameListViewModelDelegate {
     func latesGamesLoaded(latestGames: [GameListModel]?) {
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()
-//        mostRecentGamesCollectionView.reloadData()
     }
     
     func gamesLoaded(gamesArray: [GameListModel]?) {
-        self.gamesArray = gamesArray ?? []
+        self.allGames = gamesArray ?? []
         topRatedGamesTableView.reloadData()
     }
-    
 }
+
 extension GameViewController: TestTableViewCellDelegate {
     func testTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel) {
+        print(game)
+    }
+}
+extension GameViewController: GamesTableViewCellDelegate {
+    func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
         print(game)
     }
 }

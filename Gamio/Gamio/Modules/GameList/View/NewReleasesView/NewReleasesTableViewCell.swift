@@ -1,3 +1,9 @@
+//
+//  NewReleasesTableViewCell.swift
+//  Gamio
+//
+//  Created by Gokberk Ozcan on 8.12.2022.
+//
 
 import Foundation
 import UIKit

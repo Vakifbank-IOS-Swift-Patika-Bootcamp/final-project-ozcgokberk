@@ -27,6 +27,18 @@ enum SiralamaMenu: Int {
         }
     }
 }
+enum HomeSectionType: Int, CaseIterable {
+    case newGames = 0
+    case allGames = 1
+    var descripton: String {
+        switch self {
+        case .newGames:
+            return "new games"
+        case .allGames:
+            return "all games"
+        }
+    }
+}
 enum DateFormatType: String {
     
     /// Date with hours dd MMM yyyy H:mm
