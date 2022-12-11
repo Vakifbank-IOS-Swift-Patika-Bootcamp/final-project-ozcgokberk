@@ -30,12 +30,15 @@ enum SiralamaMenu: Int {
 enum HomeSectionType: Int, CaseIterable {
     case newGames = 0
     case allGames = 1
+    case topRatedGames = 2
     var descripton: String {
         switch self {
         case .newGames:
             return "new games"
         case .allGames:
             return "all games"
+        case .topRatedGames:
+            return "top rated games"
         }
     }
 }

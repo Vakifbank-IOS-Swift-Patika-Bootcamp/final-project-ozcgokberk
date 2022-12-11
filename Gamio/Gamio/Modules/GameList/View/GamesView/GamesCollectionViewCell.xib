@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8IM-e7-3HN">
-                        <rect key="frame" x="0.0" y="0.0" width="333" height="161"/>
+                        <rect key="frame" x="0.0" y="0.0" width="323" height="161"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG9-2d-DZ3">
                         <rect key="frame" x="20" y="118.33333333333333" width="200" height="22.666666666666671"/>
@@ -37,7 +37,7 @@
                 <constraint firstAttribute="bottom" secondItem="rG9-2d-DZ3" secondAttribute="bottom" constant="20" id="CCB-tD-J46"/>
                 <constraint firstItem="8IM-e7-3HN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ENp-Ye-4P1"/>
                 <constraint firstItem="rG9-2d-DZ3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="P2u-Of-Vs4"/>
-                <constraint firstAttribute="trailing" secondItem="8IM-e7-3HN" secondAttribute="trailing" id="XZd-oq-J71"/>
+                <constraint firstAttribute="trailing" secondItem="8IM-e7-3HN" secondAttribute="trailing" constant="10" id="XZd-oq-J71"/>
             </constraints>
             <size key="customSize" width="333" height="161"/>
             <connections>

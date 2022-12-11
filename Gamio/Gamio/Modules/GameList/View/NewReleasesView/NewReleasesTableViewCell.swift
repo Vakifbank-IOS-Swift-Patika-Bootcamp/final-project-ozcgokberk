@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-protocol TestTableViewCellDelegate: AnyObject {
+protocol NewReleasesTableViewCellDelegate: AnyObject {
     func testTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel)
 }
 class NewReleasesTableViewCell: UITableViewCell {
@@ -15,8 +15,9 @@ class NewReleasesTableViewCell: UITableViewCell {
     class var defaultHeight: Double { return 200 }
         
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var mostRecentGames: [GameListModel] = []
-    weak var delegate: TestTableViewCellDelegate?
+    weak var delegate: NewReleasesTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -34,7 +35,6 @@ class NewReleasesTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
-    
 }
 
 extension NewReleasesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -17,42 +17,23 @@ class GameViewController: UIViewController {
     
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
-    
-    @IBOutlet weak var sortButton: UIButton!
+    private var topRatedGames: [GameListModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGames()
         viewModel.getLatestGames()
+        viewModel.getMostRatedGames()
         setupTopRatedTableView()
     }
-        
+    
     private func setupTopRatedTableView() {
         topRatedGamesTableView.dataSource = self
         topRatedGamesTableView.delegate = self
         topRatedGamesTableView.register(UINib(nibName: "NewReleasesTableViewCell", bundle: nil), forCellReuseIdentifier: "NewReleasesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesTableViewCell")
-    }
-    
-    
-    @IBAction func sortButtonPressed(_ sender: Any) {
-        picker = UIPickerView.init()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        self.view.addSubview(picker)
-        
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
-        toolBar.items = [cancelBtn, space, doneBtn]
-        self.view.addSubview(toolBar)
+        topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGamesTableViewCell")
     }
     
     @objc func doneButtonPressed() {
@@ -104,14 +85,13 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if sortedByReleased.count > 0, allGames.count > 0 {
+        if sortedByReleased.count > 0, allGames.count > 0, topRatedGames.count > 0 {
             return 1
         } else {
             return 0
         }
-//        return sortedByReleased.count > 0 ? 1 : 0,
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch HomeSectionType.init(rawValue: indexPath.section) {
@@ -126,22 +106,29 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             cell.allGames = allGames
             cell.delegate = self
             return cell
-            
+        case .topRatedGames:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedGamesTableViewCell", for: indexPath) as! TopRatedGamesTableViewCell
+            cell.topRatedGames = topRatedGames
+            cell.delegate = self
+            return cell
         default: return UITableViewCell()
+            
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //        return NewReleasesTableViewCell.defaultHeight
         switch HomeSectionType.init(rawValue: indexPath.section) {
         case .newGames: return NewReleasesTableViewCell.defaultHeight
         case .allGames: return GamesTableViewCell.defaultHeight
+        case .topRatedGames: return TopRatedGamesTableViewCell.defaultHeight
         default: return 0
+            
         }
     }
 }
 
 extension GameViewController: GameListViewModelDelegate {
+
     func latesGamesLoaded(latestGames: [GameListModel]?) {
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()
@@ -151,15 +138,45 @@ extension GameViewController: GameListViewModelDelegate {
         self.allGames = gamesArray ?? []
         topRatedGamesTableView.reloadData()
     }
+    
+    func topRatedGamesLoaded(topRatedGames: [GameListModel]?) {
+        self.topRatedGames = topRatedGames ?? []
+        topRatedGamesTableView.reloadData()
+    }
 }
 
-extension GameViewController: TestTableViewCellDelegate {
+extension GameViewController: NewReleasesTableViewCellDelegate {
+    func sortButtonPressed() {
+        picker = UIPickerView.init()
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        picker.setValue(UIColor.black, forKey: "textColor")
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(picker)
+        
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
+        toolBar.items = [cancelBtn, space, doneBtn]
+        self.view.addSubview(toolBar)
+    }
+    
     func testTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel) {
         print(game)
     }
 }
 extension GameViewController: GamesTableViewCellDelegate {
+    
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
+        print(game)
+    }
+}
+extension GameViewController: TopRatedGamesTableViewCellDelegate {
+    func testTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel) {
         print(game)
     }
 }

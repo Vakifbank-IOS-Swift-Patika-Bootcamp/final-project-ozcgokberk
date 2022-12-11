@@ -17,10 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="413" height="176"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4y-IZ-Tna">
-                        <rect key="frame" x="10" y="10" width="393" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4y-IZ-Tna">
+                        <rect key="frame" x="10" y="10" width="94.333333333333329" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-CU-PJf">
@@ -33,18 +33,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-Rf-OFk">
+                        <rect key="frame" x="333" y="5" width="75" height="34.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="aaa-G1-HPZ"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="arrow.up.arrow.down.circle" catalog="system"/>
+                        <connections>
+                            <action selector="sortButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jqy-yv-Y44"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Auy-9U-6E1"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="c4y-IZ-Tna" secondAttribute="bottom" constant="5" id="EB1-yB-5H3"/>
                     <constraint firstAttribute="bottom" secondItem="n5l-CU-PJf" secondAttribute="bottom" id="O2i-77-Glt"/>
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g0C-M5-vOw"/>
+                    <constraint firstAttribute="trailing" secondItem="oeG-Rf-OFk" secondAttribute="trailing" constant="5" id="gTn-oP-dHN"/>
+                    <constraint firstItem="oeG-Rf-OFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jrf-am-njI"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r0i-Sb-cfg"/>
-                    <constraint firstAttribute="trailing" secondItem="c4y-IZ-Tna" secondAttribute="trailing" constant="10" id="rPI-ab-1Pv"/>
                     <constraint firstAttribute="trailing" secondItem="n5l-CU-PJf" secondAttribute="trailing" id="tOX-qE-MEK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.090830378229999995" green="0.14496892689999999" blue="0.37649574879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="collectionView" destination="n5l-CU-PJf" id="rGw-2S-aTR"/>
             </connections>
@@ -52,6 +65,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="arrow.up.arrow.down.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

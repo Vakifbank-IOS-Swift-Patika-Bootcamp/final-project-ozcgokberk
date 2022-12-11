@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nc1-Yi-snN">
-                        <rect key="frame" x="0.0" y="0.0" width="380" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="180"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QO2-gm-BW6">
                         <rect key="frame" x="20" y="135.33333333333334" width="340" height="24.666666666666657"/>
@@ -35,7 +35,7 @@
             <constraints>
                 <constraint firstItem="QO2-gm-BW6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="0gj-YE-uBz"/>
                 <constraint firstItem="nc1-Yi-snN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7ij-1O-U0v"/>
-                <constraint firstAttribute="trailing" secondItem="nc1-Yi-snN" secondAttribute="trailing" id="QH0-Kq-UGX"/>
+                <constraint firstAttribute="trailing" secondItem="nc1-Yi-snN" secondAttribute="trailing" constant="10" id="QH0-Kq-UGX"/>
                 <constraint firstAttribute="bottom" secondItem="QO2-gm-BW6" secondAttribute="bottom" constant="20" id="SV8-6o-swD"/>
                 <constraint firstItem="QO2-gm-BW6" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aBF-Ht-9g7"/>
                 <constraint firstItem="nc1-Yi-snN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nz2-IF-Zfq"/>

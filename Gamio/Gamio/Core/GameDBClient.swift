@@ -17,6 +17,7 @@ final class MovieDBClient {
             completion(responseModel?.results, error)
         }
     }
+    
     static func getLatestGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
         let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&dates=2022-11-01,2022-12-30&platforms=18,1,7"
         handleResponse(urlString: urlString, responseType: GetGamesListResponseModel.self) { responseModel, error in
@@ -24,15 +25,9 @@ final class MovieDBClient {
         }
     }
     
-//    static func getRecentGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
-//        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&dates=2022-01-01,2022-12-31"
-//        handleResponse(urlString: urlString, responseType: GetPopularGamesResponseModel.self) { responseModel, error in
-//            completion(responseModel?.results, error)
-//        }
-//    }
-    
     static func getMostRatedGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
-        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&ordering=-ratings_count"
+        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&dates=2022-01-01,2022-12-31&ordering=-rating"
+
         handleResponse(urlString: urlString, responseType: GetGamesListResponseModel.self) { responseModel, error in
             completion(responseModel?.results, error)
         }
