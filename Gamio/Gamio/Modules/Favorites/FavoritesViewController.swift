@@ -30,9 +30,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-//        cell?.textLabel?.text = favorites[indexPath.row].game
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell, let model = favorites?[indexPath.row] else { return UITableViewCell() }
+//        cell.configure(model: model)
+        return cell
     }
     
     

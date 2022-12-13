@@ -7,15 +7,13 @@
 
 import UIKit
 import L10n_swift
-class GameViewController: UIViewController {
+final class GameViewController: UIViewController {
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     
     @IBOutlet weak var topRatedGamesTableView: UITableView!
-    lazy var picker = UIPickerView()
-    lazy var toolBar = UIToolbar()
-    lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
-    private var isSearching = false
-    
+    private lazy var picker = UIPickerView()
+    private lazy var toolBar = UIToolbar()
+    private lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -23,11 +21,13 @@ class GameViewController: UIViewController {
         }
     }
     
+    //Mark: Properties
     private var searchedGames =  [GameListModel]()
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
-    
+    private var isSearching = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLanguage()
@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
         picker.removeFromSuperview()
         topRatedGamesTableView.reloadData()
     }
+    
     @objc func cancelButtonPressed() {
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
@@ -79,6 +80,7 @@ class GameViewController: UIViewController {
     }
 }
 extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

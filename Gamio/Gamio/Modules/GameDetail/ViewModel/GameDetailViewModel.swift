@@ -18,10 +18,12 @@ protocol GameDetailViewModelProtocol {
     func getRating() -> Double
     func getGenres() -> [GameDetailModel.Genre]
 }
+
 protocol GameDetailViewModelDelegate: AnyObject {
     func gameDetailLoaded()
 }
-class GameDetailViewModel: GameDetailViewModelProtocol {
+
+final class GameDetailViewModel: GameDetailViewModelProtocol {
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
     func fetchGameDetail(id: Int) {
@@ -34,12 +36,15 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     func getAdditionalImageUrl() -> URL? {
         URL(string: game?.imgAdditional ?? "")
     }
+     
     func getGameImageUrl() -> URL? {
         URL(string: game?.img ?? "")
     }
+    
     func getGameId() -> Int32 {
         game?.id ?? 0
     }
+     
     func getGameName() -> String {
         game?.name ?? ""
     }
@@ -51,11 +56,11 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     func getMetacritic() -> Int {
         game?.metacritic ?? 0
     }
-
+    
     func getReleasedDate() -> String {
         game?.released ?? "Not Found"
     }
-
+    
     func getRating() -> Double {
         game?.rating ?? 0
     }
@@ -63,6 +68,4 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     func getGenres() -> [GameDetailModel.Genre] {
         game?.genres ?? []
     }
-    
-
 }

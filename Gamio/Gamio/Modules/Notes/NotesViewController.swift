@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 final class NotesViewController: UIViewController {
     private var viewModel: NotesViewModelProtocol = NotesListViewModel()
     @IBOutlet weak var notesTableView: UITableView!

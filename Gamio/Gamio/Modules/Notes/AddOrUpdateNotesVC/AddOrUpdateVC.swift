@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddOrUpdateVC: UIViewController {
+final class AddOrUpdateVC: UIViewController {
     private var viewModel: NotesViewModelProtocol = NotesListViewModel()
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var gameNoteTxtView: UITextView!

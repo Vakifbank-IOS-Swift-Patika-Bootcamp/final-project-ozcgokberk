@@ -12,13 +12,14 @@ protocol GamesTableViewCellDelegate: AnyObject {
 }
 
 final class GamesTableViewCell: UITableViewCell {
-    class var defaultHeight: Double { return 200 }
+    
+    //Mark: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var allGamesLabel: UILabel!
-    
+    //Mark: Properties
     var allGames: [GameListModel] = []
     weak var delegate: GamesTableViewCellDelegate?
-    
+    class var defaultHeight: Double { return 200 }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,8 +50,9 @@ final class GamesTableViewCell: UITableViewCell {
 }
 
 extension GamesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCollectionViewCell", for: indexPath) as! GamesCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCollectionViewCell", for: indexPath) as? GamesCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(model: allGames[indexPath.row])
         return cell
     }

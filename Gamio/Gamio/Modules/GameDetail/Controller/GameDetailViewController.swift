@@ -9,7 +9,7 @@ import UIKit
 
 
 final class GameDetailViewController: UIViewController {
-    
+    //MARK: Outlets
     @IBOutlet weak var imgAdditional: UIImageView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var gameName: UILabel!
@@ -26,7 +26,7 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet weak var metacriticValue: UILabel!
     @IBOutlet weak var overview: UILabel!
     
-
+    //Mark: Properties
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
     var favoritedGames: [Favorites] = []
@@ -62,7 +62,7 @@ final class GameDetailViewController: UIViewController {
         if !CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
             CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!))
             favoriteButton.setImage(UIImage(named: "hearth.filled"), for: .normal)
-
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let guideVC = storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
                 guideVC.favorites = favoritedGames
@@ -73,6 +73,7 @@ final class GameDetailViewController: UIViewController {
         }
     }
 }
+
 extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameDetailLoaded() {
         guard let imgUrl = viewModel.getGameImageUrl() else { return }

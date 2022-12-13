@@ -7,16 +7,18 @@
 
 import Foundation
 import UIKit
+
 protocol NewReleasesTableViewCellDelegate: AnyObject {
     func newReleasesTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel)
 }
-class NewReleasesTableViewCell: UITableViewCell {
+
+final class NewReleasesTableViewCell: UITableViewCell {
     
-    class var defaultHeight: Double { return 200 }
-        
+    //Mark: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var recentGamesLabel: UILabel!
-    
+    //Mark: Properties
+    class var defaultHeight: Double { return 200 }
     var mostRecentGames: [GameListModel] = []
     weak var delegate: NewReleasesTableViewCellDelegate?
     
@@ -41,9 +43,9 @@ class NewReleasesTableViewCell: UITableViewCell {
 
 extension NewReleasesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostRecentCollectionViewCell", for: indexPath) as! MostRecentCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostRecentCollectionViewCell", for: indexPath) as? MostRecentCollectionViewCell else {return UICollectionViewCell()}
         cell.configureCell(model: mostRecentGames[indexPath.row])
-            return cell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

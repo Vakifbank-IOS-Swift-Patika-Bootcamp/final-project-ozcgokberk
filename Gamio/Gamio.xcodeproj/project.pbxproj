@@ -453,11 +453,11 @@
 		20A70FE32940C3F10074868E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				204BF2B229477A7300D9ABBE /* Favorites */,
 				208AECBC294634C5005974CE /* GameDetail */,
 				20A70FE42940C4070074868E /* GameList */,
 				204BF29F2947466300D9ABBE /* Notes */,
 				204BF2CD29488C5F00D9ABBE /* Language */,
+				204BF2B229477A7300D9ABBE /* Favorites */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

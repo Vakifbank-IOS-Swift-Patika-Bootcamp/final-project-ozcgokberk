@@ -9,7 +9,7 @@ import UIKit
 import AlamofireImage
 
 final class MostRecentCollectionViewCell: UICollectionViewCell {
-
+    
     class var defaultHeight: CGFloat { return 180 }
     class var defaultWidth: CGFloat { return 380 }
     
@@ -20,7 +20,7 @@ final class MostRecentCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-
+    
     func configureCell(model: GameListModel) {
         gameNameLabel.text = model.name
         guard let url = URL(string:  model.img) else { return }

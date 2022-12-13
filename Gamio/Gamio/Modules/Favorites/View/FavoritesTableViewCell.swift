@@ -18,7 +18,7 @@ class FavoritesTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(with model: FavoriteModel) {
+    func configure(model: FavoriteModel) {
         gameImage.layer.cornerRadius = 8
         gameImage.clipsToBounds = true
         name.text = model.name

@@ -10,15 +10,15 @@ protocol TopRatedGamesTableViewCellDelegate: AnyObject {
     func ratedGamesTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel)
     func sortButtonPressed()
 }
-class TopRatedGamesTableViewCell: UITableViewCell {
-    
-    class var defaultHeight: Double { return 250 }
-    
+final class TopRatedGamesTableViewCell: UITableViewCell {
+    //Mark: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var topRatedLabel: UILabel!
+    //Mark: Properties
+    class var defaultHeight: Double { return 250 }
     var topRatedGames: [GameListModel] = []
     weak var delegate: TopRatedGamesTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         topRatedLabel.text = "topRatedGames".localized
@@ -43,9 +43,9 @@ class TopRatedGamesTableViewCell: UITableViewCell {
 
 extension TopRatedGamesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopRatedGamesCollectionViewCell", for: indexPath) as! TopRatedGamesCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopRatedGamesCollectionViewCell", for: indexPath) as? TopRatedGamesCollectionViewCell else {return UICollectionViewCell()}
         cell.configureCell(model: topRatedGames[indexPath.row])
-            return cell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

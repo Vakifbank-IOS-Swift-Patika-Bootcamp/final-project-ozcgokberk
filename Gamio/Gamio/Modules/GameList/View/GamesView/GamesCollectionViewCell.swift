@@ -23,7 +23,7 @@ class GamesCollectionViewCell: UICollectionViewCell {
         gameImage.af.setImage(withURL: url)
         gameImage.contentMode = .scaleAspectFill
     }
-
+    
     func setCell() {
         layer.cornerRadius = 10
     }
