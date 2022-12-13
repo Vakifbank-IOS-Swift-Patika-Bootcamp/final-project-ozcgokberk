@@ -29,8 +29,10 @@ final class GameDetailViewController: UIViewController {
     //Mark: Properties
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
+    var imageUrl: String? {
+        return viewModel.getGameImageUrl()
+    }
     var favoritedGames: [Favorites] = []
-    
     override func viewDidLoad() {
         viewSetup()
         super.viewDidLoad()
@@ -54,15 +56,15 @@ final class GameDetailViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let guideVC = storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
             guideVC.gameId = gameId
+            guideVC.gameImg = imageUrl
             present(guideVC, animated: true)
         }
     }
     
     @IBAction func addFavoritesButtonPressed(_ sender: UIButton) {
         if !CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
-            CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!))
+            CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!), gameImg: imageUrl ?? "")
             favoriteButton.setImage(UIImage(named: "hearth.filled"), for: .normal)
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let guideVC = storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
                 guideVC.favorites = favoritedGames
@@ -76,7 +78,7 @@ final class GameDetailViewController: UIViewController {
 
 extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameDetailLoaded() {
-        guard let imgUrl = viewModel.getGameImageUrl() else { return }
+        guard let imgUrl = URL(string: imageUrl ?? "") else { return }
         img.af.setImage(withURL: imgUrl)
         guard let imgAdditionalUrl = viewModel.getAdditionalImageUrl() else { return }
         imgAdditional.af.setImage(withURL: imgAdditionalUrl)

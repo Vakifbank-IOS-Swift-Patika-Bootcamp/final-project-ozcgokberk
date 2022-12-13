@@ -13,7 +13,6 @@ final class CoreDataManager {
     static let shared = CoreDataManager()
     private let managedContext: NSManagedObjectContext!
     
-    
     private init() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
@@ -36,17 +35,24 @@ final class CoreDataManager {
         let obj = managedContext.object(with: objectID)
         managedContext.delete(obj)
     }
+    
     func deleteAllNotes() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Notes")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {
-//          try persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: managedContext)
+            try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
         } catch {
           print( "Error on deletion of entity:" + error.localizedDescription)
             
         }
       }
+    
+    func getNoteById(gameId: Int) -> Notes? {
+        return getNotes().filter { note in
+            note.gameId == Int32(gameId)
+        }.first
+    }
     
     func getNotes() -> [Notes] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Notes")
@@ -75,7 +81,6 @@ final class CoreDataManager {
         } catch {
             print("Fetch Failed: \(error)")
         }
-        
     }
     
     func getFavorites() -> [Favorites] {
@@ -89,11 +94,12 @@ final class CoreDataManager {
         return []
     }
     
-    func saveFavorites(id: String,  gameId: Int32) -> Favorites? {
+    func saveFavorites(id: String,  gameId: Int32, gameImg: String) -> Favorites? {
         let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: managedContext)!
         let favorites = NSManagedObject(entity: entity, insertInto: managedContext)
         favorites.setValue(id, forKey: "id")
         favorites.setValue(gameId, forKey: "gameId")
+        favorites.setValue(gameImg, forKey: "gameImg")
                 if save() {
             return favorites as? Favorites
         }

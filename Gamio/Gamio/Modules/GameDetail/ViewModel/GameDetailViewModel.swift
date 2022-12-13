@@ -9,7 +9,7 @@ import Foundation
 protocol GameDetailViewModelProtocol {
     var delegate: GameDetailViewModelDelegate? { get set }
     func fetchGameDetail(id: Int)
-    func getGameImageUrl() -> URL?
+    func getGameImageUrl() -> String?
     func getAdditionalImageUrl() -> URL?
     func getGameName() -> String
     func getDescription() -> String
@@ -37,8 +37,8 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
         URL(string: game?.imgAdditional ?? "")
     }
      
-    func getGameImageUrl() -> URL? {
-        URL(string: game?.img ?? "")
+    func getGameImageUrl() -> String? {
+        return game?.img
     }
     
     func getGameId() -> Int32 {

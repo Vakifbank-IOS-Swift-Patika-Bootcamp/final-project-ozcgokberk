@@ -17,7 +17,14 @@ final class AddOrUpdateVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
         configureNavigationBar()
+        CoreDataManager.shared.deleteAllNotes()
+    }
+    private func viewSetup() {
+        gameNoteTxtView.text = CoreDataManager.shared.getNoteById(gameId: gameId ?? 0)?.gameNote
+        guard let imgUrl = URL(string: gameImg ?? "") else { return }
+        gameImageView.af.setImage(withURL: imgUrl)
     }
     
     private func configureNavigationBar() {
@@ -30,12 +37,14 @@ final class AddOrUpdateVC: UIViewController {
     }
     
     @objc func doneButtonPressed() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let guideVC = storyboard.instantiateViewController(identifier: "NotesViewController") as? NotesViewController {
             guideVC.id = gameId
         }
+        
         CoreDataManager.shared.saveGameNote(id: UUID().uuidString, gameId: gameId!, gameNote: gameNoteTxtView.text, gameImage: gameImg ?? "")
-//        CoreDataManager.shared.deleteAllNotes()
+        
         dismiss(animated: true)
     }
 

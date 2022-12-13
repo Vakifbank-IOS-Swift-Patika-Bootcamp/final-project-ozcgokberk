@@ -19,8 +19,8 @@ class NotesTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configureCell(model: NotesModel) {
-        guard let url = URL(string: model.gameImg!) else { return }
+    func configureCell(model: Notes) {
+        guard let url = URL(string: model.gameImage ?? "") else { return }
         gameImage.af.setImage(withURL: url)
         gameImage.contentMode = .scaleAspectFill
     }
