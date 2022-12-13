@@ -56,6 +56,7 @@
             <color key="backgroundColor" red="0.090830378229999995" green="0.14496892689999999" blue="0.37649574879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="collectionView" destination="3WN-uU-Umw" id="Jtl-Kl-oHi"/>
+                <outlet property="recentGamesLabel" destination="npg-Tr-HMb" id="wTx-W8-Odr"/>
             </connections>
             <point key="canvasLocation" x="130.53435114503816" y="61.619718309859159"/>
         </tableViewCell>

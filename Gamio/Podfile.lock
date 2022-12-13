@@ -2,20 +2,32 @@ PODS:
   - Alamofire (5.4.3)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
+  - L10n-swift (5.10.2):
+    - L10n-swift/Core (= 5.10.2)
+    - L10n-swift/Extension (= 5.10.2)
+    - L10n-swift/IBInspectable (= 5.10.2)
+  - L10n-swift/Core (5.10.2)
+  - L10n-swift/Extension (5.10.2):
+    - L10n-swift/Core
+  - L10n-swift/IBInspectable (5.10.2):
+    - L10n-swift/Core
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage (~> 4.1)
+  - L10n-swift (~> 5.10)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - L10n-swift
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  L10n-swift: 55773890db57d1efe367434751018ab6ceb058b0
 
-PODFILE CHECKSUM: 7446ae38361639d092bcfa93380c241535effa2d
+PODFILE CHECKSUM: 89b1c282119d853bb7195c0d053807749017a875
 
 COCOAPODS: 1.11.3

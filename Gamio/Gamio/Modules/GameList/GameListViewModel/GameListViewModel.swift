@@ -4,8 +4,9 @@
 //
 //  Created by Gokberk Ozcan on 7.12.2022.
 //
-//self.games?.sort() { $0.playTime < $1.playTime }
+
 import Foundation
+
 protocol GameListViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGames()
@@ -29,7 +30,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     private var topRatedGames: [GameListModel]?
     
     func fetchGames() {
-        MovieDBClient.getGames { [weak self] games, error in
+        GameDBClient.getGames { [weak self] games, error in
             guard let self = self else { return }
             self.games = games
             self.delegate?.gamesLoaded(gamesArray: games)
@@ -37,7 +38,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func getMostRatedGames() {
-        MovieDBClient.getMostRatedGames { [weak self] topRatedGames, error in
+        GameDBClient.getMostRatedGames { [weak self] topRatedGames, error in
             guard let self = self else { return }
             self.topRatedGames = topRatedGames
             self.delegate?.topRatedGamesLoaded(topRatedGames: topRatedGames)
@@ -45,7 +46,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func getLatestGames() {
-        MovieDBClient.getLatestGames { [weak self] latestGames, error in
+        GameDBClient.getLatestGames { [weak self] latestGames, error in
             guard let self = self else { return }
             self.latestGames = latestGames
             self.delegate?.latesGamesLoaded(latestGames: latestGames)
@@ -53,7 +54,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
         
     func getMovieImageURL(at index: Int) -> URL? {
-        URL(string: MovieDBClient.IMAGE_BASE_URL + (games?[index].img ?? ""))
+        URL(string: GameDBClient.IMAGE_BASE_URL + (games?[index].img ?? ""))
     }
     
     func getGameCount() -> Int {

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Gamio
+
+  Created by Gokberk Ozcan on 13.12.2022.
+  
+*/
+recentGames = "What is New?";
+allGames = "All Games";
+topRatedGames = "Top Rated Games";
+addNoteText = "Add note";
+likeItText = "Like it";
+releasedText = "Released";
+rateText = "Rate";
+metacriticText = "Metacritic";
+genresText = "Genres";
+overviewText = "Overview";
+searchBarPlaceholder = "Search in Games";
+sortByNameTxt = "Sort By Name";
+sortByRatingCountTxt = "Sort By Rating Count";
+sortByReleasedTxt = "Sort By Released";
+sortByPlaytimeTxt = "Sort By PlayTime";

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import L10n_swift
 struct Constants {
     static let API_KEY = "c3eccb944689454da36e586efd3f3259"
     static func removeHTMLTags(in overview: String) -> String? {
@@ -27,6 +28,15 @@ extension String {
         let attributedString = try? NSAttributedString(data: htmlStringData, options: options, documentAttributes: nil)
         return attributedString?.string
     }
+    
+    var localized: String {
+        return self.l10n()
+      }
+}
+
+extension Notification.Name {
+    static let RefreshTableView = Notification.Name(rawValue: "refreshTableView")
+    static let RefreshGamesTableView = Notification.Name(rawValue: "refreshGamesTableView")
 }
 
 extension Date {
@@ -37,4 +47,8 @@ extension Date {
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         return dateFormatter.string(from: self)
     }
+}
+
+extension Notification.Name {
+    static let notificationA = Notification.Name(rawValue: "NotificationA")
 }

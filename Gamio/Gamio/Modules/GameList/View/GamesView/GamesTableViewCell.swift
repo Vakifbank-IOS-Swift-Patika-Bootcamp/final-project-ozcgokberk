@@ -10,14 +10,20 @@ protocol GamesTableViewCellDelegate: AnyObject {
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel)
     func sortButtonPressed()
 }
-class GamesTableViewCell: UITableViewCell {
+
+final class GamesTableViewCell: UITableViewCell {
     class var defaultHeight: Double { return 200 }
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var allGamesLabel: UILabel!
+    
     var allGames: [GameListModel] = []
     weak var delegate: GamesTableViewCellDelegate?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
+        allGamesLabel.text = "allGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -32,10 +38,14 @@ class GamesTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
-    
-    @IBAction func sortButtonPressed(_ sender: Any) {
+        @IBAction func sortButtonPressed(_ sender: Any) {
         delegate?.sortButtonPressed()
     }
+    
+    @objc func refreshGamesTableView() {
+        collectionView.reloadData()
+    }
+
 }
 
 extension GamesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

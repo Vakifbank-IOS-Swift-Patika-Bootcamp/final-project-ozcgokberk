@@ -8,19 +8,21 @@
 import Foundation
 import UIKit
 protocol NewReleasesTableViewCellDelegate: AnyObject {
-    func testTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel)
+    func newReleasesTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel)
 }
 class NewReleasesTableViewCell: UITableViewCell {
     
     class var defaultHeight: Double { return 200 }
         
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var recentGamesLabel: UILabel!
     
     var mostRecentGames: [GameListModel] = []
     weak var delegate: NewReleasesTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        recentGamesLabel.text = "recentGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -53,6 +55,6 @@ extension NewReleasesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.testTableViewCellDidTapped(self, game: mostRecentGames[indexPath.row])
+        delegate?.newReleasesTableViewCellDidTapped(self, game: mostRecentGames[indexPath.row])
     }
 }

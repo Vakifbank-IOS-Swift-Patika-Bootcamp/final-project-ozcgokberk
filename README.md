@@ -17,14 +17,14 @@ edilmelidir. - Commit mesajları atılırken branch yapısına dikkat edilmelidi
 1. Ekran: (Liste Ekranı)
 - MVVM pattern’i ile yazılmalıdır.
 - Item’lar arasında arama yapılabilmelidir.
-- Item’ları sıralama butonu ile sıralanabilmelidir.
+- Item’ları sıralama butonu ile sıralanabilmelidir.✅
 - Sadece item’lar güncellendiğinde görünüm güncellenmelidir. (Ekrana her
-girişte güncelleme olmamalı)
+girişte güncelleme olmamalı)✅
 2. Ekran: (Detay Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Item’a basıldığında ilgili detaya yönlenmelidir.(Alanlar belirtilecektir.)
-- Edit işlemleri için aynı ekran kullanılacaktır.
-- Düzenlemede tüm alanlar eklenmemişse item kaydedilmemelidir.
+- MVVM pattern’i ile yazılmalıdır.✅
+- Item’a basıldığında ilgili detaya yönlenmelidir.(Alanlar belirtilecek✅
+- Edit işlemleri için aynı ekran kullanılacaktır.✅
+- Düzenlemede tüm alanlar eklenmemişse item kaydedilmemelidir.✅
 3. Ekran: (Yeni Giriş Ekranı)
 - MVVM pattern’i ile yazılmalıdır.
 - Ekran present şekilde açılmalıdır.
@@ -46,14 +46,14 @@ arasındadır.
 gözetilmelidir.
 
 1- API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
-2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.
-3- ReadMe dosyası repoda olmalıdır.
+2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.✅
+3- ReadMe dosyası repoda olmalıdır.✅
 4- Liste ekranı için istenilen filtre kullanılabilir(2022 de çıkan oyunlar, platforma özel
-oyunlar veya popüler oyunlar olabilir.)
-5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.
+oyunlar veya popüler oyunlar olabilir.)✅
+5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.✅
 6- Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
-Ekrandaki editleme maddesi)
+Ekrandaki editleme maddesi)✅
 7- Favorilerin listelendiği bir ekran olacak.
 8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
 düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)
-9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.
+9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.✅

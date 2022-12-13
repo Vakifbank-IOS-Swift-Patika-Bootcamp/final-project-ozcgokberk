@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4y-IZ-Tna">
-                        <rect key="frame" x="10" y="10" width="94.333333333333329" height="24"/>
+                        <rect key="frame" x="10" y="10" width="94.333333333333329" height="25"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-CU-PJf">
-                        <rect key="frame" x="0.0" y="39" width="413" height="137"/>
+                        <rect key="frame" x="0.0" y="40" width="413" height="136"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qsf-4T-9om">
                             <size key="itemSize" width="128" height="128"/>
@@ -34,12 +34,13 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-Rf-OFk">
-                        <rect key="frame" x="333" y="5" width="75" height="34.333333333333336"/>
+                        <rect key="frame" x="338" y="15" width="50" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="aaa-G1-HPZ"/>
+                            <constraint firstAttribute="height" constant="20" id="VpT-Hy-YNo"/>
+                            <constraint firstAttribute="width" constant="50" id="aaa-G1-HPZ"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="arrow.up.arrow.down.circle" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="sort"/>
                         <connections>
                             <action selector="sortButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jqy-yv-Y44"/>
                         </connections>
@@ -49,9 +50,10 @@
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Auy-9U-6E1"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="c4y-IZ-Tna" secondAttribute="bottom" constant="5" id="EB1-yB-5H3"/>
                     <constraint firstAttribute="bottom" secondItem="n5l-CU-PJf" secondAttribute="bottom" id="O2i-77-Glt"/>
+                    <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="oeG-Rf-OFk" secondAttribute="bottom" constant="5" id="UeS-pZ-2NR"/>
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g0C-M5-vOw"/>
-                    <constraint firstAttribute="trailing" secondItem="oeG-Rf-OFk" secondAttribute="trailing" constant="5" id="gTn-oP-dHN"/>
-                    <constraint firstItem="oeG-Rf-OFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jrf-am-njI"/>
+                    <constraint firstAttribute="trailing" secondItem="oeG-Rf-OFk" secondAttribute="trailing" constant="25" id="gTn-oP-dHN"/>
+                    <constraint firstItem="oeG-Rf-OFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="jrf-am-njI"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r0i-Sb-cfg"/>
                     <constraint firstAttribute="trailing" secondItem="n5l-CU-PJf" secondAttribute="trailing" id="tOX-qE-MEK"/>
                 </constraints>
@@ -59,13 +61,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" red="0.090830378229999995" green="0.14496892689999999" blue="0.37649574879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
+                <outlet property="allGamesLabel" destination="c4y-IZ-Tna" id="P3O-ma-KWR"/>
                 <outlet property="collectionView" destination="n5l-CU-PJf" id="rGw-2S-aTR"/>
             </connections>
             <point key="canvasLocation" x="142.74809160305344" y="66.197183098591552"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow.up.arrow.down.circle" catalog="system" width="128" height="123"/>
+        <image name="sort" width="33.333332061767578" height="33.333332061767578"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

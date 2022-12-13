@@ -7,7 +7,7 @@
 
 import UIKit
 protocol TopRatedGamesTableViewCellDelegate: AnyObject {
-    func testTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel)
+    func ratedGamesTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel)
     func sortButtonPressed()
 }
 class TopRatedGamesTableViewCell: UITableViewCell {
@@ -16,11 +16,12 @@ class TopRatedGamesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var topRatedLabel: UILabel!
     var topRatedGames: [GameListModel] = []
     weak var delegate: TopRatedGamesTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        topRatedLabel.text = "topRatedGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -56,6 +57,6 @@ extension TopRatedGamesTableViewCell: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.testTableViewCellDidTapped(self, game: topRatedGames[indexPath.row])
+        delegate?.ratedGamesTableViewCellDidTapped(self, game: topRatedGames[indexPath.row])
     }
 }

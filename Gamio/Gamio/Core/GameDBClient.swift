@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-final class MovieDBClient {
+final class GameDBClient {
     static let BASE_URL = "https://api.rawg.io/api/"
     static let IMAGE_BASE_URL = "https://media.rawg.io/media/games/"
     static func getGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
@@ -38,6 +38,13 @@ final class MovieDBClient {
         let urlString = BASE_URL + "games/" + String(gameId) + "?" + "key=" + Constants.API_KEY
         handleResponse(urlString: urlString, responseType: GameDetailModel.self, completion: completion)
     }
+    
+    static func getNoteDetail(gameId: Int, completion: @escaping (NotesModel?, Error?) -> Void) {
+        let urlString = BASE_URL + "games/" + String(gameId) + "?" + "key=" + Constants.API_KEY
+        handleResponse(urlString: urlString, responseType: NotesModel.self, completion: completion)
+    }
+    
+    
 
 
         

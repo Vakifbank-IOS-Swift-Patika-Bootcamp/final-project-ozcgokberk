@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum SiralamaMenu: Int {
     
@@ -17,16 +18,17 @@ enum SiralamaMenu: Int {
     var description: String {
         switch self {
         case .SortByName:
-            return "Sort By Name"
+            return "sortByNameTxt".localized
         case .SortByRatinCount:
-            return "Sort By Rating Count"
+            return "sortByRatingCountTxt".localized
         case .SortByReleased:
-            return "Sort By Released Time"
+             return "sortByReleasedTxt".localized
         case .SortyByPlaytime:
-            return "Sort By PlayTime"
+            return "sortByPlaytimeTxt".localized
         }
     }
 }
+
 enum HomeSectionType: Int, CaseIterable {
     case newGames = 0
     case allGames = 1
@@ -42,6 +44,29 @@ enum HomeSectionType: Int, CaseIterable {
         }
     }
 }
+
+enum LanguageEnum: String {
+    case TR = "TR"
+    case EN = "EN"
+    
+    var description: String {
+        switch self {
+        case .TR:
+            return "Turkish"
+        case .EN:
+            return "English"
+        }
+    }
+    var image: UIImage {
+        switch self {
+        case .TR:
+            return UIImage(named: "turkiye")!
+        case .EN:
+            return UIImage(named: "english")!
+        }
+    }
+}
+
 enum DateFormatType: String {
     
     /// Date with hours dd MMM yyyy H:mm

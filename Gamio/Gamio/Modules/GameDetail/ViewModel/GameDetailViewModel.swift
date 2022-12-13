@@ -25,7 +25,7 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
     func fetchGameDetail(id: Int) {
-        MovieDBClient.getGameDetail(gameId: id) { [weak self] gameDetail, error in
+        GameDBClient.getGameDetail(gameId: id) { [weak self] gameDetail, error in
             guard let self = self else { return }
             self.game = gameDetail
             self.delegate?.gameDetailLoaded()
@@ -37,7 +37,9 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     func getGameImageUrl() -> URL? {
         URL(string: game?.img ?? "")
     }
-    
+    func getGameId() -> Int32 {
+        game?.id ?? 0
+    }
     func getGameName() -> String {
         game?.name ?? ""
     }

@@ -59,6 +59,7 @@
             <color key="backgroundColor" red="0.090830378229999995" green="0.14496892689999999" blue="0.37649574879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="collectionView" destination="bak-OP-gJX" id="eLw-E0-DT3"/>
+                <outlet property="topRatedLabel" destination="Bu7-Pg-HDP" id="9VC-a8-ntD"/>
             </connections>
             <point key="canvasLocation" x="173.2824427480916" y="100.70422535211269"/>
         </tableViewCell>

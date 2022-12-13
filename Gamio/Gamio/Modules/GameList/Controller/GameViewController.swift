@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import L10n_swift
 class GameViewController: UIViewController {
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     
@@ -14,18 +14,29 @@ class GameViewController: UIViewController {
     lazy var picker = UIPickerView()
     lazy var toolBar = UIToolbar()
     lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
+    private var isSearching = false
     
+    @IBOutlet weak var languageButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.placeholder = "searchBarPlaceholder".localized
+        }
+    }
+    
+    private var searchedGames =  [GameListModel]()
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkLanguage()
         viewModel.delegate = self
         viewModel.fetchGames()
         viewModel.getLatestGames()
         viewModel.getMostRatedGames()
         setupTopRatedTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
     }
     
     private func setupTopRatedTableView() {
@@ -45,6 +56,26 @@ class GameViewController: UIViewController {
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         topRatedGamesTableView.reloadData()
+    }
+    
+    @objc func reloadTableView() {
+        checkLanguage()
+        topRatedGamesTableView.reloadSections(IndexSet(0...2), with: .none)
+        topRatedGamesTableView.reloadData()
+        
+    }
+    
+    private func checkLanguage() {
+        switch L10n.shared.language {
+        case "en":
+            languageButton.setImage(UIImage(named: "english"), for: .normal)
+            searchBar.placeholder = "searchBarPlaceholder".localized
+        case "tr":
+            languageButton.setImage(UIImage(named: "turkiye"), for: .normal)
+            searchBar.placeholder = "searchBarPlaceholder".localized
+        default:
+            break
+        }
     }
 }
 extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -73,8 +104,10 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
-        topRatedGamesTableView.reloadData()
+//        topRatedGamesTableView.reloadData()
+        NotificationCenter.default.post(name: .RefreshGamesTableView, object: nil)
     }
+    
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
@@ -165,18 +198,7 @@ extension GameViewController: NewReleasesTableViewCellDelegate {
         self.view.addSubview(toolBar)
     }
     
-    func testTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel) {
-        print(game)
-    }
-}
-extension GameViewController: GamesTableViewCellDelegate {
-    
-    func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
-        print(game)
-    }
-}
-extension GameViewController: TopRatedGamesTableViewCellDelegate {
-    func testTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel) {
+    func newReleasesTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             guideVC.gameId = game.id
@@ -184,3 +206,63 @@ extension GameViewController: TopRatedGamesTableViewCellDelegate {
         }
     }
 }
+
+extension GameViewController: GamesTableViewCellDelegate {
+    
+    func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
+            guideVC.gameId = game.id
+            navigationController?.pushViewController(guideVC, animated: true)
+        }
+    }
+}
+
+extension GameViewController: TopRatedGamesTableViewCellDelegate {
+    func ratedGamesTableViewCellDidTapped(_ cell: TopRatedGamesTableViewCell, game: GameListModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
+            guideVC.gameId = game.id
+            navigationController?.pushViewController(guideVC, animated: true)
+        }
+    }
+}
+ 
+//extension GameViewController: UISearchBarDelegate {
+//
+//        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//            isSearching = true
+//            self.searchBar.showsCancelButton = true
+////            self.collectionView.reloadData()
+//        }
+//
+//        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//            self.searchBar.text = ""
+//            self.searchedGames = []
+//            isSearching = false
+//            self.searchBar.showsCancelButton = false
+//            self.searchBar.endEditing(true)
+//            self.dismiss(animated: true, completion: nil)
+////            self.collectionView.reloadData()
+//        }
+//
+//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//            if searchBar.text! == " "  {
+//                searchedGames = allGames
+////                collectionView.reloadData()
+//            } else {
+//
+//                searchedGames = allGames.filter({ games in
+//                    games.name.contains(searchBar.text!)
+//                })
+//
+////            collectionView.reloadData()
+//            }
+//
+//        }
+//
+//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+////            collectionView.reloadData()
+//        }
+//
+//    }

@@ -8,6 +8,7 @@
 import Foundation
 struct GameDetailModel: Decodable {
     
+    let id: Int32
     let name: String?
     let description: String?
     let metacritic: Int?
@@ -22,7 +23,7 @@ struct GameDetailModel: Decodable {
     }
     
     enum CodingKeys: String, CodingKey {
-        
+        case id
         case name
         case description
         case metacritic
