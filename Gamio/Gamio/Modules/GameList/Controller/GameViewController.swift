@@ -106,8 +106,8 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
-//        topRatedGamesTableView.reloadData()
-        NotificationCenter.default.post(name: .RefreshGamesTableView, object: nil)
+        let indexpath = IndexSet(integer: 1)
+        topRatedGamesTableView.reloadSections(indexpath, with: .none)
     }
     
 }
@@ -230,41 +230,41 @@ extension GameViewController: TopRatedGamesTableViewCellDelegate {
     }
 }
  
-//extension GameViewController: UISearchBarDelegate {
-//
-//        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//            isSearching = true
-//            self.searchBar.showsCancelButton = true
-////            self.collectionView.reloadData()
-//        }
-//
-//        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//            self.searchBar.text = ""
-//            self.searchedGames = []
-//            isSearching = false
-//            self.searchBar.showsCancelButton = false
-//            self.searchBar.endEditing(true)
-//            self.dismiss(animated: true, completion: nil)
-////            self.collectionView.reloadData()
-//        }
-//
-//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            if searchBar.text! == " "  {
-//                searchedGames = allGames
-////                collectionView.reloadData()
-//            } else {
-//
-//                searchedGames = allGames.filter({ games in
-//                    games.name.contains(searchBar.text!)
-//                })
-//
-////            collectionView.reloadData()
-//            }
-//
-//        }
-//
-//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-////            collectionView.reloadData()
-//        }
-//
-//    }
+extension GameViewController: UISearchBarDelegate {
+
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            isSearching = true
+            self.searchBar.showsCancelButton = true
+//            self.collectionView.reloadData()
+        }
+
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            self.searchBar.text = ""
+            self.searchedGames = []
+            isSearching = false
+            self.searchBar.showsCancelButton = false
+            self.searchBar.endEditing(true)
+            self.dismiss(animated: true, completion: nil)
+//            self.collectionView.reloadData()
+        }
+
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchBar.text! == " "  {
+                searchedGames = allGames
+//                collectionView.reloadData()
+            } else {
+
+                searchedGames = allGames.filter({ games in
+                    games.name.contains(searchBar.text!)
+                })
+
+//            collectionView.reloadData()
+            }
+
+        }
+
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//            collectionView.reloadData()
+        }
+
+    }

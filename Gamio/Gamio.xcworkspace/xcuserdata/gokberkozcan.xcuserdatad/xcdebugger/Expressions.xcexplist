@@ -135,6 +135,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NotesViewController.tableView(_:commit:forRowAt:):NotesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AddOrUpdateVC.init(coder:):AddOrUpdateVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -173,6 +181,9 @@
       <ContextState
          contextName = "GameDetailViewController.addNotePressed(_:):GameDetailViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "guideVC.gameName">
+            </PersistentString>
             <PersistentString
                value = "gameId">
             </PersistentString>

@@ -28,6 +28,7 @@ final class GamesTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
+        selectionStyle = .none
         collectionView.register(UINib(nibName: "GamesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GamesCollectionViewCell")
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -44,7 +45,10 @@ final class GamesTableViewCell: UITableViewCell {
     }
     
     @objc func refreshGamesTableView() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        
     }
 
 }

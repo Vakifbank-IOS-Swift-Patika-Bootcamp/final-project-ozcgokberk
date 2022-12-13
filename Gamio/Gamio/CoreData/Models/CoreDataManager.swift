@@ -18,13 +18,14 @@ final class CoreDataManager {
         managedContext = appDelegate.persistentContainer.viewContext
     }
     
-    func saveGameNote(id: String, gameId: Int, gameNote: String, gameImage: String) -> Notes? {
+    func saveGameNote(id: String, gameId: Int, gameNote: String, gameImage: String, gameName: String) -> Notes? {
         let entity = NSEntityDescription.entity(forEntityName: "Notes", in: managedContext)!
         let notes = NSManagedObject(entity: entity, insertInto: managedContext)
         notes.setValue(id, forKey: "id")
         notes.setValue(gameId, forKey: "gameId")
         notes.setValue(gameNote, forKey: "gameNote")
         notes.setValue(gameImage, forKey: "gameImage")
+        notes.setValue(gameName, forKey: "gameName")
         if save() {
             return notes as? Notes
         }

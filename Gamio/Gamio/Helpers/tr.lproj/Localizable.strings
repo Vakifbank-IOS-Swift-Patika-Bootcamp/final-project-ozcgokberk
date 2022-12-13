@@ -20,3 +20,4 @@ sortByNameTxt = "Ada Göre Sırala";
 sortByRatingCountTxt = "Oy Sayısına Göre Sırala";
 sortByReleasedTxt = "Yayınlanma Tarihine Göre Sırala";
 sortByPlaytimeTxt = "Oynama Süresine Göre Sırala";
+gameNote = "Oyun Notu";

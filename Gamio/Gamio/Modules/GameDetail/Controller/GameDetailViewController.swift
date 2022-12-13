@@ -12,7 +12,7 @@ final class GameDetailViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var imgAdditional: UIImageView!
     @IBOutlet weak var img: UIImageView!
-    @IBOutlet weak var gameName: UILabel!
+    @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var genres: UILabel!
     @IBOutlet weak var rating: UILabel!
@@ -29,9 +29,13 @@ final class GameDetailViewController: UIViewController {
     //Mark: Properties
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
-    var imageUrl: String? {
+    private var imageUrl: String? {
         return viewModel.getGameImageUrl()
     }
+    private var gameName: String? {
+        return viewModel.getGameName()
+    }
+    
     var favoritedGames: [Favorites] = []
     override func viewDidLoad() {
         viewSetup()
@@ -57,6 +61,7 @@ final class GameDetailViewController: UIViewController {
         if let guideVC = storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
             guideVC.gameId = gameId
             guideVC.gameImg = imageUrl
+            guideVC.gameName = gameName
             present(guideVC, animated: true)
         }
     }
@@ -82,7 +87,7 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         img.af.setImage(withURL: imgUrl)
         guard let imgAdditionalUrl = viewModel.getAdditionalImageUrl() else { return }
         imgAdditional.af.setImage(withURL: imgAdditionalUrl)
-        gameName.text = viewModel.getGameName()
+        gameNameLabel.text = gameName
         releaseValue.text = "📆 \(viewModel.getReleasedDate())"
         genreValue.text = viewModel.getGenres().first?.name
         ratingValue.text = "⭐️ \(viewModel.getRating())/5"

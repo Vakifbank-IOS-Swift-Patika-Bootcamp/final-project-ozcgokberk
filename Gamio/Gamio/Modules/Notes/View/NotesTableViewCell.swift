@@ -16,12 +16,14 @@ class NotesTableViewCell: UITableViewCell {
     @IBOutlet weak var noteLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
     
     func configureCell(model: Notes) {
         guard let url = URL(string: model.gameImage ?? "") else { return }
         gameImage.af.setImage(withURL: url)
         gameImage.contentMode = .scaleAspectFill
+        noteLabel.text = model.gameNote
+        gameNameLabel.text = model.gameName
     }
 }

@@ -20,3 +20,4 @@ sortByNameTxt = "Sort By Name";
 sortByRatingCountTxt = "Sort By Rating Count";
 sortByReleasedTxt = "Sort By Released";
 sortByPlaytimeTxt = "Sort By PlayTime";
+gameNote = "Game Note";
