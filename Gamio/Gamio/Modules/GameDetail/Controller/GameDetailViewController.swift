@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol GameDetailVCProtocol: AnyObject {
+    func refresh()
+}
 
 final class GameDetailViewController: UIViewController {
     //MARK: Outlets
@@ -27,13 +29,19 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet weak var overview: UILabel!
     
     //Mark: Properties
+    weak var delegate: GameDetailVCProtocol?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
     private var imageUrl: String? {
         return viewModel.getGameImageUrl()
     }
+    
     private var gameName: String? {
         return viewModel.getGameName()
+    }
+    
+    private var gameRate: Double? {
+        return viewModel.getRating()
     }
     
     var favoritedGames: [Favorites] = []
@@ -56,27 +64,41 @@ final class GameDetailViewController: UIViewController {
         overview.text = "overviewText".localized
     }
     
-    @IBAction func addNotePressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let guideVC = storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
-            guideVC.gameId = gameId
-            guideVC.gameImg = imageUrl
-            guideVC.gameName = gameName
-            present(guideVC, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        if CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
+            favoriteButton.setImage(UIImage(named: "favoriteWhiteFilled"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "favoriteWhiteEmpty"), for: .normal)
         }
     }
     
-    @IBAction func addFavoritesButtonPressed(_ sender: UIButton) {
+    @IBAction func addNotePressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let addOrUpdateVC = storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
+            addOrUpdateVC.gameId = gameId
+            addOrUpdateVC.gameImg = imageUrl
+            addOrUpdateVC.gameName = gameName
+            present(addOrUpdateVC, animated: true)
+        }
+    }
+    
+    @IBAction func addFavoritesButtonPressed(_ sender: Any) {
+        
         if !CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
-            CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!), gameImg: imageUrl ?? "")
-            favoriteButton.setImage(UIImage(named: "hearth.filled"), for: .normal)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let guideVC = storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
-                guideVC.favorites = favoritedGames
-                present(guideVC, animated: true)
+                guideVC.gameName = gameName
+                guideVC.gameImg = imageUrl
+                guideVC.gameId = gameId
+                guideVC.gameRate = gameRate
             }
+            favoritedGames.append(CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!), gameImg: imageUrl ?? "", gameName: gameName ?? "", gameRate: gameRate ?? 0)!)
+            favoriteButton.setImage(UIImage(named: "favoriteWhiteFilled"), for: .normal)
+            delegate?.refresh()
+            
         } else {
-            favoriteButton.setImage(UIImage(named: "hearth"), for: .normal)
+            CoreDataManager.shared.deletesingleFavorite(gameId: Int32(gameId!))
+            favoriteButton.setImage(UIImage(named: "favoriteWhiteEmpty"), for: .normal)
         }
     }
 }
@@ -90,7 +112,7 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         gameNameLabel.text = gameName
         releaseValue.text = "📆 \(viewModel.getReleasedDate())"
         genreValue.text = viewModel.getGenres().first?.name
-        ratingValue.text = "⭐️ \(viewModel.getRating())/5"
+        ratingValue.text = "⭐️ \(gameRate ?? 0)/5"
         metacriticValue.text = "\(viewModel.getMetacritic())/100"
         descriptionLabel.text = Constants.removeHTMLTags(in: "\(viewModel.getDescription())")
     }

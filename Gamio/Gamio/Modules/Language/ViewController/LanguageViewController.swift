@@ -22,6 +22,7 @@ class LanguageViewController: UIViewController {
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
         languagesTableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageTableViewCell")
+        languagesTableView.separatorColor = .white
     }
     private func setLanguage(selectedLang: LanguageEnum) {
         L10n.shared.language = selectedLang.rawValue.lowercased()

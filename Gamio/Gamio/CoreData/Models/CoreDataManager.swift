@@ -11,7 +11,7 @@ import CoreData
 
 final class CoreDataManager {
     static let shared = CoreDataManager()
-    private let managedContext: NSManagedObjectContext!
+    let managedContext: NSManagedObjectContext!
     
     private init() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -48,6 +48,34 @@ final class CoreDataManager {
             
         }
       }
+    
+    func deleteAllFavorites() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Favorites")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
+        } catch {
+          print( "Error on deletion of entity:" + error.localizedDescription)
+            
+        }
+      }
+    
+    func deletesingleFavorite(gameId: Int32) {
+        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        request.predicate = NSPredicate(format: "gameId = %@", argumentArray: [gameId])
+        if let result = try? managedContext.fetch(request) {
+            for object in result {
+                managedContext.delete(object)
+            }
+        }
+        do {
+            try managedContext.save()
+        } catch {
+            print( "Error on deletion of entity:" + error.localizedDescription)
+        }
+    }
+    
     
     func getNoteById(gameId: Int) -> Notes? {
         return getNotes().filter { note in
@@ -95,12 +123,14 @@ final class CoreDataManager {
         return []
     }
     
-    func saveFavorites(id: String,  gameId: Int32, gameImg: String) -> Favorites? {
+    func saveFavorites(id: String,  gameId: Int32, gameImg: String, gameName: String, gameRate: Double) -> Favorites? {
         let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: managedContext)!
         let favorites = NSManagedObject(entity: entity, insertInto: managedContext)
         favorites.setValue(id, forKey: "id")
         favorites.setValue(gameId, forKey: "gameId")
         favorites.setValue(gameImg, forKey: "gameImg")
+        favorites.setValue(gameName, forKey: "gameName")
+        favorites.setValue(gameRate, forKey: "gameRate")
                 if save() {
             return favorites as? Favorites
         }
@@ -118,7 +148,7 @@ final class CoreDataManager {
             return false
         }
     }
-
+    
     
     @discardableResult
     func save() -> Bool {
@@ -142,8 +172,6 @@ final class CoreDataManager {
             return false
         }
     }
-    
-    
     
 }
 

@@ -12,8 +12,8 @@ final class NotesViewController: UIViewController {
     private var viewModel: NotesViewModelProtocol = NotesListViewModel()
     @IBOutlet weak var notesTableView: UITableView!
     private var notes: [Notes] = []
-    var managedContext: NSManagedObjectContext!
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    var managedContext: NSManagedObjectContext!
+//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var id: Int?
     
     override func viewDidLoad() {
@@ -23,7 +23,6 @@ final class NotesViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchNotes()
-//        viewModel.fetchNoteDetail(id: 644661)
     }
     
     private func configureTableView() {
@@ -53,11 +52,15 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let commit = notes[indexPath.row]
-//            managedContext.delete(commit)
+            CoreDataManager.shared.managedContext.delete(notes[indexPath.row])
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            appDelegate.saveContext()
+            do {
+                try CoreDataManager.shared.managedContext.save()
+                tableView.reloadData()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
     }
 }

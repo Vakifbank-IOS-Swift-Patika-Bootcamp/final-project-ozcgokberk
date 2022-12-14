@@ -10,7 +10,6 @@ import UIKit
 class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var released: UILabel!
     @IBOutlet weak var rating: UILabel!
     
     override func awakeFromNib() {
@@ -18,13 +17,12 @@ class FavoritesTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(model: FavoriteModel) {
-        gameImage.layer.cornerRadius = 8
+    func configureCell(model: Favorites) {
+        gameImage.layer.cornerRadius = 10
         gameImage.clipsToBounds = true
-        name.text = model.name
-        rating.text = "\(model.rating!) / 5"
-        released.text = model.released
-        guard let url = URL(string:  model.backgroundImage!) else { return }
+        name.text = model.gameName
+        rating.text = "\(model.gameRate) / 5"
+        guard let url = URL(string:  model.gameImg ?? "") else { return }
         gameImage.af.setImage(withURL: url)
 
     }

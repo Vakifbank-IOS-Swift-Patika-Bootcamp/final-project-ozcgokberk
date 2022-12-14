@@ -8,8 +8,8 @@
 recentGames = "What is New?";
 allGames = "All Games";
 topRatedGames = "Top Rated Games";
-addNoteText = "Add note";
-likeItText = "Like it";
+addNoteText = "Add";
+likeItText = "Like";
 releasedText = "Released";
 rateText = "Rate";
 metacriticText = "Metacritic";
@@ -21,3 +21,4 @@ sortByRatingCountTxt = "Sort By Rating Count";
 sortByReleasedTxt = "Sort By Released";
 sortByPlaytimeTxt = "Sort By PlayTime";
 gameNote = "Game Note";
+noteTitle = "Note";

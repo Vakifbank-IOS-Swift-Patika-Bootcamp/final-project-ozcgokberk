@@ -21,6 +21,7 @@ final class TopRatedGamesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         topRatedLabel.text = "topRatedGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -24,6 +24,7 @@ final class NewReleasesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         recentGamesLabel.text = "recentGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self

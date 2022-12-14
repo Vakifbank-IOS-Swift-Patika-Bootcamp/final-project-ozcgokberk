@@ -22,6 +22,9 @@
          contextName = "GameDetailViewController.addFavoritesButtonPressed(_:):GameDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "guideVC.gameName">
+            </PersistentString>
+            <PersistentString
                value = "sender.image(for: .normal)">
             </PersistentString>
          </PersistentStrings>

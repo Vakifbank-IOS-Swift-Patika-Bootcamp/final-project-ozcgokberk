@@ -24,7 +24,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOd-v8-wgn">
-                        <rect key="frame" x="5.0000000000000071" y="240" width="119.66666666666669" height="23"/>
+                        <rect key="frame" x="5" y="240" width="300" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="300" id="12o-TS-jxq"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -61,6 +64,7 @@
             <connections>
                 <outlet property="gameImage" destination="ybt-MM-KyE" id="AdH-GM-Vwc"/>
                 <outlet property="gameNameLabel" destination="jOd-v8-wgn" id="tNb-XT-T7G"/>
+                <outlet property="notTitle" destination="JU8-D5-P5w" id="Ert-PX-wtH"/>
                 <outlet property="noteLabel" destination="qDH-Hy-Kvz" id="qR7-M9-fOa"/>
             </connections>
             <point key="canvasLocation" x="183.96946564885496" y="98.591549295774655"/>

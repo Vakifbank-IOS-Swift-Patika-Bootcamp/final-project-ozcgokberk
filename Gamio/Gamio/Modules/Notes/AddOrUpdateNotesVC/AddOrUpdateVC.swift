@@ -23,8 +23,6 @@ final class AddOrUpdateVC: UIViewController {
         super.viewDidLoad()
         viewSetup()
         configureNavigationBar()
-        print(gameName)
-        CoreDataManager.shared.deleteAllNotes()
     }
     private func viewSetup() {
         gameNoteTxtView.text = CoreDataManager.shared.getNoteById(gameId: gameId ?? 0)?.gameNote
@@ -46,13 +44,12 @@ final class AddOrUpdateVC: UIViewController {
         navBar.setItems([navItem], animated: false)
     }
     
+    
     @objc func doneButtonPressed() {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let guideVC = storyboard.instantiateViewController(identifier: "NotesViewController") as? NotesViewController {
             guideVC.id = gameId
         }
-        
         noteArray.append(CoreDataManager.shared.saveGameNote(id: UUID().uuidString, gameId: gameId!, gameNote: gameNoteTxtView.text, gameImage: gameImg ?? "", gameName: gameName ?? "")!)
         delegate?.refresh()
         dismiss(animated: true)

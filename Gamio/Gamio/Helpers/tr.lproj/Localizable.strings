@@ -8,7 +8,7 @@
 recentGames = "En Yeni Oyunlar";
 allGames = "Tüm Oyunlar";
 topRatedGames = "2022 En Çok Oylanan Oyunlar";
-addNoteText = "Not Ekle";
+addNoteText = "Ekle";
 likeItText = "Beğen";
 releasedText = "Tarih";
 rateText = "Puan";
@@ -21,3 +21,4 @@ sortByRatingCountTxt = "Oy Sayısına Göre Sırala";
 sortByReleasedTxt = "Yayınlanma Tarihine Göre Sırala";
 sortByPlaytimeTxt = "Oynama Süresine Göre Sırala";
 gameNote = "Oyun Notu";
+noteTitle = "Not";
