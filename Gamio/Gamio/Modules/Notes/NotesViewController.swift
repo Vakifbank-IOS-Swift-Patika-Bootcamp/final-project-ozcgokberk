@@ -28,7 +28,6 @@ final class NotesViewController: UIViewController {
         notesTableView.dataSource = self
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NotesTableViewCell")
         notesTableView.separatorColor = .white
-        
     }
 }
 
@@ -57,7 +56,6 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
                 try CoreDataManager.shared.managedContext.save()
                 Alert.sharedInstance.showSuccess()
                 tableView.reloadData()
-                
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
                 Alert.sharedInstance.showWarning()
@@ -79,3 +77,4 @@ extension NotesViewController: AddOrUpdateVCProtocol {
         notesTableView.reloadData()
     }
 }
+

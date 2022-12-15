@@ -19,7 +19,6 @@
 		204BF2B429477A8300D9ABBE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF2B329477A8300D9ABBE /* FavoritesViewController.swift */; };
 		204BF2B82947A12800D9ABBE /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF2B62947A12800D9ABBE /* FavoritesTableViewCell.swift */; };
 		204BF2B92947A12800D9ABBE /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 204BF2B72947A12800D9ABBE /* FavoritesTableViewCell.xib */; };
-		204BF2BC2947A17400D9ABBE /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF2BB2947A17400D9ABBE /* FavoriteModel.swift */; };
 		204BF2C42948831400D9ABBE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 204BF2C62948831400D9ABBE /* Localizable.strings */; };
 		204BF2CC29488A1E00D9ABBE /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF2CB29488A1E00D9ABBE /* LanguageViewController.swift */; };
 		204BF2D129488CA100D9ABBE /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF2CF29488CA100D9ABBE /* LanguageTableViewCell.swift */; };
@@ -31,6 +30,7 @@
 		204F9B212941CB5E00880610 /* MostRecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204F9B1F2941CB5E00880610 /* MostRecentCollectionViewCell.swift */; };
 		204F9B222941CB5E00880610 /* MostRecentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 204F9B202941CB5E00880610 /* MostRecentCollectionViewCell.xib */; };
 		2057290B294B4A390061D0B6 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057290A294B4A390061D0B6 /* ActivityIndicator.swift */; };
+		20667B17294BD1380092686B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20667B16294BD1380092686B /* LocalNotificationManager.swift */; };
 		20815D1A2940F81900833195 /* GameDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D192940F81900833195 /* GameDBClient.swift */; };
 		20815D1E2940F87E00833195 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D1D2940F87E00833195 /* GameListModel.swift */; };
 		20815D202940F91F00833195 /* GetPopularGamesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20815D1F2940F91F00833195 /* GetPopularGamesResponseModel.swift */; };
@@ -94,7 +94,6 @@
 		204BF2B329477A8300D9ABBE /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		204BF2B62947A12800D9ABBE /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		204BF2B72947A12800D9ABBE /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
-		204BF2BB2947A17400D9ABBE /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		204BF2C52948831400D9ABBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		204BF2C92948836F00D9ABBE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		204BF2CA2948836F00D9ABBE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		204F9B1F2941CB5E00880610 /* MostRecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		204F9B202941CB5E00880610 /* MostRecentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MostRecentCollectionViewCell.xib; sourceTree = "<group>"; };
 		2057290A294B4A390061D0B6 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		20667B16294BD1380092686B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		20815D192940F81900833195 /* GameDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDBClient.swift; sourceTree = "<group>"; };
 		20815D1D2940F87E00833195 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
 		20815D1F2940F91F00833195 /* GetPopularGamesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopularGamesResponseModel.swift; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				204BF2D42949E9AB00D9ABBE /* ViewModel */,
-				204BF2BA2947A16900D9ABBE /* Model */,
 				204BF2B52947A0FF00D9ABBE /* View */,
 				204BF2B329477A8300D9ABBE /* FavoritesViewController.swift */,
 			);
@@ -243,14 +242,6 @@
 				204BF2B72947A12800D9ABBE /* FavoritesTableViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		204BF2BA2947A16900D9ABBE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				204BF2BB2947A17400D9ABBE /* FavoriteModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		204BF2CD29488C5F00D9ABBE /* Language */ = {
@@ -305,6 +296,14 @@
 				204BF2DD294A90A800D9ABBE /* AllGamesView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		20667B15294BD0CB0092686B /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				20667B16294BD1380092686B /* LocalNotificationManager.swift */,
+			);
+			path = LocalNotification;
 			sourceTree = "<group>";
 		};
 		20815D1B2940F86E00833195 /* GameListModel */ = {
@@ -440,6 +439,7 @@
 				20A70FE22940C3CA0074868E /* Core */,
 				20A70FE12940BF460074868E /* App */,
 				208AEC9429434C80005974CE /* Enums */,
+				20667B15294BD0CB0092686B /* LocalNotification */,
 				208AEC9E294466CD005974CE /* Helpers */,
 				204BF2A42947488800D9ABBE /* CoreData */,
 				20A70FBF2940BE340074868E /* Info.plist */,
@@ -792,11 +792,11 @@
 				204BF2B429477A8300D9ABBE /* FavoritesViewController.swift in Sources */,
 				204BF2B82947A12800D9ABBE /* FavoritesTableViewCell.swift in Sources */,
 				20A70FB32940BE320074868E /* GameViewController.swift in Sources */,
-				204BF2BC2947A17400D9ABBE /* FavoriteModel.swift in Sources */,
 				204BF2CC29488A1E00D9ABBE /* LanguageViewController.swift in Sources */,
 				208AECB429460AFF005974CE /* TopRatedGamesCollectionViewCell.swift in Sources */,
 				20815D202940F91F00833195 /* GetPopularGamesResponseModel.swift in Sources */,
 				20A70FAF2940BE320074868E /* AppDelegate.swift in Sources */,
+				20667B17294BD1380092686B /* LocalNotificationManager.swift in Sources */,
 				20A70FB12940BE320074868E /* SceneDelegate.swift in Sources */,
 				208AECA3294504A9005974CE /* NewReleasesTableViewCell.swift in Sources */,
 				204BF2D8294A7CD800D9ABBE /* SeeAllGamesVC.swift in Sources */,

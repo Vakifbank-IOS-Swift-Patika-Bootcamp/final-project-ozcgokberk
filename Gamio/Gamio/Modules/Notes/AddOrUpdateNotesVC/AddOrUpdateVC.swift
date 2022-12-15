@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 protocol AddOrUpdateVCProtocol: AnyObject {
     func refresh()
 }
@@ -15,6 +16,7 @@ final class AddOrUpdateVC: UIViewController {
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var gameNoteTxtView: UITextView!
     weak var delegate: AddOrUpdateVCProtocol?
+    
     var noteArray: [Notes] = []
     var gameId: Int?
     var gameImg: String?
@@ -54,7 +56,7 @@ final class AddOrUpdateVC: UIViewController {
                 guideVC.id = gameId
             }
             noteArray.append(CoreDataManager.shared.saveGameNote(id: UUID().uuidString, gameId: gameId!, gameNote: gameNoteTxtView.text, gameImage: gameImg ?? "", gameName: gameName ?? "")!)
-            Alert.sharedInstance.showSuccess()
+                Alert.sharedInstance.showSuccess()
             delegate?.refresh()
             dismiss(animated: true)
         }

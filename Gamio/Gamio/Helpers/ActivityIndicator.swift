@@ -17,7 +17,7 @@ final class ActivityIndicator: UIView {
                 
             ),
             type: .ballClipRotate,
-            color: (.red)
+            color: (.white)
         )
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false

@@ -37,16 +37,19 @@ final class GameViewController: UIViewController {
         viewModel.getLatestGames()
         viewModel.getMostRatedGames()
         setupTopRatedTableView()
+        setupNotification()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
-        
     }
-    
+        
     private func setupTopRatedTableView() {
         topRatedGamesTableView.dataSource = self
         topRatedGamesTableView.delegate = self
         topRatedGamesTableView.register(UINib(nibName: "NewReleasesTableViewCell", bundle: nil), forCellReuseIdentifier: "NewReleasesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGamesTableViewCell")
+    }
+    private func setupNotification() {
+        LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "Hello", body: "local", userInfo: ["aps" : ["hello" : "world"]])
     }
     
     @objc func doneButtonPressed() {
@@ -167,13 +170,13 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 extension GameViewController: GameListViewModelDelegate {
 
     func latesGamesLoaded(latestGames: [GameListModel]?) {
-        hideBlockingActivityIndicator()
+    
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()
     }
     
     func gamesLoaded(gamesArray: [GameListModel]?) {
-        hideBlockingActivityIndicator()
+        
         self.allGames = gamesArray ?? []
         topRatedGamesTableView.reloadData()
     }

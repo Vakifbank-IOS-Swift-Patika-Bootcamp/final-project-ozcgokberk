@@ -94,7 +94,7 @@ final class CoreDataManager {
         return []
     }
     
-    func notUpdate(id: String, gameId: Int32) {
+    func notUpdate(id: String, gameId: Int32,gameNote: String) {
         let request: NSFetchRequest<Notes> = Notes.fetchRequest()
         request.predicate = NSPredicate(format: "gameId = %@", argumentArray: [id])
         
@@ -105,6 +105,7 @@ final class CoreDataManager {
                 
                 notes.setValue(id, forKey: "id")
                 notes.setValue(gameId, forKey: "gameId")
+                notes.setValue(gameNote, forKey: "gameNote")
                 self.save()
             }
         } catch {
