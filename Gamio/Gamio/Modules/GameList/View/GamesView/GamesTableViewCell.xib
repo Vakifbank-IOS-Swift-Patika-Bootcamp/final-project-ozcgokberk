@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4y-IZ-Tna">
-                        <rect key="frame" x="10" y="10" width="94.333333333333329" height="25"/>
+                        <rect key="frame" x="10" y="10" width="94.333333333333329" height="30"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-CU-PJf">
-                        <rect key="frame" x="0.0" y="40" width="413" height="136"/>
+                        <rect key="frame" x="0.0" y="45" width="413" height="131"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qsf-4T-9om">
                             <size key="itemSize" width="128" height="128"/>
@@ -34,9 +34,9 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeG-Rf-OFk">
-                        <rect key="frame" x="338" y="15" width="50" height="20"/>
+                        <rect key="frame" x="338" y="15" width="50" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="VpT-Hy-YNo"/>
+                            <constraint firstAttribute="height" constant="25" id="VpT-Hy-YNo"/>
                             <constraint firstAttribute="width" constant="50" id="aaa-G1-HPZ"/>
                         </constraints>
                         <state key="normal" title="Button"/>
@@ -46,10 +46,17 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-Nk-nBa">
-                        <rect key="frame" x="228.33333333333334" y="15" width="89.666666666666657" height="20"/>
+                        <rect key="frame" x="228.33333333333334" y="15" width="89.666666666666657" height="25"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="See All">
-                            <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <attributedString key="attributedTitle">
+                                <fragment content="See All">
+                                    <attributes>
+                                        <font key="NSFont" size="21" name="ArialMT"/>
+                                        <integer key="NSUnderline" value="1"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
                         <connections>

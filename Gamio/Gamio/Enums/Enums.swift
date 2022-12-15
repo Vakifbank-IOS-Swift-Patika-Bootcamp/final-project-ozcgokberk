@@ -95,3 +95,36 @@ enum DateFormatType: String {
     
     /// Date dd-MM-yyyy HH:mm
 }
+
+enum CommonLocalization {
+    case success
+    case successContentText
+    case error
+    case warning
+    case errorOccured
+    case errorOccuredParsing
+    case mustInput
+    case done
+    
+    
+    var localized: String {
+        switch self {
+        case .success:
+            return "successText".localized
+        case .successContentText:
+            return "successContentText".localized
+        case .error:
+            return "errorText".localized
+        case .warning:
+            return "warningText".localized
+        case .errorOccured:
+            return "errorContentText".localized
+        case .errorOccuredParsing:
+            return "dataParseErrorText".localized
+        case .mustInput:
+            return "emptyInput".localized
+        case .done:
+            return "doneText".localized
+        }
+    }
+}

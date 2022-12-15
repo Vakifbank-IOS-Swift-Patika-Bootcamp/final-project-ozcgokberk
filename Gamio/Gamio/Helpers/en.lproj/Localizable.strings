@@ -24,3 +24,16 @@ gameNote = "Game Note";
 noteTitle = "Note";
 cancelButtonText = "Cancel";
 seeAllText = "See All";
+searchText = "Search";
+successText = "Congrats";
+successContentText = "Operation successful";
+errorText = "Error";
+errorContentText = "Operation Failed";
+warningText = "Warning";
+confirmText = "Okey";
+cancelText = "Cancel";
+selectText = "Select";
+deleteText = "Delete";
+emptyInput = "Fields Cannot Be Empty";
+doneText = "Done";
+

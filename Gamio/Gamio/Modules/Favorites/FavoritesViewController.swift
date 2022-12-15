@@ -59,8 +59,10 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             do {
                 try CoreDataManager.shared.managedContext.save()
+                Alert.sharedInstance.showSuccess()
                 tableView.reloadData()
             } catch let error as NSError {
+                Alert.sharedInstance.showError()
                 print("Could not save. \(error), \(error.userInfo)")
             }
         }

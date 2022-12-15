@@ -94,10 +94,12 @@ final class GameDetailViewController: UIViewController {
             }
             favoritedGames.append(CoreDataManager.shared.saveFavorites(id: UUID().uuidString, gameId: Int32(gameId!), gameImg: imageUrl ?? "", gameName: gameName ?? "", gameRate: gameRate ?? 0)!)
             favoriteButton.setImage(UIImage(named: "favoriteWhiteFilled"), for: .normal)
+            Alert.sharedInstance.showSuccess()
             delegate?.refresh()
             
         } else {
             CoreDataManager.shared.deletesingleFavorite(gameId: Int32(gameId!))
+            Alert.sharedInstance.showSuccess()
             favoriteButton.setImage(UIImage(named: "favoriteWhiteEmpty"), for: .normal)
         }
     }

@@ -25,6 +25,7 @@ class LanguageViewController: UIViewController {
     }
     private func setLanguage(selectedLang: LanguageEnum) {
         L10n.shared.language = selectedLang.rawValue.lowercased()
+        Alert.sharedInstance.showSuccess()
         NotificationCenter.default.post(name: .RefreshTableView, object: nil)
     }
 }

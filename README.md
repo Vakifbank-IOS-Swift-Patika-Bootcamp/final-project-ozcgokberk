@@ -34,16 +34,20 @@ Uygulama gereklilikleri:
 - Uygulamada hata mesajları ve bekleme esnasında activity indicator
 
 kullanılmalıdır.. - İşlemler CoreData ile yapılmalıdır.
-- CoreData’ya bir CoreDataManager üzerinden erişilmelidir.
-- Local push entegrasyonu sağlanmalıdır.
+- CoreData’ya bir CoreDataManager üzerinden erişilmelidir.✅
+
+
+- Local push entegrasyonu sağlanmalıdır.❌
 - Notification yönetimi bir localNotificationManager aracılığıyla
 yapılmalıdır. - Localization sağlanmalıdır.
 - ViewModel localNotificationManager’a notificationManager protokolü üzerinden
 erişmelidir.
+
+
 - Uygulamanın unit test yaklaşımı ve coverage yüzdesi değerlendirme kriterleri
-arasındadır.
+arasındadır
 - UI ve animasyon tamamen tercihe bağlı olup farklı cihaz görünümleri
-gözetilmelidir.
+gözetilmelidir.✅.(iphone 6S Plus , iphone 8 ,12pro, 14pro)
 
 1- API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
 2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.✅
@@ -53,7 +57,7 @@ oyunlar veya popüler oyunlar olabilir.)✅
 5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.✅
 6- Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
 Ekrandaki editleme maddesi)✅
-7- Favorilerin listelendiği bir ekran olacak.
+7- Favorilerin listelendiği bir ekran olacak.✅
 8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
-düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)
+düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)❌
 9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.✅

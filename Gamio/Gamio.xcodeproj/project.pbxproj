@@ -46,6 +46,7 @@
 		208AECB829460BC3005974CE /* TopRatedGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AECB629460BC3005974CE /* TopRatedGamesTableViewCell.swift */; };
 		208AECB929460BC3005974CE /* TopRatedGamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208AECB729460BC3005974CE /* TopRatedGamesTableViewCell.xib */; };
 		208AECBB294632A2005974CE /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AECBA294632A2005974CE /* GameDetailViewController.swift */; };
+		209A05F4294B1C2F0067C4E4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A05F3294B1C2F0067C4E4 /* Alert.swift */; };
 		20A70FAF2940BE320074868E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FAE2940BE320074868E /* AppDelegate.swift */; };
 		20A70FB12940BE320074868E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB02940BE320074868E /* SceneDelegate.swift */; };
 		20A70FB32940BE320074868E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A70FB22940BE320074868E /* GameViewController.swift */; };
@@ -121,6 +122,7 @@
 		208AECB629460BC3005974CE /* TopRatedGamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedGamesTableViewCell.swift; sourceTree = "<group>"; };
 		208AECB729460BC3005974CE /* TopRatedGamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRatedGamesTableViewCell.xib; sourceTree = "<group>"; };
 		208AECBA294632A2005974CE /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		209A05F3294B1C2F0067C4E4 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		20A70FAB2940BE320074868E /* Gamio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gamio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A70FAE2940BE320074868E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20A70FB02940BE320074868E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		208AEC9E294466CD005974CE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				209A05F3294B1C2F0067C4E4 /* Alert.swift */,
 				20A70FF32940D5110074868E /* Constants.swift */,
 				20A70FBA2940BE340074868E /* Assets.xcassets */,
 				204BF2C62948831400D9ABBE /* Localizable.strings */,
@@ -803,6 +806,7 @@
 				204BF2D62949E9BD00D9ABBE /* FavoritesViewModel.swift in Sources */,
 				208AEC9629434C8C005974CE /* Enums.swift in Sources */,
 				20815D232940FBED00833195 /* GameListViewModel.swift in Sources */,
+				209A05F4294B1C2F0067C4E4 /* Alert.swift in Sources */,
 				20815D1A2940F81900833195 /* GameDBClient.swift in Sources */,
 				20815D1E2940F87E00833195 /* GameListModel.swift in Sources */,
 				204BF2E0294A922E00D9ABBE /* AllGamesTableViewCell.swift in Sources */,

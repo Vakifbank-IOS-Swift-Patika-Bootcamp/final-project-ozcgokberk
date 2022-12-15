@@ -28,6 +28,9 @@ final class GamesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         //        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
         seeAllButton.setTitle("seeAllText".localized, for: .normal)
+        seeAllButton.layer.borderWidth = 1.0
+        seeAllButton.layer.cornerRadius = 15
+        seeAllButton.layer.borderColor = UIColor.white.cgColor
         allGamesLabel.text = "allGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self

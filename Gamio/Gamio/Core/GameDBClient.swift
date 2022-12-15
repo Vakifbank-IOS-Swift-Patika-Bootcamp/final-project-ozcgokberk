@@ -12,7 +12,7 @@ final class GameDBClient {
     static let BASE_URL = "https://api.rawg.io/api/"
     static let IMAGE_BASE_URL = "https://media.rawg.io/media/games/"
     static func getGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
-        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&page_size=100"
+        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&page_size=50"
         handleResponse(urlString: urlString, responseType: GetGamesListResponseModel.self) { responseModel, error in
             completion(responseModel?.results, error)
         }
@@ -53,6 +53,7 @@ final class GameDBClient {
             guard let data = response.value else {
                 DispatchQueue.main.async {
                     completion(nil, response.error)
+                    Alert.sharedInstance.showWarning()
                 }
                 return
             }
@@ -66,6 +67,7 @@ final class GameDBClient {
             catch {
                 DispatchQueue.main.async {
                     completion(nil, error)
+                    Alert.sharedInstance.showWarning()
                 }
             }
         }

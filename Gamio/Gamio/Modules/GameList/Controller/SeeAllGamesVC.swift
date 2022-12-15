@@ -20,7 +20,7 @@ class SeeAllGamesVC: UIViewController {
         super.viewDidLoad()
         configureTableView()
         searchBar.delegate = self
-
+        searchBar.placeholder = "searchText".localized
     }
     
     private func configureTableView() {

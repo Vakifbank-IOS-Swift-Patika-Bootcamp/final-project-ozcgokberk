@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 protocol GameListViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGames()

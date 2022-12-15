@@ -25,7 +25,7 @@ final class AddOrUpdateVC: UIViewController {
         configureNavigationBar()
     }
     private func viewSetup() {
-        gameNoteTxtView.text = CoreDataManager.shared.getNoteById(gameId: gameId ?? 0)?.gameNote
+//        gameNoteTxtView.text = CoreDataManager.shared.getNoteById(gameId: gameId ?? 0)?.gameNote
         guard let imgUrl = URL(string: gameImg ?? "") else { return }
         gameImageView.af.setImage(withURL: imgUrl)
         gameImageView.layer.masksToBounds = true
@@ -47,14 +47,18 @@ final class AddOrUpdateVC: UIViewController {
     
     @objc func doneButtonPressed() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let guideVC = storyboard.instantiateViewController(identifier: "NotesViewController") as? NotesViewController {
-            guideVC.id = gameId
+        if gameNoteTxtView.text.isEmpty {
+            Alert.sharedInstance.showWarning()
+        } else {
+            if let guideVC = storyboard.instantiateViewController(identifier: "NotesViewController") as? NotesViewController {
+                guideVC.id = gameId
+            }
+            noteArray.append(CoreDataManager.shared.saveGameNote(id: UUID().uuidString, gameId: gameId!, gameNote: gameNoteTxtView.text, gameImage: gameImg ?? "", gameName: gameName ?? "")!)
+            Alert.sharedInstance.showSuccess()
+            delegate?.refresh()
+            dismiss(animated: true)
         }
-        noteArray.append(CoreDataManager.shared.saveGameNote(id: UUID().uuidString, gameId: gameId!, gameNote: gameNoteTxtView.text, gameImage: gameImg ?? "", gameName: gameName ?? "")!)
-        delegate?.refresh()
-        dismiss(animated: true)
     }
-
 }
 
 extension AddOrUpdateVC: UITextViewDelegate {
