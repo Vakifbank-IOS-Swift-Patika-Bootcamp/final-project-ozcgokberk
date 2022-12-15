@@ -45,15 +45,29 @@
                             <action selector="sortButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jqy-yv-Y44"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-Nk-nBa">
+                        <rect key="frame" x="228.33333333333334" y="15" width="89.666666666666657" height="20"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="See All">
+                            <fontDescription key="titleFontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="seeAllButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6dx-mG-Joz"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Auy-9U-6E1"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="c4y-IZ-Tna" secondAttribute="bottom" constant="5" id="EB1-yB-5H3"/>
+                    <constraint firstItem="PT8-Nk-nBa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="KHd-9s-FQJ"/>
                     <constraint firstAttribute="bottom" secondItem="n5l-CU-PJf" secondAttribute="bottom" id="O2i-77-Glt"/>
+                    <constraint firstItem="oeG-Rf-OFk" firstAttribute="leading" secondItem="PT8-Nk-nBa" secondAttribute="trailing" constant="20" id="SbW-oQ-oKm"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="oeG-Rf-OFk" secondAttribute="bottom" constant="5" id="UeS-pZ-2NR"/>
                     <constraint firstItem="c4y-IZ-Tna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g0C-M5-vOw"/>
                     <constraint firstAttribute="trailing" secondItem="oeG-Rf-OFk" secondAttribute="trailing" constant="25" id="gTn-oP-dHN"/>
                     <constraint firstItem="oeG-Rf-OFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="jrf-am-njI"/>
+                    <constraint firstItem="n5l-CU-PJf" firstAttribute="top" secondItem="PT8-Nk-nBa" secondAttribute="bottom" constant="5" id="m58-pT-LWf"/>
                     <constraint firstItem="n5l-CU-PJf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r0i-Sb-cfg"/>
                     <constraint firstAttribute="trailing" secondItem="n5l-CU-PJf" secondAttribute="trailing" id="tOX-qE-MEK"/>
                 </constraints>
@@ -63,6 +77,7 @@
             <connections>
                 <outlet property="allGamesLabel" destination="c4y-IZ-Tna" id="P3O-ma-KWR"/>
                 <outlet property="collectionView" destination="n5l-CU-PJf" id="rGw-2S-aTR"/>
+                <outlet property="seeAllButton" destination="PT8-Nk-nBa" id="QVF-oL-2PR"/>
             </connections>
             <point key="canvasLocation" x="142.74809160305344" y="66.197183098591552"/>
         </tableViewCell>

@@ -9,6 +9,7 @@ import UIKit
 protocol GamesTableViewCellDelegate: AnyObject {
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel)
     func sortButtonPressed()
+    func seeAllButtonPressed()
 }
 
 final class GamesTableViewCell: UITableViewCell {
@@ -16,6 +17,8 @@ final class GamesTableViewCell: UITableViewCell {
     //Mark: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var allGamesLabel: UILabel!
+    @IBOutlet weak var seeAllButton: UIButton!
+    
     //Mark: Properties
     var allGames: [GameListModel] = []
     weak var delegate: GamesTableViewCellDelegate?
@@ -23,7 +26,8 @@ final class GamesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
+        seeAllButton.setTitle("seeAllText".localized, for: .normal)
         allGamesLabel.text = "allGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -40,17 +44,21 @@ final class GamesTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
-        @IBAction func sortButtonPressed(_ sender: Any) {
+    
+    @IBAction func sortButtonPressed(_ sender: Any) {
         delegate?.sortButtonPressed()
     }
     
-    @objc func refreshGamesTableView() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-        
+    @IBAction func seeAllButtonPressed(_ sender: Any) {
+        delegate?.seeAllButtonPressed()
     }
-
+    
+    //    @objc func refreshGamesTableView() {
+    //        DispatchQueue.main.async {
+    //            self.collectionView.reloadData()
+    //        }
+    //    }
+    
 }
 
 extension GamesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -37,6 +37,7 @@ final class GameViewController: UIViewController {
         viewModel.getMostRatedGames()
         setupTopRatedTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
+        
     }
     
     private func setupTopRatedTableView() {
@@ -70,10 +71,8 @@ final class GameViewController: UIViewController {
         switch L10n.shared.language {
         case "en":
             languageButton.setImage(UIImage(named: "english"), for: .normal)
-            searchBar.placeholder = "searchBarPlaceholder".localized
         case "tr":
             languageButton.setImage(UIImage(named: "turkiye"), for: .normal)
-            searchBar.placeholder = "searchBarPlaceholder".localized
         default:
             break
         }
@@ -106,8 +105,10 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
-        let indexpath = IndexSet(integer: 1)
-        topRatedGamesTableView.reloadSections(indexpath, with: .none)
+//        let indexpath = IndexSet(integer: 1)
+//        topRatedGamesTableView.reloadSections(indexpath, with: .none)
+        topRatedGamesTableView.reloadData()
+//        NotificationCenter.default.post(name: .RefreshGamesTableView, object: nil)
     }
     
 }
@@ -211,6 +212,15 @@ extension GameViewController: NewReleasesTableViewCellDelegate {
 
 extension GameViewController: GamesTableViewCellDelegate {
     
+    func seeAllButtonPressed() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let guideVC = storyboard.instantiateViewController(identifier: "SeeAllGamesVC") as? SeeAllGamesVC {
+            guideVC.allGames = allGames
+            navigationController?.pushViewController(guideVC, animated: true)
+        }
+    }
+    
+    
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
@@ -229,42 +239,4 @@ extension GameViewController: TopRatedGamesTableViewCellDelegate {
         }
     }
 }
- 
-extension GameViewController: UISearchBarDelegate {
 
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            isSearching = true
-            self.searchBar.showsCancelButton = true
-//            self.collectionView.reloadData()
-        }
-
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            self.searchBar.text = ""
-            self.searchedGames = []
-            isSearching = false
-            self.searchBar.showsCancelButton = false
-            self.searchBar.endEditing(true)
-            self.dismiss(animated: true, completion: nil)
-//            self.collectionView.reloadData()
-        }
-
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            if searchBar.text! == " "  {
-                searchedGames = allGames
-//                collectionView.reloadData()
-            } else {
-
-                searchedGames = allGames.filter({ games in
-                    games.name.contains(searchBar.text!)
-                })
-
-//            collectionView.reloadData()
-            }
-
-        }
-
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            collectionView.reloadData()
-        }
-
-    }

@@ -22,3 +22,5 @@ sortByReleasedTxt = "Yayınlanma Tarihine Göre Sırala";
 sortByPlaytimeTxt = "Oynama Süresine Göre Sırala";
 gameNote = "Oyun Notu";
 noteTitle = "Not";
+cancelButtonText = "Vazgeç";
+seeAllText = "Tümünü Gör";

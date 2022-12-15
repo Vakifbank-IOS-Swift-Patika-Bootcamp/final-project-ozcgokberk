@@ -9,16 +9,7 @@
 
 import Foundation
 import CoreData
-//protocol NotesViewModelProtocol {
-//    var delegate: NotesViewModelDelegate? { get set }
-//    func fetchNotes()
-//    func fetchNoteDetail(id: Int)
-//    func getNotesCount() -> Int
-//
-//}
-//protocol NotesViewModelDelegate: AnyObject {
-//    func notesLoaded(notes: [Notes])
-//}
+
 protocol FavoritesViewModelProtocol {
     var delegate: FavoritesViewModelDelegate? { get set }
     func fetchFavorites()

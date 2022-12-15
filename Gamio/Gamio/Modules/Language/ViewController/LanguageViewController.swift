@@ -15,7 +15,6 @@ class LanguageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        // Do any additional setup after loading the view.
     }
 
     private func viewSetup() {

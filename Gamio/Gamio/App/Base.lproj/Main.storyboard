@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="-937" y="910"/>
         </scene>
-        <!--GAMIO-->
+        <!--Game View Controller-->
         <scene sceneID="LEA-wO-Xl3">
             <objects>
                 <viewController id="rcC-Zj-m28" customClass="GameViewController" customModule="Gamio" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,57 +135,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-Iz-Js2">
-                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                                <rect key="frame" x="0.0" y="180.66666666666669" width="393" height="588.33333333333326"/>
                                 <color key="backgroundColor" red="0.090830378229999995" green="0.14496892689999999" blue="0.37649574879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JGJ-t2-sog">
-                                <rect key="frame" x="16" y="108" width="361" height="37"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Game in All Games" translatesAutoresizingMaskIntoConstraints="NO" id="yG0-Gc-cwf">
-                                        <rect key="frame" x="0.0" y="5" width="257" height="27"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmZ-Be-c1H">
-                                        <rect key="frame" x="262" y="1" width="99" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="z1L-k6-Z14"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="turkiye"/>
-                                        <connections>
-                                            <segue destination="Qfr-N9-eHF" kind="show" identifier="goToLangVC" id="aSe-Zz-ChT"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="yG0-Gc-cwf" firstAttribute="top" secondItem="JGJ-t2-sog" secondAttribute="top" constant="5" id="VZ9-7n-WaG"/>
-                                    <constraint firstAttribute="height" constant="37" id="agX-9h-Gh3"/>
-                                    <constraint firstAttribute="bottom" secondItem="yG0-Gc-cwf" secondAttribute="bottom" constant="5" id="qve-1O-cVX"/>
-                                </constraints>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-6G-7xH">
+                                <rect key="frame" x="310" y="119.00000000000001" width="67" height="56.666666666666671"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="turkiye"/>
+                                <connections>
+                                    <segue destination="Qfr-N9-eHF" kind="show" identifier="goToLangVC" id="bKk-H7-KHw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="slD-ab-al2"/>
-                        <color key="backgroundColor" red="0.1026777104" green="0.16006845240000001" blue="0.41963583230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.090196078431372548" green="0.14509803921568626" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="RPe-Iz-Js2" firstAttribute="top" secondItem="JGJ-t2-sog" secondAttribute="bottom" constant="10" id="3Ah-E3-5t9"/>
-                            <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="JGJ-t2-sog" secondAttribute="trailing" constant="16" id="9Nw-d2-0R0"/>
-                            <constraint firstItem="JGJ-t2-sog" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" constant="16" id="HXY-FN-3IN"/>
-                            <constraint firstItem="JGJ-t2-sog" firstAttribute="top" secondItem="slD-ab-al2" secondAttribute="top" constant="5" id="HeF-ts-TBL"/>
                             <constraint firstItem="RPe-Iz-Js2" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" id="L4X-HD-mPX"/>
+                            <constraint firstItem="JRw-6G-7xH" firstAttribute="top" secondItem="slD-ab-al2" secondAttribute="top" constant="16" id="QhI-Fq-gBi"/>
+                            <constraint firstItem="JRw-6G-7xH" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" constant="310" id="Y3z-Uj-XQB"/>
                             <constraint firstItem="slD-ab-al2" firstAttribute="bottom" secondItem="RPe-Iz-Js2" secondAttribute="bottom" id="ZDA-Oy-GLz"/>
+                            <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="JRw-6G-7xH" secondAttribute="trailing" constant="16" id="a6u-sx-gSO"/>
+                            <constraint firstItem="RPe-Iz-Js2" firstAttribute="top" secondItem="JRw-6G-7xH" secondAttribute="bottom" constant="5" id="clV-6j-Cbk"/>
                             <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="RPe-Iz-Js2" secondAttribute="trailing" id="pRo-5J-re0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="GAMIO" id="jbB-RC-1bL"/>
+                    <navigationItem key="navigationItem" id="jbB-RC-1bL"/>
                     <connections>
-                        <outlet property="languageButton" destination="BmZ-Be-c1H" id="6FZ-BP-HI3"/>
-                        <outlet property="searchBar" destination="yG0-Gc-cwf" id="shu-Zl-0Ho"/>
+                        <outlet property="languageButton" destination="JRw-6G-7xH" id="E9G-33-8ej"/>
                         <outlet property="topRatedGamesTableView" destination="RPe-Iz-Js2" id="gnW-83-dx4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKp-HR-AuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-889" y="-642"/>
+            <point key="canvasLocation" x="-889.3129770992366" y="-642.25352112676057"/>
+        </scene>
+        <!--See All GamesVC-->
+        <scene sceneID="pRj-yc-kEk">
+            <objects>
+                <viewController storyboardIdentifier="SeeAllGamesVC" id="LD6-CL-zG9" customClass="SeeAllGamesVC" customModule="Gamio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PiV-yb-uca">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="BIl-Op-asG">
+                                <rect key="frame" x="0.0" y="74" width="393" height="56"/>
+                                <color key="barTintColor" red="0.090196078430000007" green="0.1450980392" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LD6-CL-zG9" id="tGw-n1-XHV"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T3l-bl-nD2">
+                                <rect key="frame" x="0.0" y="130" width="393" height="722"/>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.1450980392" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rJD-2Y-l8z"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.1450980392" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="T3l-bl-nD2" firstAttribute="trailing" secondItem="rJD-2Y-l8z" secondAttribute="trailing" id="5VK-Zr-3XX"/>
+                            <constraint firstItem="T3l-bl-nD2" firstAttribute="top" secondItem="BIl-Op-asG" secondAttribute="bottom" id="6um-j2-VeQ"/>
+                            <constraint firstAttribute="bottom" secondItem="T3l-bl-nD2" secondAttribute="bottom" id="I5O-af-6dI"/>
+                            <constraint firstItem="T3l-bl-nD2" firstAttribute="leading" secondItem="rJD-2Y-l8z" secondAttribute="leading" id="IRE-O9-8Fa"/>
+                            <constraint firstItem="BIl-Op-asG" firstAttribute="trailing" secondItem="rJD-2Y-l8z" secondAttribute="trailing" id="Og5-v8-tPf"/>
+                            <constraint firstItem="BIl-Op-asG" firstAttribute="top" secondItem="rJD-2Y-l8z" secondAttribute="top" constant="15" id="hYz-30-cMA"/>
+                            <constraint firstItem="BIl-Op-asG" firstAttribute="leading" secondItem="rJD-2Y-l8z" secondAttribute="leading" id="kKm-ua-EZ8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allGamesTableView" destination="T3l-bl-nD2" id="fJn-Xy-olk"/>
+                        <outlet property="searchBar" destination="BIl-Op-asG" id="MLj-nA-dXu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3M5-MS-akj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17.557251908396946" y="-445.07042253521126"/>
         </scene>
         <!--Game Detail View Controller-->
         <scene sceneID="cHq-QR-K9h">
@@ -220,11 +244,11 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vLY-Gg-DdX">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vLY-Gg-DdX">
                                                 <rect key="frame" x="160" y="260" width="223" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m55-oY-idn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="note.text" catalog="system" title="Add ">
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,7 +258,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyc-OL-psV">
-                                                        <rect key="frame" x="121.66666666666669" y="0.0" width="101.33333333333331" height="35"/>
+                                                        <rect key="frame" x="112" y="0.0" width="111" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="Like">
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -442,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXw-fL-Yan" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="-642"/>
+            <point key="canvasLocation" x="18" y="-1116"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rQw-Sa-Vqv">

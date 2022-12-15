@@ -36,7 +36,7 @@ extension String {
 
 extension Notification.Name {
     static let RefreshTableView = Notification.Name(rawValue: "refreshTableView")
-    static let RefreshGamesTableView = Notification.Name(rawValue: "refreshGamesTableView")
+//    static let RefreshGamesTableView = Notification.Name(rawValue: "refreshGamesTableView")
 }
 
 extension Date {

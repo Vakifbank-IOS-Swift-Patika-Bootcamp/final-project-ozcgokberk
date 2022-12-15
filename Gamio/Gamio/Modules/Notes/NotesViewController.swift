@@ -12,8 +12,6 @@ final class NotesViewController: UIViewController {
     private var viewModel: NotesViewModelProtocol = NotesListViewModel()
     @IBOutlet weak var notesTableView: UITableView!
     private var notes: [Notes] = []
-//    var managedContext: NSManagedObjectContext!
-//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var id: Int?
     
     override func viewDidLoad() {

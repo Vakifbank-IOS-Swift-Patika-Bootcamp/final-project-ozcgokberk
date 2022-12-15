@@ -22,3 +22,5 @@ sortByReleasedTxt = "Sort By Released";
 sortByPlaytimeTxt = "Sort By PlayTime";
 gameNote = "Game Note";
 noteTitle = "Note";
+cancelButtonText = "Cancel";
+seeAllText = "See All";
