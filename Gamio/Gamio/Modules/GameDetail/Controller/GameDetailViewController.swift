@@ -46,6 +46,7 @@ final class GameDetailViewController: UIViewController {
     
     var favoritedGames: [Favorites] = []
     override func viewDidLoad() {
+        showBlockingActivityIndicator()
         viewSetup()
         super.viewDidLoad()
         guard let id = gameId else { return }
@@ -117,5 +118,6 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         ratingValue.text = "⭐️ \(gameRate ?? 0)/5"
         metacriticValue.text = "\(viewModel.getMetacritic())/100"
         descriptionLabel.text = Constants.removeHTMLTags(in: "\(viewModel.getDescription())")
+        hideBlockingActivityIndicator()
     }
 }

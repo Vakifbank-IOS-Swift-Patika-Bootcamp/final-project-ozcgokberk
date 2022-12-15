@@ -18,7 +18,6 @@ final class MostRecentCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func configureCell(model: GameListModel) {

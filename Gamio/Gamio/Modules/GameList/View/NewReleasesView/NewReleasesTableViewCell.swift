@@ -47,6 +47,7 @@ extension NewReleasesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostRecentCollectionViewCell", for: indexPath) as? MostRecentCollectionViewCell else {return UICollectionViewCell()}
         cell.configureCell(model: mostRecentGames[indexPath.row])
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

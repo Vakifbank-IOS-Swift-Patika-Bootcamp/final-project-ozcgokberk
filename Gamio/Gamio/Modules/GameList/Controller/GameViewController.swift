@@ -31,6 +31,7 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLanguage()
+        showBlockingActivityIndicator()
         viewModel.delegate = self
         viewModel.fetchGames()
         viewModel.getLatestGames()
@@ -166,16 +167,19 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 extension GameViewController: GameListViewModelDelegate {
 
     func latesGamesLoaded(latestGames: [GameListModel]?) {
+        hideBlockingActivityIndicator()
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()
     }
     
     func gamesLoaded(gamesArray: [GameListModel]?) {
+        hideBlockingActivityIndicator()
         self.allGames = gamesArray ?? []
         topRatedGamesTableView.reloadData()
     }
     
     func topRatedGamesLoaded(topRatedGames: [GameListModel]?) {
+        hideBlockingActivityIndicator()
         self.topRatedGames = topRatedGames ?? []
         topRatedGamesTableView.reloadData()
     }
