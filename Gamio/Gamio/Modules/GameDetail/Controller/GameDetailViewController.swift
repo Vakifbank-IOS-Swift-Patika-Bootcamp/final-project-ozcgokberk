@@ -52,6 +52,7 @@ final class GameDetailViewController: UIViewController {
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: id)
         
+        
     }
     
     private func viewSetup() {

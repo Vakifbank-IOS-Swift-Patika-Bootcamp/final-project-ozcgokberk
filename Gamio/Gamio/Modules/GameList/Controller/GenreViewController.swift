@@ -47,7 +47,7 @@ extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 210)
+        return CGSize(width: 180, height: 300)
         
     }
     

@@ -34,6 +34,7 @@ enum HomeSectionType: Int, CaseIterable {
     case allGames = 1
     case topRatedGames = 2
     case gameCategories = 3
+    
     var descripton: String {
         switch self {
         case .newGames:
@@ -70,33 +71,53 @@ enum LanguageEnum: String {
     }
 }
 
-enum DateFormatType: String {
+enum GameGenre: String {
     
-    /// Date with hours dd MMM yyyy H:mm
-    case dateWithTime = "dd MMM yyyy H:mm"
+    case action
+    case casual
+    case shooter
+    case adventure
+    case fantasy
+    case simulation
     
-    /// Date with month And yeard MMM yyyy
-    case dateWithMonthYear = "MMM yyyy"
-    
-    /// Date with hours dd.MM.yyyy - HH:mm
-    case dateWithTimeDotWithLine = "dd.MM.yyyy - HH:mm"
-    
-    /// Date with hours dd MMM yyyy H:mm
-    case dateWithTimeWithLine = "dd MMM yyyy - HH:mm"
-    
-    /// Date dd MMM yyyy
-    case date = "dd MMM yyyy"
-    
-    /// Date dd MMM
-    case dateWithMonthAndDay = "dd MMM"
-    
-    /// Date yyyy-MM-dd
-    case dateWithLine = "yyyy-MM-dd"
-    
-    /// Date dd-MM-yyyy
-    case dateWithLineStartingDay = "dd-MM-yyyy"
-    
-    /// Date dd-MM-yyyy HH:mm
+    var localized: String {
+        switch self {
+        case .action:
+            return "actionText".localized
+        case .adventure:
+            return "adventureText".localized
+        case .casual:
+            return "casualText".localized
+        case .shooter:
+            return "shooterText".localized
+        case .fantasy:
+            return "fantasyText".localized
+        case .simulation:
+            return "simulationText".localized
+        default:
+            break
+        }
+    }
+        
+    var description: String {
+            switch self {
+            case .action:
+                return "action"
+            case .adventure:
+                return "adventure"
+            case .casual:
+                return "casual"
+            case .shooter:
+                return "shooter"
+            case .fantasy:
+                return "fantasy"
+            case .simulation:
+                return "simulation"
+            default:
+                break
+            }
+
+        }
 }
 
 enum CommonLocalization {

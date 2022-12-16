@@ -3,7 +3,6 @@
   Gamio
 
   Created by Gokberk Ozcan on 13.12.2022.
-  
 */
 recentGames = "En Yeni Oyunlar";
 allGames = "Oyunlar";
@@ -37,5 +36,12 @@ emptyInput = "Alanlar Boş Bırakılamaz";
 doneText = "Tamamlandı";
 noteTitleText = "Not:";
 doneTitle = "Bitti";
-browseByGenreText = "Türe göre Keşfet";
+browseByGenreText = "Türe Göre Keşfet";
 notificationText = "Hey Oyuncu! Gel ve kendini güncel tut.";
+actionText = "Aksiyon";
+adventureText = "Macera";
+casualText = "Günlük";
+fantasyText = "Fantezi";
+shooterText = "Nişancı";
+simulationText = "Simulasyon";
+backButtonTitle = "Geri";

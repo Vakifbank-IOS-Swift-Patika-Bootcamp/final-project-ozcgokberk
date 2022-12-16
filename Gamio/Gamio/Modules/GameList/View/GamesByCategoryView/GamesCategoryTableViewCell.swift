@@ -18,8 +18,7 @@ class GamesCategoryTableViewCell: UITableViewCell {
     //MARK: Properties
     class var defaultHeight: Double { return 180 }
     weak var delegate: GamesCategoryTableViewCellDelegate?
-    var gameCategories: [String] = []
-    private var colors: [UIColor]  = [.red,.systemGreen,.cyan,.systemGray5,.systemYellow,.magenta]
+    var gameCategories: [GameGenre] = []
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -46,8 +45,8 @@ class GamesCategoryTableViewCell: UITableViewCell {
 extension GamesCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCategoryCollectionViewCell", for: indexPath) as? GamesCategoryCollectionViewCell else {return UICollectionViewCell()}
-            cell.categoryTitle.text = gameCategories[indexPath.row]
-            cell.backgroundColor = colors[indexPath.row]
+            cell.categoryTitle.text = gameCategories[indexPath.row].localized
+            cell.backgroundColor = .systemBlue
             return cell
             
         }
@@ -61,6 +60,6 @@ extension GamesCategoryTableViewCell: UICollectionViewDelegate, UICollectionView
         }
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            delegate?.gameCategoryTableViewCellDidTapped(self, gameTitle: gameCategories[indexPath.row])
+            delegate?.gameCategoryTableViewCellDidTapped(self, gameTitle: gameCategories[indexPath.row].description)
         }
 }

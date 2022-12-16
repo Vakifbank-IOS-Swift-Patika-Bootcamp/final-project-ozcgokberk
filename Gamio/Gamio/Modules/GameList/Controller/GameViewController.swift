@@ -9,11 +9,11 @@ import UIKit
 import L10n_swift
 final class GameViewController: UIViewController {
     
-    //MARK: Variables
+    //MARK: Outlets
     @IBOutlet weak var topRatedGamesTableView: UITableView!
     private lazy var picker = UIPickerView()
     private lazy var toolBar = UIToolbar()
-    private lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
+    
     @IBOutlet weak var languageButton: UIButton!
 
     
@@ -23,7 +23,8 @@ final class GameViewController: UIViewController {
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
-    private var gameCategories: [String] =  ["Action","Casual","Shooter","Adventure","Fantasy","Simulation"]
+    private lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
+    private var gameCategories: [GameGenre] =  [.action,.adventure,.casual,.fantasy,.shooter,.simulation]
     private var isSearching = false
 
     override func viewDidLoad() {
@@ -232,6 +233,7 @@ extension GameViewController: GamesTableViewCellDelegate {
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
         if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             guideVC.gameId = game.id
+            navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButtonTitle".localized, style: .plain, target: nil, action: nil)
             navigationController?.pushViewController(guideVC, animated: true)
         }
     }

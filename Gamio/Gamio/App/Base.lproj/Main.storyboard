@@ -192,38 +192,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-Iz-Js2">
-                                <rect key="frame" x="0.0" y="188" width="393" height="581"/>
+                                <rect key="frame" x="0.0" y="178" width="393" height="591"/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.1450980392" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-6G-7xH">
-                                <rect key="frame" x="310" y="119" width="67" height="64"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="turkiye"/>
-                                <connections>
-                                    <segue destination="Qfr-N9-eHF" kind="show" identifier="goToLangVC" id="bKk-H7-KHw"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAMIO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xc-Hk-kbl">
-                                <rect key="frame" x="16" y="118" width="286" height="65"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="a8J-xM-8y1">
+                                <rect key="frame" x="5" y="108" width="383" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAMIO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xc-Hk-kbl">
+                                        <rect key="frame" x="0.0" y="0.0" width="279.33333333333331" height="65"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-6G-7xH">
+                                        <rect key="frame" x="286.33333333333331" y="0.0" width="96.666666666666686" height="65"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="turkiye"/>
+                                        <connections>
+                                            <segue destination="Qfr-N9-eHF" kind="show" identifier="goToLangVC" id="bKk-H7-KHw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="slD-ab-al2"/>
                         <color key="backgroundColor" red="0.090196078431372548" green="0.14509803921568626" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="RPe-Iz-Js2" firstAttribute="top" secondItem="a8J-xM-8y1" secondAttribute="bottom" constant="5" id="Av7-9I-U3q"/>
                             <constraint firstItem="RPe-Iz-Js2" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" id="L4X-HD-mPX"/>
-                            <constraint firstItem="JRw-6G-7xH" firstAttribute="leading" secondItem="2Xc-Hk-kbl" secondAttribute="trailing" constant="8" id="Ls1-5J-Q40"/>
-                            <constraint firstItem="2Xc-Hk-kbl" firstAttribute="top" secondItem="slD-ab-al2" secondAttribute="top" constant="15" id="OhU-Ns-SVb"/>
-                            <constraint firstItem="JRw-6G-7xH" firstAttribute="top" secondItem="slD-ab-al2" secondAttribute="top" constant="16" id="QhI-Fq-gBi"/>
-                            <constraint firstItem="JRw-6G-7xH" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" constant="310" id="Y3z-Uj-XQB"/>
                             <constraint firstItem="slD-ab-al2" firstAttribute="bottom" secondItem="RPe-Iz-Js2" secondAttribute="bottom" id="ZDA-Oy-GLz"/>
-                            <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="JRw-6G-7xH" secondAttribute="trailing" constant="16" id="a6u-sx-gSO"/>
-                            <constraint firstItem="RPe-Iz-Js2" firstAttribute="top" secondItem="JRw-6G-7xH" secondAttribute="bottom" constant="5" id="clV-6j-Cbk"/>
-                            <constraint firstItem="2Xc-Hk-kbl" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" constant="16" id="lna-nE-dxc"/>
+                            <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="a8J-xM-8y1" secondAttribute="trailing" constant="5" id="a3z-il-bXm"/>
+                            <constraint firstItem="a8J-xM-8y1" firstAttribute="leading" secondItem="slD-ab-al2" secondAttribute="leading" constant="5" id="eMj-vd-AwT"/>
+                            <constraint firstItem="a8J-xM-8y1" firstAttribute="top" secondItem="slD-ab-al2" secondAttribute="top" constant="5" id="h2Z-wy-7YZ"/>
                             <constraint firstItem="slD-ab-al2" firstAttribute="trailing" secondItem="RPe-Iz-Js2" secondAttribute="trailing" id="pRo-5J-re0"/>
-                            <constraint firstItem="RPe-Iz-Js2" firstAttribute="top" secondItem="2Xc-Hk-kbl" secondAttribute="bottom" constant="5" id="vZu-8H-bjG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jbB-RC-1bL"/>
