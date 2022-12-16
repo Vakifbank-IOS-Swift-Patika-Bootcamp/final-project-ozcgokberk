@@ -39,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        LocalNotificationManager.cancel()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -48,6 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "Gamio", body: "notificationText".localized, userInfo: ["aps" : ["hello" : "world"]])
     }
 
 

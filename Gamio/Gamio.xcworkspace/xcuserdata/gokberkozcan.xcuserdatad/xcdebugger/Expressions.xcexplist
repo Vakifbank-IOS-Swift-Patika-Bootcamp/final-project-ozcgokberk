@@ -38,6 +38,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.tableView(_:numberOfRowsInSection:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gameCategories">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GameViewController.collectionView(_:cellForItemAt:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -76,6 +84,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
+      </ContextState>
+      <ContextState
          contextName = "GameViewController.viewDidLoad():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -106,6 +117,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filteredGenre">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TopRatedGamesCell.configureCell(model:):TopRatedGamesCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -118,6 +137,17 @@
          <PersistentStrings>
             <PersistentString
                value = "gameId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.ratedGamesTableViewCellDidTapped(_:game:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game.id&#10;            navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "game.id">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -163,6 +193,17 @@
                value = "viewModel.getMostRatedCount()&#10;">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GenreViewController.collectionView(_:numberOfItemsInSection:):GenreViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.getCountOfGames()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static GameDBClient.getGameByCategorie(genre:completion:):GameDBClient.swift">
       </ContextState>
       <ContextState
          contextName = "AddOrUpdateVC.init(coder:):AddOrUpdateVC.swift">

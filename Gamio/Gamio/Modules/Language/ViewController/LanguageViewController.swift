@@ -10,7 +10,7 @@ import L10n_swift
 
 class LanguageViewController: UIViewController {
 
-    let languages: [LanguageEnum] = [.TR, .EN]
+    private let languages: [LanguageEnum] = [.TR, .EN]
     @IBOutlet weak var languagesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class LanguageViewController: UIViewController {
         languagesTableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageTableViewCell")
         languagesTableView.separatorColor = .white
     }
+    
     private func setLanguage(selectedLang: LanguageEnum) {
         L10n.shared.language = selectedLang.rawValue.lowercased()
         Alert.sharedInstance.showSuccess()
@@ -50,5 +51,4 @@ extension LanguageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
 }

@@ -36,3 +36,6 @@ deleteText = "Delete";
 emptyInput = "Fields Cannot Be Empty";
 doneText = "Done";
 noteTitleText = "Note:";
+doneTitle = "Done";
+browseByGenreText = "Browse by Genre";
+notificationText = "Hello Gamer! Come and keep yourself updated.";

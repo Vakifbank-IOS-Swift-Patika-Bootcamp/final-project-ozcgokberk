@@ -36,3 +36,6 @@ deleteText = "Silmek";
 emptyInput = "Alanlar Boş Bırakılamaz";
 doneText = "Tamamlandı";
 noteTitleText = "Not:";
+doneTitle = "Bitti";
+browseByGenreText = "Türe göre Keşfet";
+notificationText = "Hey Oyuncu! Gel ve kendini güncel tut.";

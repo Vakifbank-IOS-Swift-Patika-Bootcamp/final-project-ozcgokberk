@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func applicationDidEnterBackground(_ application: UIApplication) {
        print("applicationDidEnterBackground")
+        
     }
     // MARK: - Core Data stack
 

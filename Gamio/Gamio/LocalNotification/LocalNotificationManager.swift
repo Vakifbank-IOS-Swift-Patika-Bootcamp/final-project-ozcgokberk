@@ -31,7 +31,7 @@ struct LocalNotificationManager {
             .current()
             .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
                 if granted == true && error == nil {
-                    // We have permission!
+            
             }
         }
     }
@@ -56,7 +56,6 @@ struct LocalNotificationManager {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().add(request) { error in
                 guard error == nil else { return }
-                print("Scheduling notification with id: \(notification.id)")
             }
         }
         notifications.removeAll()

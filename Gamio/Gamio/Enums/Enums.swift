@@ -33,6 +33,7 @@ enum HomeSectionType: Int, CaseIterable {
     case newGames = 0
     case allGames = 1
     case topRatedGames = 2
+    case gameCategories = 3
     var descripton: String {
         switch self {
         case .newGames:
@@ -41,6 +42,8 @@ enum HomeSectionType: Int, CaseIterable {
             return "all games"
         case .topRatedGames:
             return "top rated games"
+        case .gameCategories:
+            return "gameCategories"
         }
     }
 }

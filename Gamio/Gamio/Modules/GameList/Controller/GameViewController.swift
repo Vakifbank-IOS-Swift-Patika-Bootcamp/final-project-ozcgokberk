@@ -23,6 +23,7 @@ final class GameViewController: UIViewController {
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
+    private var gameCategories: [String] =  ["Action","Casual","Shooter","Adventure","Fantasy","Simulation"]
     private var isSearching = false
 
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ final class GameViewController: UIViewController {
         viewModel.getLatestGames()
         viewModel.getMostRatedGames()
         setupTopRatedTableView()
-//        setupNotification()
+        setupNotification()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
     }
         
@@ -44,9 +45,10 @@ final class GameViewController: UIViewController {
         topRatedGamesTableView.register(UINib(nibName: "NewReleasesTableViewCell", bundle: nil), forCellReuseIdentifier: "NewReleasesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "GamesTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGamesTableViewCell")
+        topRatedGamesTableView.register(UINib(nibName: "GamesCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesCategoryTableViewCell")
     }
     private func setupNotification() {
-        LocalNotificationManager.setNotification(5, of: .seconds, repeats: false, title: "Hello", body: "local", userInfo: ["aps" : ["hello" : "world"]])
+        
     }
     
     @objc func doneButtonPressed() {
@@ -63,7 +65,7 @@ final class GameViewController: UIViewController {
     
     @objc func reloadTableView() {
         checkLanguage()
-        topRatedGamesTableView.reloadSections(IndexSet(0...2), with: .none)
+        topRatedGamesTableView.reloadSections(IndexSet(0...3), with: .none)
         topRatedGamesTableView.reloadData()
         
     }
@@ -121,7 +123,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if sortedByReleased.count > 0, allGames.count > 0, topRatedGames.count > 0 {
+        if sortedByReleased.count > 0, allGames.count > 0, topRatedGames.count > 0, gameCategories.count > 0 {
             return 1
         } else {
             return 0
@@ -147,6 +149,11 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             cell.topRatedGames = topRatedGames
             cell.delegate = self
             return cell
+        case .gameCategories:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GamesCategoryTableViewCell", for: indexPath) as! GamesCategoryTableViewCell
+            cell.gameCategories = gameCategories
+            cell.delegate = self
+            return cell
         default: return UITableViewCell()
             
         }
@@ -157,6 +164,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         case .newGames: return NewReleasesTableViewCell.defaultHeight
         case .allGames: return GamesTableViewCell.defaultHeight
         case .topRatedGames: return TopRatedGamesTableViewCell.defaultHeight
+        case .gameCategories: return GamesCategoryTableViewCell.defaultHeight
         default: return 0
             
         }
@@ -164,9 +172,8 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GameViewController: GameListViewModelDelegate {
-
+   
     func latesGamesLoaded(latestGames: [GameListModel]?) {
-    
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()
     }
@@ -205,7 +212,6 @@ extension GameViewController: NewReleasesTableViewCellDelegate {
     }
     
     func newReleasesTableViewCellDidTapped(_ cell: NewReleasesTableViewCell, game: GameListModel) {
-        
         if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             guideVC.gameId = game.id
             navigationController?.pushViewController(guideVC, animated: true)
@@ -226,6 +232,15 @@ extension GameViewController: GamesTableViewCellDelegate {
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
         if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             guideVC.gameId = game.id
+            navigationController?.pushViewController(guideVC, animated: true)
+        }
+    }
+}
+
+extension GameViewController: GamesCategoryTableViewCellDelegate {
+    func gameCategoryTableViewCellDidTapped(_ cell: GamesCategoryTableViewCell, gameTitle: String) {
+        if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GenreViewController") as? GenreViewController {
+            guideVC.genre = gameTitle
             navigationController?.pushViewController(guideVC, animated: true)
         }
     }

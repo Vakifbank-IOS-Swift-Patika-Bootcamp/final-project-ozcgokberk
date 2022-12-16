@@ -45,9 +45,13 @@ final class GameDBClient {
     }
     
     
-
-
-        
+    static func getGameByCategorie(genre: String, completion: @escaping ([GenreModel]?, Error?) -> Void) {
+        let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&page=100&page_size=50&genres=\(genre)"
+        handleResponse(urlString: urlString, responseType: GetGenreResponseModel.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
+    
     static private func handleResponse<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         AF.request(urlString).response { response in
             guard let data = response.value else {

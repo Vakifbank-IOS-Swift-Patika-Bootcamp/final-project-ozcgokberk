@@ -33,9 +33,11 @@ final class AddOrUpdateVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
     }
-    
     private func viewSetup() {
         checkIsSelectedNoteExist()
         guard let imgUrl = URL(string: gameImg ?? "") else { return }
@@ -52,8 +54,9 @@ final class AddOrUpdateVC: UIViewController {
     private func configureNavigationBar() {
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
         view.addSubview(navBar)
-        let navItem = UINavigationItem(title: "\(gameName ?? "") \("gameNote".localized)")
+        let navItem = UINavigationItem(title: "\(gameName ?? "")")
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        doneItem.title = "doneTitle".localized
         navItem.rightBarButtonItem = doneItem
         navBar.setItems([navItem], animated: false)
     }

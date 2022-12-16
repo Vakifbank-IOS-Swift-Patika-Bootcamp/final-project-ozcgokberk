@@ -13,6 +13,7 @@ protocol GameListViewModelProtocol {
     func getMostRatedGames()
     func getGame(at index: Int) -> GameListModel?
     func getGameById(at index: Int) -> Int?
+//    func getGamesByCategorie(genre: String)
 }
 
 protocol GameListViewModelDelegate: AnyObject {
@@ -21,7 +22,11 @@ protocol GameListViewModelDelegate: AnyObject {
     func topRatedGamesLoaded(topRatedGames: [GameListModel]?)
 }
 
+
+
 final class GameListViewModel: GameListViewModelProtocol {
+    
+    
     //MARK: Outlets
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListModel]?
