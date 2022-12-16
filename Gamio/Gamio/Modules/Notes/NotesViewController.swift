@@ -13,6 +13,7 @@ final class NotesViewController: UIViewController {
     @IBOutlet weak var notesTableView: UITableView!
     private var notes: [Notes] = []
     var id: Int?
+    var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,16 @@ final class NotesViewController: UIViewController {
         notesTableView.dataSource = self
         notesTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "NotesTableViewCell")
         notesTableView.separatorColor = .white
+    }
+    
+    private func editSelectedNote(index: Int) {
+        selectedIndexPath = IndexPath(row: index, section: 0)
+        let note = notes[index]
+        if let guideVC = Constants.storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
+            guideVC.selectedNote = note
+            guideVC.delegate = self
+            present(guideVC, animated: true)
+        }
     }
 }
 
@@ -47,10 +58,33 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            CoreDataManager.shared.managedContext.delete(notes[indexPath.row])
-            notes.remove(at: indexPath.row)
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            CoreDataManager.shared.managedContext.delete(notes[indexPath.row])
+    //            notes.remove(at: indexPath.row)
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //            do {
+    //                try CoreDataManager.shared.managedContext.save()
+    //                Alert.sharedInstance.showSuccess()
+    //                tableView.reloadData()
+    //            } catch let error as NSError {
+    //                print("Could not save. \(error), \(error.userInfo)")
+    //                Alert.sharedInstance.showWarning()
+    //            }
+    //        }
+    //    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editButton = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            self.editSelectedNote(index: indexPath.row)
+        }
+        let deleteButton = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            CoreDataManager.shared.managedContext.delete(self.notes[indexPath.row])
+            self.notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             do {
                 try CoreDataManager.shared.managedContext.save()
@@ -61,6 +95,9 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
                 Alert.sharedInstance.showWarning()
             }
         }
+        editButton.backgroundColor = .systemGray5
+        let swipeActions = UISwipeActionsConfiguration(actions: [editButton,deleteButton])
+        return swipeActions
     }
 }
 

@@ -94,9 +94,9 @@ final class CoreDataManager {
         return []
     }
     
-    func notUpdate(id: String, gameId: Int32,gameNote: String) {
+    func noteUpdate(id: String, gameId: Int32,gameNote: String) {
         let request: NSFetchRequest<Notes> = Notes.fetchRequest()
-        request.predicate = NSPredicate(format: "gameId = %@", argumentArray: [id])
+        request.predicate = NSPredicate(format: "id = %@", argumentArray: [id])
         
         do {
             let results = try managedContext.fetch(request)

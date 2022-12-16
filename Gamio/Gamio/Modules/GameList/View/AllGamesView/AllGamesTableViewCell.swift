@@ -24,5 +24,8 @@ class AllGamesTableViewCell: UITableViewCell {
         guard let url = URL(string:  model.img ) else { return }
         gameImage.af.setImage(withURL: url)
     }
+    override func prepareForReuse() {
+        gameImage.image = nil
+    }
     
 }

@@ -22,7 +22,6 @@ final class ActivityIndicator: UIView {
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         super.init(frame: frame)
-        backgroundColor = UIColor.white.withAlphaComponent(0.3)
         addSubview(activityIndicator)
         if #available(iOS 11.0, *) {
             NSLayoutConstraint.activate([

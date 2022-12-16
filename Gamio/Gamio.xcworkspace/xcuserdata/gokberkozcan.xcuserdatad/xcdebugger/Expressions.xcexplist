@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SeeAllGamesVC.searchBarTextDidBeginEditing(_:):SeeAllGamesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchedGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GameDetailViewModel.getReleasedDate():GameDetailViewModel.swift">
          <PersistentStrings>
             <PersistentString
@@ -52,10 +60,18 @@
          contextName = "GameViewController.tableView(_:cellForRowAt:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.mostRecentGames">
+               value = "mostRecentGames">
             </PersistentString>
             <PersistentString
-               value = "mostRecentGames">
+               value = "cell.mostRecentGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddOrUpdateVC.viewSetup():AddOrUpdateVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedNote?.gameImage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -106,26 +122,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.reloadTableView():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "L10n.shared.language">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AddOrUpdateVC.doneButtonPressed():AddOrUpdateVC.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "d">
+            </PersistentString>
             <PersistentString
                value = "gameId">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.collectionView(_:numberOfItemsInSection:):GameViewController.swift">
+         contextName = "NotesViewController.tableView(_:commit:forRowAt:):NotesViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewModel.getMostRatedCount()&#10;">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.reloadTableView():GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "L10n.shared.language">
+               value = "notes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -138,10 +157,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NotesViewController.tableView(_:commit:forRowAt:):NotesViewController.swift">
+         contextName = "GameViewController.collectionView(_:numberOfItemsInSection:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "notes">
+               value = "viewModel.getMostRatedCount()&#10;">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

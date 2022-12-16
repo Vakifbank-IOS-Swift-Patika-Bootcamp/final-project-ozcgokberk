@@ -6,7 +6,7 @@
   
 */
 recentGames = "En Yeni Oyunlar";
-allGames = "Tüm Oyunlar";
+allGames = "Oyunlar";
 topRatedGames = "2022 En Çok Oylanan Oyunlar";
 addNoteText = "Ekle";
 likeItText = "Beğen";
@@ -29,9 +29,10 @@ successText = "Tebrikler";
 successContentText = "İşlem başarılı";
 errorText = "Hata";
 warningText = "Uyarı";
-confirmText = "Tamam mı";
+confirmText = "Tamam";
 cancelText = "İptal";
 selectText = "Seçme";
 deleteText = "Silmek";
 emptyInput = "Alanlar Boş Bırakılamaz";
 doneText = "Tamamlandı";
+noteTitleText = "Not:";

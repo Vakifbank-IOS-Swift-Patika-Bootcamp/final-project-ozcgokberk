@@ -12,6 +12,7 @@ struct Constants {
     static func removeHTMLTags(in overview: String) -> String? {
         overview.trimHTMLTags()
     }
+    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
 }
 
 extension String {
@@ -36,7 +37,7 @@ extension String {
 
 extension Notification.Name {
     static let RefreshTableView = Notification.Name(rawValue: "refreshTableView")
-//    static let RefreshGamesTableView = Notification.Name(rawValue: "refreshGamesTableView")
+    static let RefreshGamesTableView = Notification.Name(rawValue: "refreshGamesTableView")
 }
 
 extension Date {
@@ -47,8 +48,4 @@ extension Date {
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         return dateFormatter.string(from: self)
     }
-}
-
-extension Notification.Name {
-    static let notificationA = Notification.Name(rawValue: "NotificationA")
 }

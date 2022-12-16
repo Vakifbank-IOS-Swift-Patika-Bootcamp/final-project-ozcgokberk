@@ -6,7 +6,7 @@
   
 */
 recentGames = "What is New?";
-allGames = "All Games";
+allGames = "Games";
 topRatedGames = "Top Rated Games";
 addNoteText = "Add";
 likeItText = "Like";
@@ -15,7 +15,6 @@ rateText = "Rate";
 metacriticText = "Metacritic";
 genresText = "Genres";
 overviewText = "Overview";
-searchBarPlaceholder = "Search in Games";
 sortByNameTxt = "Sort By Name";
 sortByRatingCountTxt = "Sort By Rating Count";
 sortByReleasedTxt = "Sort By Released";
@@ -36,4 +35,4 @@ selectText = "Select";
 deleteText = "Delete";
 emptyInput = "Fields Cannot Be Empty";
 doneText = "Done";
-
+noteTitleText = "Note:";

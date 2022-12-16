@@ -28,7 +28,7 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet weak var metacriticValue: UILabel!
     @IBOutlet weak var overview: UILabel!
     
-    //Mark: Properties
+    //MARK: Properties
     weak var delegate: GameDetailVCProtocol?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
@@ -46,7 +46,6 @@ final class GameDetailViewController: UIViewController {
     
     var favoritedGames: [Favorites] = []
     override func viewDidLoad() {
-        showBlockingActivityIndicator()
         viewSetup()
         super.viewDidLoad()
         guard let id = gameId else { return }
@@ -56,6 +55,9 @@ final class GameDetailViewController: UIViewController {
     }
     
     private func viewSetup() {
+        
+        showBlockingActivityIndicator()
+        
         releaseDate.text = "releasedText".localized
         rating.text = "rateText".localized
         metacritic.text = "metacriticText".localized
@@ -74,8 +76,7 @@ final class GameDetailViewController: UIViewController {
     }
     
     @IBAction func addNotePressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let addOrUpdateVC = storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
+        if let addOrUpdateVC = Constants.storyboard.instantiateViewController(identifier: "AddOrUpdateVC") as? AddOrUpdateVC {
             addOrUpdateVC.gameId = gameId
             addOrUpdateVC.gameImg = imageUrl
             addOrUpdateVC.gameName = gameName
@@ -86,8 +87,8 @@ final class GameDetailViewController: UIViewController {
     @IBAction func addFavoritesButtonPressed(_ sender: Any) {
         
         if !CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let guideVC = storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
+            
+            if let guideVC = Constants.storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
                 guideVC.gameName = gameName
                 guideVC.gameImg = imageUrl
                 guideVC.gameId = gameId
@@ -118,6 +119,9 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         ratingValue.text = "⭐️ \(gameRate ?? 0)/5"
         metacriticValue.text = "\(viewModel.getMetacritic())/100"
         descriptionLabel.text = Constants.removeHTMLTags(in: "\(viewModel.getDescription())")
-        hideBlockingActivityIndicator()
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+            self.hideBlockingActivityIndicator()
+        }
+        
     }
 }

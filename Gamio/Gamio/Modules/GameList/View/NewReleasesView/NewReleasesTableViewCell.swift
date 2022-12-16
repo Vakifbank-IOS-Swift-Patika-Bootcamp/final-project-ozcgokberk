@@ -14,10 +14,10 @@ protocol NewReleasesTableViewCellDelegate: AnyObject {
 
 final class NewReleasesTableViewCell: UITableViewCell {
     
-    //Mark: Outlets
+    //MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var recentGamesLabel: UILabel!
-    //Mark: Properties
+    //MARK: Properties
     class var defaultHeight: Double { return 200 }
     var mostRecentGames: [GameListModel] = []
     weak var delegate: NewReleasesTableViewCellDelegate?

@@ -22,7 +22,7 @@ protocol GameListViewModelDelegate: AnyObject {
 }
 
 final class GameListViewModel: GameListViewModelProtocol {
-    //Mark: Outlets
+    //MARK: Outlets
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListModel]?
     private var latestGames: [GameListModel]?

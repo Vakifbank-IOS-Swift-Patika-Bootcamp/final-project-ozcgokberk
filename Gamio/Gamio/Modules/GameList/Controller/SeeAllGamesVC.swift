@@ -9,7 +9,11 @@ import UIKit
 
 class SeeAllGamesVC: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.placeholder = "searchText".localized
+        }
+    }
     @IBOutlet weak var allGamesTableView: UITableView!
     
     var allGames: [GameListModel] = []
@@ -20,7 +24,6 @@ class SeeAllGamesVC: UIViewController {
         super.viewDidLoad()
         configureTableView()
         searchBar.delegate = self
-        searchBar.placeholder = "searchText".localized
     }
     
     private func configureTableView() {
@@ -55,8 +58,7 @@ extension SeeAllGamesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let guideVC = storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
+        if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             if isSearching {
                 guideVC.gameId = searchedGames[indexPath.row].id
             } else {
@@ -93,7 +95,7 @@ extension SeeAllGamesVC: UISearchBarDelegate {
             allGamesTableView.reloadData()
         } else {
             searchedGames = allGames.filter({ games in
-                games.name.lowercased().contains(searchBar.text!)
+                games.name.lowercased().contains((searchBar.text?.lowercased())!)
             })
             allGamesTableView.reloadData()
         }

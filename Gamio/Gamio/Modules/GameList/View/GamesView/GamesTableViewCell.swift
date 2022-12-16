@@ -14,19 +14,19 @@ protocol GamesTableViewCellDelegate: AnyObject {
 
 final class GamesTableViewCell: UITableViewCell {
     
-    //Mark: Outlets
+    //MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var allGamesLabel: UILabel!
     @IBOutlet weak var seeAllButton: UIButton!
     
-    //Mark: Properties
+    //MARK: Properties
     var allGames: [GameListModel] = []
     weak var delegate: GamesTableViewCellDelegate?
     class var defaultHeight: Double { return 200 }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
         seeAllButton.setTitle("seeAllText".localized, for: .normal)
         seeAllButton.layer.borderWidth = 1.0
         seeAllButton.layer.cornerRadius = 15
@@ -56,11 +56,11 @@ final class GamesTableViewCell: UITableViewCell {
         delegate?.seeAllButtonPressed()
     }
     
-    //    @objc func refreshGamesTableView() {
-    //        DispatchQueue.main.async {
-    //            self.collectionView.reloadData()
-    //        }
-    //    }
+    @objc func refreshGamesTableView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
     
 }
 
