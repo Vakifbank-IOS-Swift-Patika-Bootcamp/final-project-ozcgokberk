@@ -30,6 +30,9 @@ final class GameDBClient {
         let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&dates=2022-01-01,2022-12-31&ordering=-rating"
         handleResponse(urlString: urlString, responseType: GetGamesListResponseModel.self) { responseModel, error in
             completion(responseModel?.results, error)
+            
+            
+            
         }
     }
     
