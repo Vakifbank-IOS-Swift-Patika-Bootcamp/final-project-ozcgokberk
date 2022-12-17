@@ -1,7 +1,7 @@
 # final-project
 
 Vakıfbank IOS Swift Bootcamp Bitirme Projesi
-
+<img src="images/1.png" width="100">
 Genel Detaylar:
 3 ana ekrandan oluşan public API tabanlı bir uygulaması yapılması beklenmektedir.(API
 sonradan kararlaştırılacaktır.)
@@ -62,3 +62,4 @@ Ekrandaki editleme maddesi)✅
 8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
 düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)✅
 9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.✅
+/Users/gokberkozcan/Desktop/Simulator Screen Shot - iPhone 14 - 2022-12-14 at 18.21.21.png
