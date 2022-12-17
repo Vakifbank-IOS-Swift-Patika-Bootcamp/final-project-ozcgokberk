@@ -44,6 +44,7 @@ final class CoreDataManager {
         do {
             try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
         } catch {
+            Alert.sharedInstance.showError()
           print( "Error on deletion of entity:" + error.localizedDescription)
             
         }
@@ -56,6 +57,7 @@ final class CoreDataManager {
         do {
             try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
         } catch {
+            Alert.sharedInstance.showError()
           print( "Error on deletion of entity:" + error.localizedDescription)
             
         }
@@ -72,6 +74,7 @@ final class CoreDataManager {
         do {
             try managedContext.save()
         } catch {
+            Alert.sharedInstance.showError()
             print( "Error on deletion of entity:" + error.localizedDescription)
         }
     }
@@ -89,6 +92,7 @@ final class CoreDataManager {
             let notes = try managedContext.fetch(fetchRequest)
             return notes as! [Notes]
         } catch  let error as NSError {
+            Alert.sharedInstance.showError()
             print("Could not fetch \(error), \(error.userInfo)")
         }
         return []
@@ -109,6 +113,7 @@ final class CoreDataManager {
                 self.save()
             }
         } catch {
+            Alert.sharedInstance.showError()
             print("Fetch Failed: \(error)")
         }
     }
@@ -119,6 +124,7 @@ final class CoreDataManager {
             let favorites = try managedContext.fetch(fetchRequest)
             return favorites as! [Favorites]
         } catch  let error as NSError {
+            Alert.sharedInstance.showError()
             print("Could not fetch \(error), \(error.userInfo)")
         }
         return []
@@ -145,6 +151,7 @@ final class CoreDataManager {
             let results = try managedContext.fetch(request)
             return results.count > 0
         } catch {
+            Alert.sharedInstance.showError()
             print("Fetch Failed: \(error)")
             return false
         }
@@ -157,6 +164,7 @@ final class CoreDataManager {
             try managedContext.save()
             return true
         } catch let error as NSError {
+            Alert.sharedInstance.showError()
             print("Could not save. \(error.localizedDescription), \(error.userInfo)")
         }
         return false
@@ -169,6 +177,7 @@ final class CoreDataManager {
             let results = try managedContext.fetch(request)
             return results.count > 0
         } catch {
+            Alert.sharedInstance.showError()
             print("Fetch Failed: \(error)")
             return false
         }

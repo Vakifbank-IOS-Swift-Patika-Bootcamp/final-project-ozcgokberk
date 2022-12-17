@@ -27,10 +27,6 @@ final class MostRecentCollectionViewCell: UICollectionViewCell {
         gameImage.contentMode = .scaleAspectFill
     }
     
-    func setCell() {
-        layer.cornerRadius = 10
-    }
-    
     override func prepareForReuse() {
         gameImage.image = nil
     }
