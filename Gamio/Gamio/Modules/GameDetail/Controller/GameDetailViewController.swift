@@ -11,7 +11,7 @@ protocol GameDetailVCProtocol: AnyObject {
 }
 
 final class GameDetailViewController: UIViewController {
-    //MARK: Outlets
+    //MARK: - Outlets
     @IBOutlet weak var imgAdditional: UIImageView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var gameNameLabel: UILabel!
@@ -28,7 +28,8 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet weak var metacriticValue: UILabel!
     @IBOutlet weak var overview: UILabel!
     
-    //MARK: Properties
+    //MARK: -Properties
+     
     weak var delegate: GameDetailVCProtocol?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?
@@ -43,22 +44,18 @@ final class GameDetailViewController: UIViewController {
     private var gameRate: Double? {
         return viewModel.getRating()
     }
+    private var favoritedGames: [Favorites] = []
     
-    var favoritedGames: [Favorites] = []
     override func viewDidLoad() {
         viewSetup()
         super.viewDidLoad()
         guard let id = gameId else { return }
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: id)
-        
-        
     }
     
     private func viewSetup() {
-        
         showBlockingActivityIndicator()
-        
         releaseDate.text = "releasedText".localized
         rating.text = "rateText".localized
         metacritic.text = "metacriticText".localized
@@ -86,9 +83,7 @@ final class GameDetailViewController: UIViewController {
     }
     
     @IBAction func addFavoritesButtonPressed(_ sender: Any) {
-        
         if !CoreDataManager.shared.ifFavoritesExist(gameId: Int32(gameId!)) {
-            
             if let guideVC = Constants.storyboard.instantiateViewController(identifier: "FavoritesViewController") as? FavoritesViewController {
                 guideVC.gameName = gameName
                 guideVC.gameImg = imageUrl
@@ -101,7 +96,7 @@ final class GameDetailViewController: UIViewController {
             delegate?.refresh()
             
         } else {
-            CoreDataManager.shared.deletesingleFavorite(gameId: Int32(gameId!))
+            CoreDataManager.shared.deleteSingleFavorite(gameId: Int32(gameId!))
             Alert.sharedInstance.showSuccess()
             favoriteButton.setImage(UIImage(named: "favoriteWhiteEmpty"), for: .normal)
         }
@@ -123,6 +118,5 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
             self.hideBlockingActivityIndicator()
         }
-        
     }
 }

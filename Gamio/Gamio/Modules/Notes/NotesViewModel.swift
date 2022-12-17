@@ -7,10 +7,10 @@
 
 import Foundation
 import CoreData
+
 protocol NotesViewModelProtocol {
     var delegate: NotesViewModelDelegate? { get set }
     func fetchNotes()
-    func fetchNoteDetail(id: Int)
     func getNotesCount() -> Int
     
 }
@@ -28,16 +28,8 @@ final class NotesListViewModel:  NotesViewModelProtocol {
         notes = CoreDataManager.shared.getNotes()
         delegate?.notesLoaded(notes: notes ?? [])
     }
-
-    func fetchNoteDetail(id: Int) {
-        GameDBClient.getNoteDetail(gameId: id) { [weak self] notesDetail, error in
-            guard let self = self else { return }
-            self.notesModel = notesDetail
-        }
-    }
     
     func getNotesCount() -> Int {
         notes?.count ?? 0
     }
-
 }

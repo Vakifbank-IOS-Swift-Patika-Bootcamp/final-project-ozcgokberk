@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopRatedGamesCollectionViewCell: UICollectionViewCell {
+final class TopRatedGamesCollectionViewCell: UICollectionViewCell {
     class var defaultHeight: CGFloat { return 180 }
     class var defaultWidth: CGFloat { return 380 }
     

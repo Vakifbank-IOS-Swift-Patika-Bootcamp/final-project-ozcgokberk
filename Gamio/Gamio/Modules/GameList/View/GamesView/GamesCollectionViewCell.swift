@@ -7,7 +7,7 @@
 
 import UIKit
 import AlamofireImage
-class GamesCollectionViewCell: UICollectionViewCell {
+final class GamesCollectionViewCell: UICollectionViewCell {
     class var defaultHeight: CGFloat { return 180 }
     class var defaultWidth: CGFloat { return 380 }
     
@@ -15,8 +15,8 @@ class GamesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var gameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
     func configureCell(model: GameListModel) {
         gameLabel.text = model.name
         guard let url = URL(string:  model.img) else { return }

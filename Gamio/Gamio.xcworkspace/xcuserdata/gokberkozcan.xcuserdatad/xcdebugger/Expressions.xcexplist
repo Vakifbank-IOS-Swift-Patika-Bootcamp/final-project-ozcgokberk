@@ -3,132 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "NotesViewController.viewWillAppear(_:):NotesViewController.swift">
+         contextName = "GameViewController.reloadTableView():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "id">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SeeAllGamesVC.searchBarTextDidBeginEditing(_:):SeeAllGamesVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "searchedGames">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameDetailViewModel.getReleasedDate():GameDetailViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "game?.released">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameDetailViewController.addFavoritesButtonPressed(_:):GameDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "guideVC.gameName">
-            </PersistentString>
-            <PersistentString
-               value = "sender.image(for: .normal)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.tableView(_:numberOfRowsInSection:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "gameCategories">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.collectionView(_:cellForItemAt:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sortedByReleased">
-            </PersistentString>
-            <PersistentString
-               value = "gamesArray">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.latesGamesLoaded(latestGames:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "topRatedGamesTableView.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.tableView(_:cellForRowAt:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "mostRecentGames">
-            </PersistentString>
-            <PersistentString
-               value = "cell.mostRecentGames">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AddOrUpdateVC.viewSetup():AddOrUpdateVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "selectedNote?.gameImage">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.viewDidLoad():GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewModel.fetchGames()">
-            </PersistentString>
-            <PersistentString
-               value = " viewModel.getGameCount()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in GameDetailViewModel.fetchGameDetail(id:):GameDetailViewModel.swift">
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.numberOfSections(in:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "HomeSectionType.allCases.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.pickerView(_:didSelectRow:inComponent:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "gamesArray">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "filteredGenre">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TopRatedGamesCell.configureCell(model:):TopRatedGamesCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Constants.formatDate(from: model.released)">
+               value = "L10n.shared.language">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -141,44 +19,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.ratedGamesTableViewCellDidTapped(_:game:):GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "game.id&#10;            navigationController">
-            </PersistentString>
-            <PersistentString
-               value = "game.id">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameViewController.reloadTableView():GameViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "L10n.shared.language">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AddOrUpdateVC.doneButtonPressed():AddOrUpdateVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "d">
-            </PersistentString>
-            <PersistentString
-               value = "gameId">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "NotesViewController.tableView(_:commit:forRowAt:):NotesViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "notes">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "GameViewController.gamesLoaded(gamesArray:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -187,29 +27,27 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.collectionView(_:numberOfItemsInSection:):GameViewController.swift">
+         contextName = "closure #1 in GameDetailViewModel.fetchGameDetail(id:):GameDetailViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GameDetailViewController.addNotePressed(_:):GameDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewModel.getMostRatedCount()&#10;">
+               value = "guideVC.gameName">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GenreViewController.collectionView(_:numberOfItemsInSection:):GenreViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewModel.getCountOfGames()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in static GameDBClient.getGameByCategorie(genre:completion:):GameDBClient.swift">
-      </ContextState>
-      <ContextState
-         contextName = "AddOrUpdateVC.init(coder:):AddOrUpdateVC.swift">
-         <PersistentStrings>
             <PersistentString
                value = "gameId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.tableView(_:cellForRowAt:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.mostRecentGames">
+            </PersistentString>
+            <PersistentString
+               value = "mostRecentGames">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -225,13 +63,135 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.latesGamesLoaded(latestGames:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topRatedGamesTableView.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static GameDBClient.getGameByCategorie(genre:completion:):GameDBClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GenreViewController.collectionView(_:numberOfItemsInSection:):GenreViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.getCountOfGames()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddOrUpdateVC.doneButtonPressed():AddOrUpdateVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "d">
+            </PersistentString>
+            <PersistentString
+               value = "gameId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddOrUpdateVC.init(coder:):AddOrUpdateVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gameId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NotesViewController.tableView(_:commit:forRowAt:):NotesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameDetailViewController.addFavoritesButtonPressed(_:):GameDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "guideVC.gameName">
+            </PersistentString>
+            <PersistentString
+               value = "sender.image(for: .normal)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.numberOfSections(in:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "HomeSectionType.allCases.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.ratedGamesTableViewCellDidTapped(_:game:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game.id&#10;            navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "game.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.pickerView(_:didSelectRow:inComponent:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gamesArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in GameListViewModel.fetchGames():GameListViewModel.swift">
       </ContextState>
       <ContextState
-         contextName = "NotesViewController.notesLoaded(notes:):NotesViewController.swift">
+         contextName = "GameViewController.collectionView(_:numberOfItemsInSection:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "notes[0].gameNote">
+               value = "viewModel.getMostRatedCount()&#10;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.tableView(_:numberOfRowsInSection:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gameCategories">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GenreViewModel.getGamesByCategorie(genre:):GenreViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filteredGenre">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameDetailViewModel.getReleasedDate():GameDetailViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game?.released">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.collectionView(_:cellForItemAt:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sortedByReleased">
+            </PersistentString>
+            <PersistentString
+               value = "gamesArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -242,13 +202,64 @@
          contextName = "closure #3 in closure #1 in static MovieDBClient.handleResponse&lt;&#x3c4;_0_0&gt;(urlString:responseType:completion:):GameDBClient.swift">
       </ContextState>
       <ContextState
-         contextName = "GameDetailViewController.addNotePressed(_:):GameDetailViewController.swift">
+         contextName = "SeeAllGamesVC.searchBarTextDidBeginEditing(_:):SeeAllGamesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "guideVC.gameName">
+               value = "searchedGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddOrUpdateVC.viewSetup():AddOrUpdateVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedNote?.gameImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NotesViewController.notesLoaded(notes:):NotesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notes[0].gameNote">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LanguageViewController.tableView(_:numberOfRowsInSection:):LanguageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.getLanguageCount()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.viewDidLoad():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.fetchGames()">
             </PersistentString>
             <PersistentString
-               value = "gameId">
+               value = " viewModel.getGameCount()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NotesViewController.viewWillAppear(_:):NotesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static GameDBClient.getGameDetail(gameId:completion:):GameDBClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TopRatedGamesCell.configureCell(model:):TopRatedGamesCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Constants.formatDate(from: model.released)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

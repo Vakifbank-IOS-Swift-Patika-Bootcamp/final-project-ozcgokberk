@@ -18,7 +18,6 @@ class NotesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
     }
     
     func configureCell(model: Notes) {

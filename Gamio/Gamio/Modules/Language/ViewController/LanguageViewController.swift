@@ -8,10 +8,13 @@
 import UIKit
 import L10n_swift
 
-class LanguageViewController: UIViewController {
-
-    private let languages: [LanguageEnum] = [.TR, .EN]
+final class LanguageViewController: UIViewController {
+    //MARK: - Properties
+    private var viewModel: LanguageViewModelProtocol = LanguageViewModel()
+    private let languages: [LanguageEnum] = [.tr, .en]
+    //MARK: - Outlet
     @IBOutlet weak var languagesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
@@ -32,7 +35,7 @@ class LanguageViewController: UIViewController {
 }
 extension LanguageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languages.count
+        viewModel.getLanguageCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

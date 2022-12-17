@@ -7,15 +7,15 @@
 
 import UIKit
 
-class SeeAllGamesVC: UIViewController {
-    
+final class SeeAllGamesVC: UIViewController {
+    //MARK: Outlets
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.placeholder = "searchText".localized
         }
     }
     @IBOutlet weak var allGamesTableView: UITableView!
-    
+    //MARK: Properties
     var allGames: [GameListModel] = []
     private var searchedGames: [GameListModel] = []
     private var isSearching: Bool = false

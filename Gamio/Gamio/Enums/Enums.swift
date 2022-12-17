@@ -10,20 +10,20 @@ import UIKit
 
 enum SiralamaMenu: Int {
     
-    case SortByName = 0
-    case SortByRatinCount = 1
-    case SortByReleased = 2
-    case SortyByPlaytime = 3
+    case sortByName = 0
+    case sortByRatinCount = 1
+    case sortByReleased = 2
+    case sortyByPlaytime = 3
     
     var description: String {
         switch self {
-        case .SortByName:
+        case .sortByName:
             return "sortByNameTxt".localized
-        case .SortByRatinCount:
+        case .sortByRatinCount:
             return "sortByRatingCountTxt".localized
-        case .SortByReleased:
+        case .sortByReleased:
              return "sortByReleasedTxt".localized
-        case .SortyByPlaytime:
+        case .sortyByPlaytime:
             return "sortByPlaytimeTxt".localized
         }
     }
@@ -50,22 +50,22 @@ enum HomeSectionType: Int, CaseIterable {
 }
 
 enum LanguageEnum: String {
-    case TR = "TR"
-    case EN = "EN"
+    case tr = "TR"
+    case en = "EN"
     
     var description: String {
         switch self {
-        case .TR:
+        case .tr:
             return "Turkish"
-        case .EN:
+        case .en:
             return "English"
         }
     }
     var image: UIImage {
         switch self {
-        case .TR:
+        case .tr:
             return UIImage(named: "turkiye")!
-        case .EN:
+        case .en:
             return UIImage(named: "english")!
         }
     }
@@ -94,8 +94,6 @@ enum GameGenre: String {
             return "fantasyText".localized
         case .simulation:
             return "simulationText".localized
-        default:
-            break
         }
     }
         
@@ -113,8 +111,6 @@ enum GameGenre: String {
                 return "fantasy"
             case .simulation:
                 return "simulation"
-            default:
-                break
             }
 
         }

@@ -11,10 +11,10 @@ protocol TopRatedGamesTableViewCellDelegate: AnyObject {
     func sortButtonPressed()
 }
 final class TopRatedGamesTableViewCell: UITableViewCell {
-    //Mark: Outlets
+    //Mark: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topRatedLabel: UILabel!
-    //Mark: Properties
+    //Mark:  - Properties
     class var defaultHeight: Double { return 250 }
     var topRatedGames: [GameListModel] = []
     weak var delegate: TopRatedGamesTableViewCellDelegate?

@@ -33,11 +33,13 @@ final class AddOrUpdateVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        
+        gameNoteTxtView.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
     }
+    
     private func viewSetup() {
         checkIsSelectedNoteExist()
         guard let imgUrl = URL(string: gameImg ?? "") else { return }
@@ -69,7 +71,6 @@ final class AddOrUpdateVC: UIViewController {
     }
     
     @objc func doneButtonPressed() {
-        
         if gameNoteTxtView.text.isEmpty {
             Alert.sharedInstance.showWarning()
         } else {
@@ -89,10 +90,17 @@ final class AddOrUpdateVC: UIViewController {
 }
 
 extension AddOrUpdateVC: UITextViewDelegate {
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let text = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = text.count
+        return numberOfChars < 200   // 200 Limit Value
     }
 }

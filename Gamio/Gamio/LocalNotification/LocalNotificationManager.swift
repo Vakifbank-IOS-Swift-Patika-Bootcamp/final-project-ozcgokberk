@@ -76,14 +76,18 @@ struct LocalNotificationManager {
         scheduleNotifications(seconds, repeats: repeats, userInfo: userInfo)
     }
     
-    static func cancel() {
+    @discardableResult
+    static func cancel() -> Bool {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        return true
     }
     
-    static func setNotification(_ duration: Int, of type: LocalNotificationDurationType, repeats: Bool, title: String, body: String, userInfo: [AnyHashable : Any]) {
+    @discardableResult
+    static func setNotification(_ duration: Int, of type: LocalNotificationDurationType, repeats: Bool, title: String, body: String, userInfo: [AnyHashable : Any]) -> Bool {
         requestPermission()
         addNotification(title: title, body: body)
         scheduleNotifications(duration, of: type, repeats: repeats, userInfo: userInfo)
+        return true
     }
 
 }

@@ -29,21 +29,13 @@ final class GameDBClient {
     static func getMostRatedGames(completion: @escaping ([GameListModel]?, Error?) -> Void) {
         let urlString = BASE_URL + "games" + "?key=" + Constants.API_KEY + "&dates=2022-01-01,2022-12-31&ordering=-rating"
         handleResponse(urlString: urlString, responseType: GetGamesListResponseModel.self) { responseModel, error in
-            completion(responseModel?.results, error)
-            
-            
-            
+            completion(responseModel?.results, error)    
         }
     }
     
     static func getGameDetail(gameId: Int, completion: @escaping (GameDetailModel?, Error?) -> Void) {
         let urlString = BASE_URL + "games/" + String(gameId) + "?" + "key=" + Constants.API_KEY
         handleResponse(urlString: urlString, responseType: GameDetailModel.self, completion: completion)
-    }
-    
-    static func getNoteDetail(gameId: Int, completion: @escaping (NotesModel?, Error?) -> Void) {
-        let urlString = BASE_URL + "games/" + String(gameId) + "?" + "key=" + Constants.API_KEY
-        handleResponse(urlString: urlString, responseType: NotesModel.self, completion: completion)
     }
     
     

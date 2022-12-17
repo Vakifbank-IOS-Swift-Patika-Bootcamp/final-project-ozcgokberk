@@ -46,40 +46,9 @@ final class CoreDataManager {
         } catch {
             Alert.sharedInstance.showError()
           print( "Error on deletion of entity:" + error.localizedDescription)
-            
         }
       }
-    
-    func deleteAllFavorites() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Favorites")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
-        } catch {
-            Alert.sharedInstance.showError()
-          print( "Error on deletion of entity:" + error.localizedDescription)
-            
-        }
-      }
-    
-    func deletesingleFavorite(gameId: Int32) {
-        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
-        request.predicate = NSPredicate(format: "gameId = %@", argumentArray: [gameId])
-        if let result = try? managedContext.fetch(request) {
-            for object in result {
-                managedContext.delete(object)
-            }
-        }
-        do {
-            try managedContext.save()
-        } catch {
-            Alert.sharedInstance.showError()
-            print( "Error on deletion of entity:" + error.localizedDescription)
-        }
-    }
-    
-    
+  
     func getNoteById(gameId: Int) -> Notes? {
         return getNotes().filter { note in
             note.gameId == Int32(gameId)
@@ -154,6 +123,35 @@ final class CoreDataManager {
             Alert.sharedInstance.showError()
             print("Fetch Failed: \(error)")
             return false
+        }
+    }
+    
+    func deleteAllFavorites() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Favorites")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: managedContext)
+        } catch {
+            Alert.sharedInstance.showError()
+          print( "Error on deletion of entity:" + error.localizedDescription)
+            
+        }
+      }
+    
+    func deleteSingleFavorite(gameId: Int32) {
+        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        request.predicate = NSPredicate(format: "gameId = %@", argumentArray: [gameId])
+        if let result = try? managedContext.fetch(request) {
+            for object in result {
+                managedContext.delete(object)
+            }
+        }
+        do {
+            try managedContext.save()
+        } catch {
+            Alert.sharedInstance.showError()
+            print( "Error on deletion of entity:" + error.localizedDescription)
         }
     }
     

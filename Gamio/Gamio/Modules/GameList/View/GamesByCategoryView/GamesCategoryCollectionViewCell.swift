@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GamesCategoryCollectionViewCell: UICollectionViewCell {
+final class GamesCategoryCollectionViewCell: UICollectionViewCell {
     class var defaultHeight: CGFloat { return 50 }
     class var defaultWidth: CGFloat { return 120 }
     @IBOutlet weak var categoryTitle: UILabel!

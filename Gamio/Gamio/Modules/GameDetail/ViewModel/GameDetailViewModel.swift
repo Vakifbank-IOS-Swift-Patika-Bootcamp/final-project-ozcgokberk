@@ -31,7 +31,6 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
             guard let self = self else { return }
             self.game = gameDetail
             self.delegate?.gameDetailLoaded()
-            
         }
     }
     func getAdditionalImageUrl() -> URL? {
@@ -41,11 +40,7 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     func getGameImageUrl() -> String? {
         return game?.img
     }
-    
-    func getGameId() -> Int32 {
-        game?.id ?? 0
-    }
-     
+         
     func getGameName() -> String {
         game?.name ?? ""
     }

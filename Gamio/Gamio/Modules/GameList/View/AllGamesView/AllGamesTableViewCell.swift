@@ -7,14 +7,14 @@
 
 import UIKit
 
-class AllGamesTableViewCell: UITableViewCell {
+final class AllGamesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var gameImage: UIImageView!
     
     @IBOutlet weak var gameName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     func configureCell(model: GameListModel) {

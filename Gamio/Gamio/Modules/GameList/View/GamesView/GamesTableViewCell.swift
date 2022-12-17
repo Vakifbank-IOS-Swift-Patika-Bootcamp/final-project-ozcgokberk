@@ -61,7 +61,6 @@ final class GamesTableViewCell: UITableViewCell {
             self.collectionView.reloadData()
         }
     }
-    
 }
 
 extension GamesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

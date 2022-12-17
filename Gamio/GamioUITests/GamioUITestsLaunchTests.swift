@@ -6,7 +6,6 @@
 //
 
 import XCTest
-
 final class GamioUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {

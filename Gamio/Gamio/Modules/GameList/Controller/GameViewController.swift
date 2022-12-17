@@ -11,10 +11,7 @@ final class GameViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var topRatedGamesTableView: UITableView!
-    private lazy var picker = UIPickerView()
-    private lazy var toolBar = UIToolbar()
-    
-    @IBOutlet weak var languageButton: UIButton!
+        @IBOutlet weak var languageButton: UIButton!
 
     
     //MARK: Properties
@@ -23,9 +20,11 @@ final class GameViewController: UIViewController {
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
-    private lazy var sortOptions : [SiralamaMenu] = [.SortByName, .SortByReleased, .SortByRatinCount, .SortyByPlaytime]
+    private lazy var sortOptions : [SiralamaMenu] = [.sortByName, .sortByReleased, .sortByRatinCount, .sortyByPlaytime]
     private var gameCategories: [GameGenre] =  [.action,.adventure,.casual,.fantasy,.shooter,.simulation]
-    private var isSearching = false
+    private lazy var picker = UIPickerView()
+    private lazy var toolBar = UIToolbar()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ final class GameViewController: UIViewController {
         viewModel.getLatestGames()
         viewModel.getMostRatedGames()
         setupTopRatedTableView()
-        setupNotification()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
     }
         
@@ -48,10 +46,7 @@ final class GameViewController: UIViewController {
         topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGamesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "GamesCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesCategoryTableViewCell")
     }
-    private func setupNotification() {
-        
-    }
-    
+ 
     @objc func doneButtonPressed() {
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
@@ -113,7 +108,6 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         topRatedGamesTableView.reloadData()
         NotificationCenter.default.post(name: .RefreshGamesTableView, object: nil)
     }
-    
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
@@ -228,7 +222,6 @@ extension GameViewController: GamesTableViewCellDelegate {
             navigationController?.pushViewController(guideVC, animated: true)
         }
     }
-    
     
     func gamesTableViewCellDidTapped(_ cell: GamesTableViewCell, game: GameListModel) {
         if let guideVC = Constants.storyboard.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {

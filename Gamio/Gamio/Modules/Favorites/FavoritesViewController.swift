@@ -8,22 +8,35 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    
+    var emptyFavoriteView: EmptyNoteView?
     var gameId: Int?
     var gameImg: String?
     var gameName: String?
     var gameRate: Double?
-    
     var favorites: [Favorites] = []
+    
+    @IBOutlet weak var navigationTitle: UINavigationItem! {
+        didSet {
+            navigationTitle.title = "favoritesText".localized
+        }
+    }
     private var viewModel: FavoritesViewModelProtocol = FavoritesViewModel()
     @IBOutlet weak var favoritesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         viewModel.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchFavorites()
+        checkIfNoteExist()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        emptyFavoriteView?.removeFromSuperview()
     }
     
     private func configureTableView() {
@@ -34,6 +47,20 @@ class FavoritesViewController: UIViewController {
         favoritesTableView.separatorColor = .white
         
     }
+    
+    private func checkIfNoteExist() {
+        if favorites.count == 0 {
+            addEmptyNoteView()
+        }
+    }
+    
+    private func addEmptyNoteView() {
+        guard let emptyView = UINib(nibName: "EmptyNoteView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? EmptyNoteView else { return }
+        self.emptyFavoriteView = emptyView
+        self.emptyFavoriteView?.frame = self.favoritesTableView.bounds
+        self.favoritesTableView.addSubview(self.emptyFavoriteView ?? UIView())
+    }
+
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -52,20 +79,23 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         UITableView.automaticDimension
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            CoreDataManager.shared.managedContext.delete(favorites[indexPath.row])
-            favorites.remove(at: indexPath.row)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteButton = UIContextualAction(style: .destructive, title: "deleteText".localized) {  (contextualAction, view, boolValue) in
+            CoreDataManager.shared.managedContext.delete(self.favorites[indexPath.row])
+            self.favorites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             do {
                 try CoreDataManager.shared.managedContext.save()
                 Alert.sharedInstance.showSuccess()
+                self.checkIfNoteExist()
                 tableView.reloadData()
             } catch let error as NSError {
-                Alert.sharedInstance.showError()
                 print("Could not save. \(error), \(error.userInfo)")
+                Alert.sharedInstance.showWarning()
             }
         }
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton])
+        return swipeActions
     }
 }
 extension FavoritesViewController: FavoritesViewModelDelegate {

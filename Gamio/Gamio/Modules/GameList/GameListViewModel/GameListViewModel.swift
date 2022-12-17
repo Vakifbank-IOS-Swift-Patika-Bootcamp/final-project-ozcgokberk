@@ -11,9 +11,7 @@ protocol GameListViewModelProtocol {
     func fetchGames()
     func getLatestGames()
     func getMostRatedGames()
-    func getGame(at index: Int) -> GameListModel?
-    func getGameById(at index: Int) -> Int?
-//    func getGamesByCategorie(genre: String)
+    func getGameCount() -> Int
 }
 
 protocol GameListViewModelDelegate: AnyObject {
@@ -57,19 +55,11 @@ final class GameListViewModel: GameListViewModelProtocol {
         }
     }
         
-    func getMovieImageURL(at index: Int) -> URL? {
-        URL(string: GameDBClient.IMAGE_BASE_URL + (games?[index].img ?? ""))
-    }
-    
+//    func getMovieImageURL(at index: Int) -> URL? {
+//        URL(string: GameDBClient.IMAGE_BASE_URL + (games?[index].img ?? ""))
+//    }
+
     func getGameCount() -> Int {
         games?.count ?? 0
-    }
-    
-    func getGame(at index: Int) -> GameListModel? {
-        games?[index]
-    }
-    
-    func getGameById(at index: Int) -> Int? {
-        games?[index].id
     }
 }

@@ -6,7 +6,8 @@
 //
 
 import Foundation
-struct GameDetailModel: Decodable {
+struct GameDetailModel: Decodable, Equatable {
+    
     
     let id: Int32
     let name: String?
@@ -18,7 +19,7 @@ struct GameDetailModel: Decodable {
     let rating: Double?
     let genres: [Genre]?
     
-    struct Genre: Decodable {
+    struct Genre: Decodable, Equatable {
         let name : String
     }
     

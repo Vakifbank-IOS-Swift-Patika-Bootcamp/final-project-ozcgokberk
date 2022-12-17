@@ -12,11 +12,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    private var viewModel: LocalNotificationViewModelProtocol = LocalNotificationViewModel()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupNotifications(on: application)
-        
         return true
     }
 

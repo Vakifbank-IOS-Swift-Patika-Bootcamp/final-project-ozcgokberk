@@ -9,19 +9,33 @@ import UIKit
 import CoreData
 
 final class NotesViewController: UIViewController {
-    private var viewModel: NotesViewModelProtocol = NotesListViewModel()
+    //MARK: - Outlets
     @IBOutlet weak var notesTableView: UITableView!
+    
+    @IBOutlet weak var navigationTitle: UINavigationItem! {
+        didSet {
+            navigationTitle.title = "notesText".localized
+        }
+    }
+    //MARK: - Properties
     private var notes: [Notes] = []
     var id: Int?
-    var selectedIndexPath: IndexPath?
-    
+    var emptyNoteView: EmptyNoteView?
+    private var selectedIndexPath: IndexPath?
+    private var viewModel: NotesViewModelProtocol = NotesListViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        
         viewModel.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchNotes()
+        checkIfNoteExist()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        emptyNoteView?.removeFromSuperview()
     }
     
     private func configureTableView() {
@@ -40,6 +54,19 @@ final class NotesViewController: UIViewController {
             present(guideVC, animated: true)
         }
     }
+    
+    private func checkIfNoteExist() {
+        if notes.count == 0 {
+            addEmptyNoteView()
+        }
+    }
+    
+    private func addEmptyNoteView() {
+        guard let emptyView = UINib(nibName: "EmptyNoteView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? EmptyNoteView else { return }
+        self.emptyNoteView = emptyView
+        self.emptyNoteView?.frame = self.notesTableView.bounds
+        self.notesTableView.addSubview(self.emptyNoteView ?? UIView())
+    }
 }
 
 extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -57,38 +84,24 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
         UITableView.automaticDimension
         
     }
-    
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            CoreDataManager.shared.managedContext.delete(notes[indexPath.row])
-    //            notes.remove(at: indexPath.row)
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //            do {
-    //                try CoreDataManager.shared.managedContext.save()
-    //                Alert.sharedInstance.showSuccess()
-    //                tableView.reloadData()
-    //            } catch let error as NSError {
-    //                print("Could not save. \(error), \(error.userInfo)")
-    //                Alert.sharedInstance.showWarning()
-    //            }
-    //        }
-    //    }
-    
+        
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editButton = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+        let editButton = UIContextualAction(style: .normal, title: "editText".localized) {  (contextualAction, view, boolValue) in
             self.editSelectedNote(index: indexPath.row)
         }
-        let deleteButton = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+        
+        let deleteButton = UIContextualAction(style: .destructive, title: "deleteText".localized) {  (contextualAction, view, boolValue) in
             CoreDataManager.shared.managedContext.delete(self.notes[indexPath.row])
             self.notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             do {
                 try CoreDataManager.shared.managedContext.save()
                 Alert.sharedInstance.showSuccess()
+                self.checkIfNoteExist()
                 tableView.reloadData()
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")

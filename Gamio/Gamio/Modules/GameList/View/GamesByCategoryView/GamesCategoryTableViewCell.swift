@@ -10,7 +10,7 @@ protocol GamesCategoryTableViewCellDelegate: AnyObject {
     func gameCategoryTableViewCellDidTapped(_ cell: GamesCategoryTableViewCell, gameTitle: String)
 }
 
-class GamesCategoryTableViewCell: UITableViewCell {
+final class GamesCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellTitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,7 +48,6 @@ extension GamesCategoryTableViewCell: UICollectionViewDelegate, UICollectionView
             cell.categoryTitle.text = gameCategories[indexPath.row].localized
             cell.backgroundColor = .systemBlue
             return cell
-            
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

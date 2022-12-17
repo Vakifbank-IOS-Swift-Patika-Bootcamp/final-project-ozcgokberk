@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenreListCollectionViewCell: UICollectionViewCell {
+final class GenreListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameName: UILabel!
