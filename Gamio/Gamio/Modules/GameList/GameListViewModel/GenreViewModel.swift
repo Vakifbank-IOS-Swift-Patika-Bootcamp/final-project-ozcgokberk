@@ -16,8 +16,8 @@ protocol GenreListViewModelDelegate: AnyObject {
 }
 
 final class GenreViewModel: GenreListViewModelProtocol {
-    weak var delegate: GenreListViewModelDelegate?
     
+    weak var delegate: GenreListViewModelDelegate?
     private var filteredGenre: [GenreModel]?
     
     func getGamesByCategorie(genre: String) {
@@ -29,6 +29,6 @@ final class GenreViewModel: GenreListViewModelProtocol {
     }
     
     func getCountOfGames() -> Int? {
-       return filteredGenre?.count
+        return filteredGenre?.count
     }
 }

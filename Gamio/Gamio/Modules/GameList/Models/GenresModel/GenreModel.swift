@@ -12,6 +12,7 @@ struct GenreModel: Codable {
     let img: String
     let id: Int
     let rating: Double
+    
     enum CodingKeys: String, CodingKey {
         case name
         case img = "background_image"

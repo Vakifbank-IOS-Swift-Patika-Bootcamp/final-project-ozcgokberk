@@ -16,6 +16,7 @@ struct GameListModel: Codable {
     let rating: Double
     let ratingCount: Int
     let playTime: Int
+    
     enum CodingKeys: String, CodingKey {
         case id
         case slug

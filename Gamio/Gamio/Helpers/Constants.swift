@@ -32,7 +32,7 @@ extension String {
     
     var localized: String {
         return self.l10n()
-      }
+    }
 }
 
 extension Notification.Name {

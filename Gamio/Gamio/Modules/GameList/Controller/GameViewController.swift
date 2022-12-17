@@ -11,8 +11,8 @@ final class GameViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var topRatedGamesTableView: UITableView!
-        @IBOutlet weak var languageButton: UIButton!
-
+    @IBOutlet weak var languageButton: UIButton!
+    
     
     //MARK: Properties
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
@@ -24,8 +24,8 @@ final class GameViewController: UIViewController {
     private var gameCategories: [GameGenre] =  [.action,.adventure,.casual,.fantasy,.shooter,.simulation]
     private lazy var picker = UIPickerView()
     private lazy var toolBar = UIToolbar()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLanguage()
@@ -37,7 +37,7 @@ final class GameViewController: UIViewController {
         setupTopRatedTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
     }
-        
+    
     private func setupTopRatedTableView() {
         topRatedGamesTableView.dataSource = self
         topRatedGamesTableView.delegate = self
@@ -46,7 +46,7 @@ final class GameViewController: UIViewController {
         topRatedGamesTableView.register(UINib(nibName: "TopRatedGamesTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGamesTableViewCell")
         topRatedGamesTableView.register(UINib(nibName: "GamesCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "GamesCategoryTableViewCell")
     }
- 
+    
     @objc func doneButtonPressed() {
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
@@ -104,7 +104,7 @@ extension GameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
-
+        
         topRatedGamesTableView.reloadData()
         NotificationCenter.default.post(name: .RefreshGamesTableView, object: nil)
     }
@@ -167,7 +167,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GameViewController: GameListViewModelDelegate {
-   
+    
     func latesGamesLoaded(latestGames: [GameListModel]?) {
         self.sortedByReleased = latestGames ?? []
         topRatedGamesTableView.reloadData()

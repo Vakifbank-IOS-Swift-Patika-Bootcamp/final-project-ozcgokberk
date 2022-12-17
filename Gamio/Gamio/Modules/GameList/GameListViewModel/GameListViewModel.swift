@@ -20,8 +20,6 @@ protocol GameListViewModelDelegate: AnyObject {
     func topRatedGamesLoaded(topRatedGames: [GameListModel]?)
 }
 
-
-
 final class GameListViewModel: GameListViewModelProtocol {
     
     
@@ -55,10 +53,6 @@ final class GameListViewModel: GameListViewModelProtocol {
         }
     }
         
-//    func getMovieImageURL(at index: Int) -> URL? {
-//        URL(string: GameDBClient.IMAGE_BASE_URL + (games?[index].img ?? ""))
-//    }
-
     func getGameCount() -> Int {
         games?.count ?? 0
     }

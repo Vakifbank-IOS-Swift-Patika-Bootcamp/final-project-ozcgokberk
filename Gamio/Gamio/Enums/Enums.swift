@@ -22,7 +22,7 @@ enum SortMenu: Int {
         case .sortByRatinCount:
             return "sortByRatingCountTxt".localized
         case .sortByReleased:
-             return "sortByReleasedTxt".localized
+            return "sortByReleasedTxt".localized
         case .sortyByPlaytime:
             return "sortByPlaytimeTxt".localized
         }
@@ -96,24 +96,23 @@ enum GameGenre: String {
             return "simulationText".localized
         }
     }
-        
+    
     var description: String {
-            switch self {
-            case .action:
-                return "action"
-            case .adventure:
-                return "adventure"
-            case .casual:
-                return "casual"
-            case .shooter:
-                return "shooter"
-            case .fantasy:
-                return "fantasy"
-            case .simulation:
-                return "simulation"
-            }
-
+        switch self {
+        case .action:
+            return "action"
+        case .adventure:
+            return "adventure"
+        case .casual:
+            return "casual"
+        case .shooter:
+            return "shooter"
+        case .fantasy:
+            return "fantasy"
+        case .simulation:
+            return "simulation"
         }
+    }
 }
 
 enum CommonLocalization {

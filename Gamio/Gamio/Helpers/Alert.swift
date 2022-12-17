@@ -18,7 +18,7 @@ import SwiftEntryKit
 class Alert: NSObject {
     static let sharedInstance = Alert()
     let alertSize = CGSize(width: 35.0, height: 35.0)
-        
+    
     func showError(title: String = CommonLocalization.error.localized, message: String = CommonLocalization.errorOccured.localized, duration: Double = 3) {
         let alertTitle: String = title.localized
         let alertMessage: String = message.localized
@@ -107,7 +107,7 @@ class Alert: NSObject {
             attributes.positionConstraints.verticalOffset = UIApplication.shared.statusBarFrame.size.height * 1.3
         }
         
-            let image = EKProperty.ImageContent.init(image: UIImage(named: "warning")!, size: alertSize)
+        let image = EKProperty.ImageContent.init(image: UIImage(named: "warning")!, size: alertSize)
         
         let titleLabel = EKProperty.LabelContent.init(
             text: alertTitle,
@@ -125,10 +125,10 @@ class Alert: NSObject {
             )
         )
         
-            let simpleMessage = EKSimpleMessage(image: image, title: titleLabel, description: descriptionLabel)
-            let notificationMessage = EKNotificationMessage(simpleMessage: simpleMessage)
-            let contentView = EKNotificationMessageView(with: notificationMessage)
-            SwiftEntryKit.display(entry: contentView, using: attributes)
+        let simpleMessage = EKSimpleMessage(image: image, title: titleLabel, description: descriptionLabel)
+        let notificationMessage = EKNotificationMessage(simpleMessage: simpleMessage)
+        let contentView = EKNotificationMessageView(with: notificationMessage)
+        SwiftEntryKit.display(entry: contentView, using: attributes)
     }
 }
 

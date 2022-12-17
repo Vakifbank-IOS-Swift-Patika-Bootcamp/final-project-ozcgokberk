@@ -36,11 +36,11 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     func getAdditionalImageUrl() -> URL? {
         URL(string: game?.imgAdditional ?? "")
     }
-     
+    
     func getGameImageUrl() -> String? {
         return game?.img
     }
-         
+    
     func getGameName() -> String {
         game?.name ?? ""
     }

@@ -8,14 +8,14 @@
 import UIKit
 
 final class GenreListCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         setCell()
     }
-
+    
     func configureCell(with model: GenreModel) {
         gameName.text = model.name
         guard let url = URL(string:  model.img) else { return }

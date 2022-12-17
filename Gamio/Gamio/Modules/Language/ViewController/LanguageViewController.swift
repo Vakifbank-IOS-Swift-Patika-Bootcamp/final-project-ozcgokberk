@@ -19,7 +19,7 @@ final class LanguageViewController: UIViewController {
         super.viewDidLoad()
         viewSetup()
     }
-
+    
     private func viewSetup() {
         languagesTableView.dataSource = self
         languagesTableView.delegate = self

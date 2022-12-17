@@ -29,7 +29,7 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet weak var overview: UILabel!
     
     //MARK: -Properties
-     
+    
     weak var delegate: GameDetailVCProtocol?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var gameId: Int?

@@ -43,22 +43,22 @@ final class GamesCategoryTableViewCell: UITableViewCell {
 }
 
 extension GamesCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCategoryCollectionViewCell", for: indexPath) as? GamesCategoryCollectionViewCell else {return UICollectionViewCell()}
-            cell.categoryTitle.text = gameCategories[indexPath.row].localized
-            cell.backgroundColor = .systemBlue
-            return cell
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return gameCategories.count
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            delegate?.gameCategoryTableViewCellDidTapped(self, gameTitle: gameCategories[indexPath.row].description)
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCategoryCollectionViewCell", for: indexPath) as? GamesCategoryCollectionViewCell else {return UICollectionViewCell()}
+        cell.categoryTitle.text = gameCategories[indexPath.row].localized
+        cell.backgroundColor = .systemBlue
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return gameCategories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.gameCategoryTableViewCellDidTapped(self, gameTitle: gameCategories[indexPath.row].description)
+    }
 }

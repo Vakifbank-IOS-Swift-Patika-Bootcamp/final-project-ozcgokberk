@@ -60,7 +60,7 @@ class FavoritesViewController: UIViewController {
         self.emptyFavoriteView?.frame = self.favoritesTableView.bounds
         self.favoritesTableView.addSubview(self.emptyFavoriteView ?? UIView())
     }
-
+    
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +78,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
-
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteButton = UIContextualAction(style: .destructive, title: "deleteText".localized) {  (contextualAction, view, boolValue) in
             CoreDataManager.shared.managedContext.delete(self.favorites[indexPath.row])

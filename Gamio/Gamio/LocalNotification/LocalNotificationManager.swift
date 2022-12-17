@@ -31,9 +31,9 @@ struct LocalNotificationManager {
             .current()
             .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
                 if granted == true && error == nil {
-            
+                    
+                }
             }
-        }
     }
     
     static private func addNotification(title: String, body: String) -> Void {
@@ -89,6 +89,6 @@ struct LocalNotificationManager {
         scheduleNotifications(duration, of: type, repeats: repeats, userInfo: userInfo)
         return true
     }
-
+    
 }
 
