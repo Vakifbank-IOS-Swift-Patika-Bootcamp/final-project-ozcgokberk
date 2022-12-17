@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum SiralamaMenu: Int {
+enum SortMenu: Int {
     
     case sortByName = 0
     case sortByRatinCount = 1

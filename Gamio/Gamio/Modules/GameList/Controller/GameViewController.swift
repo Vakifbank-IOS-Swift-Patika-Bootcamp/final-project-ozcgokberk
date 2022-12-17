@@ -20,7 +20,7 @@ final class GameViewController: UIViewController {
     private var allGames: [GameListModel] = []
     private var sortedByReleased: [GameListModel] = []
     private var topRatedGames: [GameListModel] = []
-    private lazy var sortOptions : [SiralamaMenu] = [.sortByName, .sortByReleased, .sortByRatinCount, .sortyByPlaytime]
+    private lazy var sortOptions : [SortMenu] = [.sortByName, .sortByReleased, .sortByRatinCount, .sortyByPlaytime]
     private var gameCategories: [GameGenre] =  [.action,.adventure,.casual,.fantasy,.shooter,.simulation]
     private lazy var picker = UIPickerView()
     private lazy var toolBar = UIToolbar()
