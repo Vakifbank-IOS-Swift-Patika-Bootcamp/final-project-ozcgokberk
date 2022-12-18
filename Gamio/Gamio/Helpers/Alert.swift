@@ -5,17 +5,11 @@
 //  Created by Gokberk Ozcan on 15.12.2022.
 //
 //
-//  AlertsAndPopUps.swift
-//  DASMobile
-//
-//  Created by NDSDEVTEAM9 on 12.09.2019.
-//  Copyright © 2019 NetDataSoft. All rights reserved.
-//
 
 import UIKit
 import SwiftEntryKit
 
-class Alert: NSObject {
+final class Alert: NSObject {
     static let sharedInstance = Alert()
     let alertSize = CGSize(width: 35.0, height: 35.0)
     
