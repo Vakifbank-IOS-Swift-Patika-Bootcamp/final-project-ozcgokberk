@@ -38,6 +38,10 @@ final class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .RefreshTableView, object: nil)
+    }
+    
     private func setupTopRatedTableView() {
         topRatedGamesTableView.dataSource = self
         topRatedGamesTableView.delegate = self
@@ -61,9 +65,9 @@ final class GameViewController: UIViewController {
     
     @objc func reloadTableView() {
         checkLanguage()
-        topRatedGamesTableView.reloadSections(IndexSet(0...3), with: .none)
+        topRatedGamesTableView.reloadSections(IndexSet(0..<4), with: .automatic)
         topRatedGamesTableView.reloadData()
-        
+
     }
     
     private func checkLanguage() {
@@ -132,22 +136,26 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewReleasesTableViewCell", for: indexPath) as! NewReleasesTableViewCell
             cell.mostRecentGames = sortedByReleased
             cell.delegate = self
+            cell.configureCell()
             return cell
             
         case .allGames:
             let cell = tableView.dequeueReusableCell(withIdentifier: "GamesTableViewCell", for: indexPath) as! GamesTableViewCell
             cell.allGames = allGames
             cell.delegate = self
+            cell.configureCell()
             return cell
         case .topRatedGames:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedGamesTableViewCell", for: indexPath) as! TopRatedGamesTableViewCell
             cell.topRatedGames = topRatedGames
             cell.delegate = self
+            cell.configureCell()
             return cell
         case .gameCategories:
             let cell = tableView.dequeueReusableCell(withIdentifier: "GamesCategoryTableViewCell", for: indexPath) as! GamesCategoryTableViewCell
             cell.gameCategories = gameCategories
             cell.delegate = self
+            cell.configureCell()
             return cell
         default: return UITableViewCell()
             

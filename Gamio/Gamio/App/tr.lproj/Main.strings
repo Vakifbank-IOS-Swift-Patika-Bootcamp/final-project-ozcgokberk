@@ -3,13 +3,13 @@
 "3zc-Gb-QJO.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UITabBarItem"; title = "Games"; ObjectID = "4cm-C0-9jB"; */
-"4cm-C0-9jB.title" = "Games";
+"4cm-C0-9jB.title" = "Oyunlar";
 
 /* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "4qQ-o2-Nsb"; */
-"4qQ-o2-Nsb.title" = "Favorites";
+"4qQ-o2-Nsb.title" = "Favoriler";
 
 /* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "5pc-3z-cHN"; */
-"5pc-3z-cHN.title" = "Item 2";
+"5pc-3z-cHN.title" = "Notes";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "AQf-Ae-t03"; */
 "AQf-Ae-t03.text" = "Label";

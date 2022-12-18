@@ -156,6 +156,7 @@
 		201AA141294E5B9E000C9D28 /* LocalNotificationViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationViewModelUnitTest.swift; sourceTree = "<group>"; };
 		201AA144294E74EB000C9D28 /* EmptyNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyNoteView.xib; sourceTree = "<group>"; };
 		201AA146294E758F000C9D28 /* EmptyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyNoteView.swift; sourceTree = "<group>"; };
+		203391F4294FA6750072A089 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		204BF297294644BF00D9ABBE /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 		204BF29D294663FD00D9ABBE /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		204BF2A0294746F000D9ABBE /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -1090,6 +1091,7 @@
 			children = (
 				20A70FB52940BE320074868E /* Base */,
 				204BF2C92948836F00D9ABBE /* tr */,
+				203391F4294FA6750072A089 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -22,7 +22,7 @@ final class TopRatedGamesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        topRatedLabel.text = "topRatedGames".localized
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -39,6 +39,9 @@ final class TopRatedGamesTableViewCell: UITableViewCell {
     }
     @IBAction func sortButtonPressed(_ sender: Any) {
         delegate?.sortButtonPressed()
+    }
+    func configureCell() {
+        topRatedLabel.text = "topRatedGames".localized
     }
 }
 

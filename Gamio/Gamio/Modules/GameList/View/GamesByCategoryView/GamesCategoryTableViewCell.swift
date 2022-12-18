@@ -22,7 +22,7 @@ final class GamesCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        cellTitleLabel.text = "browseByGenreText".localized
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -39,6 +39,10 @@ final class GamesCategoryTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    func configureCell() {
+        cellTitleLabel.text = "browseByGenreText".localized
+        collectionView.reloadData()
     }
 }
 

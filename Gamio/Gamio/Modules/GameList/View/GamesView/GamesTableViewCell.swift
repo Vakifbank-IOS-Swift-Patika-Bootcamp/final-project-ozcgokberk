@@ -27,11 +27,11 @@ final class GamesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshGamesTableView), name: .RefreshGamesTableView, object: nil)
-        seeAllButton.setTitle("seeAllText".localized, for: .normal)
+        
         seeAllButton.layer.borderWidth = 1.0
         seeAllButton.layer.cornerRadius = 15
         seeAllButton.layer.borderColor = UIColor.white.cgColor
-        allGamesLabel.text = "allGames".localized
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -47,6 +47,11 @@ final class GamesTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
+    func configureCell() {
+        allGamesLabel.text = "allGames".localized
+        seeAllButton.setTitle("seeAllText".localized, for: .normal)
+    }
+    
     
     @IBAction func sortButtonPressed(_ sender: Any) {
         delegate?.sortButtonPressed()

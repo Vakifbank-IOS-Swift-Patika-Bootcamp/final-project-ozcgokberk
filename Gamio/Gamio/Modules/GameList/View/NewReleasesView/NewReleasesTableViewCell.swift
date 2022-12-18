@@ -25,7 +25,6 @@ final class NewReleasesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        recentGamesLabel.text = "recentGames".localized
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -40,12 +39,16 @@ final class NewReleasesTableViewCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
+    func configureCell() {
+        recentGamesLabel.text = "recentGames".localized
+    }
 }
 
 extension NewReleasesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostRecentCollectionViewCell", for: indexPath) as? MostRecentCollectionViewCell else {return UICollectionViewCell()}
         cell.configureCell(model: mostRecentGames[indexPath.row])
+        
         return cell
     }
     
