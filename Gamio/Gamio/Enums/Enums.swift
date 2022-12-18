@@ -108,7 +108,7 @@ enum GameGenre: String {
         case .shooter:
             return "shooter"
         case .fantasy:
-            return "fantasy"
+            return "51"
         case .simulation:
             return "simulation"
         }
