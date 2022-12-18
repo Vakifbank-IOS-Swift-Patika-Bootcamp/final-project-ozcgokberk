@@ -155,7 +155,6 @@ final class CoreDataManager {
         }
     }
     
-    
     @discardableResult
     func save() -> Bool {
         do {
@@ -180,6 +179,5 @@ final class CoreDataManager {
             return false
         }
     }
-    
 }
 
