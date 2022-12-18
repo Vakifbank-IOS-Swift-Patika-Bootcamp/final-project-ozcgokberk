@@ -45,7 +45,7 @@ final class GamesCategoryTableViewCell: UITableViewCell {
 extension GamesCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCategoryCollectionViewCell", for: indexPath) as? GamesCategoryCollectionViewCell else {return UICollectionViewCell()}
-        cell.categoryTitle.text = gameCategories[indexPath.row].localized
+        cell.cellTitle.text = gameCategories[indexPath.row].localized
         cell.backgroundColor = .systemBlue
         return cell
     }

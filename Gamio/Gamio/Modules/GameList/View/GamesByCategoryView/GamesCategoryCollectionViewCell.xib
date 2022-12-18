@@ -33,7 +33,7 @@
             </constraints>
             <size key="customSize" width="137" height="52"/>
             <connections>
-                <outlet property="categoryTitle" destination="Chg-Ks-99O" id="E0x-ys-gEp"/>
+                <outlet property="cellTitle" destination="Chg-Ks-99O" id="odB-NS-pIQ"/>
             </connections>
             <point key="canvasLocation" x="20.610687022900763" y="38.732394366197184"/>
         </collectionViewCell>
